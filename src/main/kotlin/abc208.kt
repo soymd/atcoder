@@ -1,6 +1,26 @@
 fun main(args: Array<String>) {
-    val p = readLine()!!.split(" ").map { it.toInt() }
-    println(factorialYenCoin(p.first()))
+    val (n, k) = readLine()!!.split(" ").map { it.toLong() }
+    val list = readLine()!!.split(" ").map { it.toInt() }
+    val answer = fairCandyDistribution(n, k, list)
+
+    println(answer.joinToString(separator = System.lineSeparator()))
+}
+
+fun fairCandyDistribution(popularity: Long, candyTotal: Long, numbers: List<Int>): List<Long> {
+    val baseCandy = candyTotal / popularity
+    val people = mutableMapOf<Int, Long>()
+    numbers.forEach {
+        people[it] = baseCandy
+    }
+    val restCandy = candyTotal % popularity
+    val whoCanGetAdditionalCandy = numbers.sortedBy { it }.take(restCandy.toInt())
+    whoCanGetAdditionalCandy.forEach {
+        val candy = people[it]
+        if (candy != null) {
+            people[it] = candy + 1L
+        }
+    }
+    return people.map { it.value }
 }
 
 fun factorialYenCoin(total: Int): Int {
