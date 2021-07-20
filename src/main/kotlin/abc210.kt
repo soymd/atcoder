@@ -1,25 +1,44 @@
 fun main() {
     val (n, k) = readLine()!!.split(" ").map { it.toInt() }
     val list = readLine()!!.split(" ").map { it.toLong() }
-    val answer = colorfulCandies(n, k, list)
-
-    println(answer)
+    println(colorfulCandies(n, k, list))
 }
 
 fun colorfulCandies(colorCount: Int, candies: Int, colorVar: List<Long>): Int {
-    if (candies > colorCount || colorVar.count() != colorCount) throw Exception("invalid condition!")
-
-    var answer = 0
+//    if (candies > colorCount || colorVar.count() != colorCount) throw Exception("invalid condition!")
     val max = colorVar.distinct().count()
-    for (i in 0..colorCount - candies) {
-        //ここが重い
-        val list = colorVar.subList(i, (i + candies)).toMutableList().distinct()
-        val count = list.count()
+    if (colorCount == candies) {
+        return max
+    }
+    if (candies == 1) {
+        return 1
+    }
+
+    val map = mutableMapOf<Long, Int>()
+    val sublist = colorVar.subList(0, candies).toMutableList()
+    sublist.map {
+        map[it] = (map[it] ?: 0) + 1
+    }
+
+    var answer = map.count()
+    for (i in 0 until colorCount - candies) {
+        val first = colorVar[i]
+        val last = colorVar[i + candies]
+
+        map[first] = (map[first] ?: 0) - 1
+        map[last] = (map[last] ?: 0) + 1
+
+        if (map[first] ?: 0 <= 0) {
+            map.remove(first)
+        }
+
+        val count = map.count()
         if (count > answer) {
             answer = count
         }
-        if (count == max) {
-            break
+
+        if (answer == max) {
+            return answer
         }
     }
 

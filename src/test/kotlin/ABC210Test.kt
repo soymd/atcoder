@@ -67,6 +67,14 @@ class ABC210Test {
     }
 
     @Test
+    fun colorfulCandies_7_1() {
+        assertThat(
+            colorfulCandies(7, 1, listOf(1, 2, 1, 2, 3, 3, 1)),
+            equalTo(1)
+        )
+    }
+
+    @Test
     fun colorfulCandies_5_5() {
         assertThat(
             colorfulCandies(5, 5, listOf(4, 4, 4, 4, 4)),
