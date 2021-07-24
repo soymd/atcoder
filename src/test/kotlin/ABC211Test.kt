@@ -11,6 +11,22 @@ class ABC211Test {
     }
 
     @Test
+    fun cycleHit_1() {
+        assertThat(
+            cycleHit("3B", "HR", "2B", "H"),
+            equalTo("Yes")
+        )
+    }
+
+    @Test
+    fun cycleHit_2() {
+        assertThat(
+            cycleHit("2B", "3B", "HR", "3B"),
+            equalTo("No")
+        )
+    }
+
+    @Test
     fun bloodPressure_130_100() {
         assertThat(
             bloodPressure(130, 100),
