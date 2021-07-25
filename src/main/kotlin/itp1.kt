@@ -1,6 +1,13 @@
 fun main(args: Array<String>) {
-    val (a, b) = readLine()!!.split(" ").map { it.toInt() }
-    println(rectangle(a, b))
+    val (s) = readLine()!!.split(" ").map { it.toInt() }
+    println(watch(s))
+}
+
+fun watch(second: Int): String {
+    val h = second / 3600
+    val m = (second % 3600) / 60
+    val s = second % 60
+    return "$h:$m:$s"
 }
 
 fun rectangle(length: Int, width: Int): String {
