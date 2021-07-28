@@ -1,6 +1,14 @@
 fun main(args: Array<String>) {
-    val (a, b) = readLine()!!.split(" ").map { it.toInt() }
-    println(smallLargeEqual(a, b))
+    val (a, b, c) = readLine()!!.split(" ").map { it.toInt() }
+    println(range(a, b, c))
+}
+
+fun range(a: Int, b: Int, c: Int): String {
+    return if (a < b && b < c) {
+        "Yes"
+    } else {
+        "No"
+    }
 }
 
 fun smallLargeEqual(a: Int, b: Int): String {
