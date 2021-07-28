@@ -10,6 +10,21 @@ class Itp1KtTest {
     }
 
     @Test
+    fun `circleInRectangle 5 4 1 1 1`() {
+        assertThat(circleInRectangle(5, 4, 1, 1, 1), equalTo("Yes"))
+    }
+
+    @Test
+    fun `circleInRectangle 5 4 2 2 1`() {
+        assertThat(circleInRectangle(5, 4, 2, 2, 1), equalTo("Yes"))
+    }
+
+    @Test
+    fun `circleInRectangle 5 4 2 4 1`() {
+        assertThat(circleInRectangle(5, 4, 2, 4, 1), equalTo("No"))
+    }
+
+    @Test
     fun `sortingThreeNumbers 3 8 1`() {
         assertThat(sortingThreeNumbers(3, 8, 1), equalTo("1 3 8"))
     }

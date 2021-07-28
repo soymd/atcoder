@@ -1,6 +1,16 @@
 fun main(args: Array<String>) {
-    val (a, b, c) = readLine()!!.split(" ").map { it.toInt() }
-    println(sortingThreeNumbers(a, b, c))
+    val (a, b, c, d, e) = readLine()!!.split(" ").map { it.toInt() }
+    println(circleInRectangle(a, b, c, d, e))
+}
+
+fun circleInRectangle(w: Int, h: Int, x: Int, y: Int, r: Int): String {
+    val horizontal = x - r >= 0 && x + r <= w
+    val vertical = y - r >= 0 && y + r <= h
+    return if (horizontal && vertical) {
+        "Yes"
+    } else {
+        "No"
+    }
 }
 
 fun sortingThreeNumbers(a: Int, b: Int, c: Int): String {
