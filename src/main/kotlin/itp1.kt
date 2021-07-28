@@ -1,6 +1,25 @@
 fun main(args: Array<String>) {
     val (a, b, c) = readLine()!!.split(" ").map { it.toInt() }
-    println(range(a, b, c))
+    println(sortingThreeNumbers(a, b, c))
+}
+
+fun sortingThreeNumbers(a: Int, b: Int, c: Int): String {
+    val list = mutableListOf(a, b, c)
+
+    var swap = true
+    while (swap) {
+        swap = false
+        for (i in 0 until list.count() - 1) {
+            if (list[i] > list[i + 1]) {
+                val temp = list[i]
+                list[i] = list[i + 1]
+                list[i + 1] = temp
+                swap = true
+            }
+        }
+    }
+
+    return list.joinToString(" ")
 }
 
 fun range(a: Int, b: Int, c: Int): String {
