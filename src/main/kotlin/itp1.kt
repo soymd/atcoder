@@ -1,6 +1,7 @@
 fun main(args: Array<String>) {
-    val (a, b, c, d, e) = readLine()!!.split(" ").map { it.toInt() }
-    println(circleInRectangle(a, b, c, d, e))
+    for (i in 1..1000) {
+        println("Hello World")
+    }
 }
 
 fun circleInRectangle(w: Int, h: Int, x: Int, y: Int, r: Int): String {
