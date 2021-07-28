@@ -1,6 +1,12 @@
 fun main(args: Array<String>) {
-    for (i in 1..1000) {
-        println("Hello World")
+    val list = mutableListOf<Int>()
+    do {
+        val (x) = readLine()!!.split(" ").map { it.toInt() }
+        list.add(x)
+    } while (x != 0)
+    list.removeAt(list.count() - 1)
+    for (i in 0 until list.count()) {
+        println("Case ${i + 1}: ${list[i]}")
     }
 }
 
