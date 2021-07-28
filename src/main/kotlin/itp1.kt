@@ -1,6 +1,20 @@
 fun main(args: Array<String>) {
-    val (s) = readLine()!!.split(" ").map { it.toInt() }
-    println(watch(s))
+    val (a, b) = readLine()!!.split(" ").map { it.toInt() }
+    println(smallLargeEqual(a, b))
+}
+
+fun smallLargeEqual(a: Int, b: Int): String {
+    return when {
+        a < b -> {
+            "a < b"
+        }
+        a > b -> {
+            "a > b"
+        }
+        else -> {
+            "a == b"
+        }
+    }
 }
 
 fun watch(second: Int): String {
