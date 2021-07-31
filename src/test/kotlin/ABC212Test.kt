@@ -16,6 +16,11 @@ class ABC212Test {
     }
 
     @Test
+    fun `minDifference 1 4, 4 9`() {
+        assertThat(minDifference(2, 2, listOf(1, 4), listOf(4, 9)), equalTo(0L))
+    }
+
+    @Test
     fun `minDifference 10, 10`() {
         assertThat(minDifference(2, 2, listOf(10), listOf(10)), equalTo(0L))
     }
