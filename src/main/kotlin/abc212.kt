@@ -11,7 +11,7 @@ fun minDifference(n: Int, m: Int, a: List<Long>, b: List<Long>): Long {
         map[it] = "a"
     }
     b.forEach {
-        if (map.contains(it)) return 0
+        if (map.containsKey(it)) return 0
         map[it] = "b"
     }
     val list = mutableListOf<Pair<Long, String>>()
