@@ -6,19 +6,15 @@ fun main() {
 }
 
 fun minDifference(n: Int, m: Int, a: List<Long>, b: List<Long>): Long {
-    val mapA: MutableMap<Long, String> = mutableMapOf()
-    val mapB: MutableMap<Long, String> = mutableMapOf()
+    val map: MutableMap<Long, String> = mutableMapOf()
     a.forEach {
-        mapA[it] = "a"
+        map[it] = "a"
     }
     b.forEach {
-        mapB[it] = "b"
-    }
-    mapA.forEach {
-        mapB[it.key] = "a"
+        map[it] = "b"
     }
     val list = mutableListOf<Pair<Long, String>>()
-    mapB.forEach {
+    map.forEach {
         list.add(Pair(it.key, it.value))
     }
 
