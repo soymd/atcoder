@@ -10,7 +10,7 @@ fun minDifference(n: Int, m: Int, a: List<Long>, b: List<Long>): Long {
     a.forEach {
         map[it] = "a"
     }
-    b.forEach {
+    b.distinct().forEach {
         if (map.containsKey(it)) return 0
         map[it] = "b"
     }
