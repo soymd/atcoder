@@ -6,18 +6,35 @@ fun main() {
 }
 
 fun minDifference(n: Int, m: Int, a: List<Long>, b: List<Long>): Long {
-    val mutableList = a.toMutableList()
-    mutableList.addAll(b)
-    mutableList.sort()
-    val list = mutableList.toSet().toList()
-    var minDiff = Long.MAX_VALUE
+    val mapA: MutableMap<Long, String> = mutableMapOf()
+    val mapB: MutableMap<Long, String> = mutableMapOf()
+    a.forEach {
+        mapA[it] = "a"
+    }
+    b.forEach {
+        mapB[it] = "b"
+    }
+    mapA.forEach {
+        mapB[it.key] = "a"
+    }
+    val list = mutableListOf<Pair<Long, String>>()
+    mapB.forEach {
+        list.add(Pair(it.key, it.value))
+    }
+
     val count = list.count()
     if (count == 1) return 0
+
+    list.sortBy { it.first }
+    var minDiff = Long.MAX_VALUE
     list.forEachIndexed { index, l ->
         if (index != count - 1) {
-            val diff = list[index + 1] - l
-            if (diff < minDiff) {
-                minDiff = diff
+            val l1 = list[index + 1]
+            if (l.second != l1.second) {
+                val diff = l1.first - l.first
+                if (diff < minDiff) {
+                    minDiff = diff
+                }
             }
         }
     }
