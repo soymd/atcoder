@@ -11,6 +11,27 @@ class ABC212Test {
     }
 
     @Test
+    fun `minDifference 1 6, 4 9`() {
+        assertThat(minDifference(2, 2, listOf(1, 6), listOf(4, 9)), equalTo(2L))
+    }
+
+    @Test
+    fun `minDifference 10, 10`() {
+        assertThat(minDifference(2, 2, listOf(10), listOf(10)), equalTo(0L))
+    }
+
+    @Test
+    fun `minDifference 82, 17`() {
+        assertThat(
+            minDifference(
+                6, 8,
+                listOf(82, 76, 82, 82, 71, 70),
+                listOf(17, 39, 67, 2, 45, 35, 22, 24)
+            ), equalTo(3L)
+        )
+    }
+
+    @Test
     fun `weakPassword 7777`() {
         assertThat(weakPassword("7777"), equalTo("Weak"))
     }

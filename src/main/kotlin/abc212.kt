@@ -1,6 +1,27 @@
 fun main() {
-    val (x) = readLine()!!.split(" ").map { it.toString() }
-    println(weakPassword(x))
+    val (n, m) = readLine()!!.split(" ").map { it.toInt() }
+    val a = readLine()!!.split(" ").map { it.toLong() }
+    val b = readLine()!!.split(" ").map { it.toLong() }
+    println(minDifference(n, m, a, b))
+}
+
+fun minDifference(n: Int, m: Int, a: List<Long>, b: List<Long>): Long {
+    val mutableList = a.toMutableList()
+    mutableList.addAll(b)
+    mutableList.sort()
+    val list = mutableList.toSet().toList()
+    var minDiff = Long.MAX_VALUE
+    val count = list.count()
+    if (count == 1) return 0
+    list.forEachIndexed { index, l ->
+        if (index != count - 1) {
+            val diff = list[index + 1] - l
+            if (diff < minDiff) {
+                minDiff = diff
+            }
+        }
+    }
+    return minDiff
 }
 
 fun weakPassword(x: String): String {
