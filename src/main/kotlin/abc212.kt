@@ -24,8 +24,11 @@ fun minDifference(n: Int, m: Int, a: List<Long>, b: List<Long>): Long {
 
     list.sortBy { it.first }
     var minDiff = Long.MAX_VALUE
-    list.forEachIndexed { index, l ->
-        if (index != count - 1) {
+
+    run loop@{
+        list.forEachIndexed { index, l ->
+            if (index == count - 1) return@loop
+
             val l1 = list[index + 1]
             if (l.second != l1.second) {
                 val diff = l1.first - l.first
@@ -35,6 +38,7 @@ fun minDifference(n: Int, m: Int, a: List<Long>, b: List<Long>): Long {
             }
         }
     }
+
     return minDiff
 }
 
