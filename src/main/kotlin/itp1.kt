@@ -1,6 +1,9 @@
 fun main(args: Array<String>) {
-    val (a, b, c) = readLine()!!.split(" ").map { it.toInt() }
-    println(howManyDivisors(a, b, c))
+    val (a, b) = readLine()!!.split(" ").map { it.toLong() }
+    val d = a / b
+    val r = a % b
+    val f = a.toDouble() / b.toDouble()
+    println("$d $r ${String.format("%.8f", f)}")
 }
 
 fun howManyDivisors(a: Int, b: Int, c: Int): Int {
