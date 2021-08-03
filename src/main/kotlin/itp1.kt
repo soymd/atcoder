@@ -1,14 +1,10 @@
 fun main(args: Array<String>) {
-    val list = mutableListOf<String>()
-    do {
-        val s = readLine()!!
-        list.add(s)
-    } while (!s.contains("?"))
-
-    list.removeAt(list.count() - 1)
-    simpleCalculator(list).forEach {
-        println(it)
-    }
+    readLine()
+    val list = readLine()!!.split(" ").map { it.toLong() }
+    val min = list.min()
+    val max = list.max()
+    val sum = list.sum()
+    println("$min $max $sum")
 }
 
 fun simpleCalculator(list: List<String>): List<Int> {
