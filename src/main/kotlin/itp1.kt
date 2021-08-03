@@ -1,12 +1,16 @@
 fun main(args: Array<String>) {
-    val list = mutableListOf<Int>()
+    val list = mutableListOf<Pair<Int, Int>>()
     do {
-        val (x) = readLine()!!.split(" ").map { it.toInt() }
-        list.add(x)
-    } while (x != 0)
+        val (x, y) = readLine()!!.split(" ").map { it.toInt() }
+        list.add(Pair(x, y))
+    } while (!(x == 0 && y == 0))
     list.removeAt(list.count() - 1)
-    for (i in 0 until list.count()) {
-        println("Case ${i + 1}: ${list[i]}")
+    list.forEach {
+        if (it.first > it.second) {
+            println("${it.second} ${it.first}")
+        } else {
+            println("${it.first} ${it.second}")
+        }
     }
 }
 
