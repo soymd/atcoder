@@ -1,6 +1,31 @@
 fun main(args: Array<String>) {
-    val (r) = readLine()!!.split(" ").map { it.toDouble() }
-    println(circle(r))
+    val list = mutableListOf<String>()
+    do {
+        val s = readLine()!!
+        list.add(s)
+    } while (!s.contains("?"))
+
+    list.removeAt(list.count() - 1)
+    simpleCalculator(list).forEach {
+        println(it)
+    }
+}
+
+fun simpleCalculator(list: List<String>): List<Int> {
+    val answers = mutableListOf<Int>()
+    list.forEach {
+        val a = it.split(" ").first().toInt()
+        val b = it.split(" ").last().toInt()
+        val op = it.split(" ")[1]
+        val answer = when (op) {
+            "+" -> a + b
+            "-" -> a - b
+            "*" -> a * b
+            else -> a / b
+        }
+        answers.add(answer)
+    }
+    return answers
 }
 
 fun circle(r: Double): String {

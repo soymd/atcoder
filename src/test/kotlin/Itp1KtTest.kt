@@ -10,6 +10,23 @@ class Itp1KtTest {
     }
 
     @Test
+    fun `simpleCalculator 1`() {
+        assertThat(
+            simpleCalculator(
+                listOf(
+                    "1 + 2",
+                    "56 - 18",
+                    "13 * 2",
+                    "100 / 10",
+                    "27 + 81"
+                )
+            ), equalTo(
+                listOf(3, 38, 26, 10, 108)
+            )
+        )
+    }
+
+    @Test
     fun `circle 2`() {
         assertThat(circle(2.0), equalTo("12.566371 12.566371"))
     }
