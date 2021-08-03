@@ -10,6 +10,11 @@ class Itp1KtTest {
     }
 
     @Test
+    fun `howManyDivisors 5 14 80`() {
+        assertThat(howManyDivisors(5, 14, 80), equalTo(3))
+    }
+
+    @Test
     fun `circleInRectangle 5 4 1 1 1`() {
         assertThat(circleInRectangle(5, 4, 1, 1, 1), equalTo("Yes"))
     }

@@ -1,17 +1,16 @@
 fun main(args: Array<String>) {
-    val list = mutableListOf<Pair<Int, Int>>()
-    do {
-        val (x, y) = readLine()!!.split(" ").map { it.toInt() }
-        list.add(Pair(x, y))
-    } while (!(x == 0 && y == 0))
-    list.removeAt(list.count() - 1)
-    list.forEach {
-        if (it.first > it.second) {
-            println("${it.second} ${it.first}")
-        } else {
-            println("${it.first} ${it.second}")
+    val (a, b, c) = readLine()!!.split(" ").map { it.toInt() }
+    println(howManyDivisors(a, b, c))
+}
+
+fun howManyDivisors(a: Int, b: Int, c: Int): Int {
+    var count = 0
+    for (i in a..b) {
+        if (c % i == 0) {
+            count++
         }
     }
+    return count
 }
 
 fun circleInRectangle(w: Int, h: Int, x: Int, y: Int, r: Int): String {
