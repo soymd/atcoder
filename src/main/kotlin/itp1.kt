@@ -1,9 +1,12 @@
 fun main(args: Array<String>) {
-    val (a, b) = readLine()!!.split(" ").map { it.toLong() }
-    val d = a / b
-    val r = a % b
-    val f = a.toDouble() / b.toDouble()
-    println("$d $r ${String.format("%.8f", f)}")
+    val (r) = readLine()!!.split(" ").map { it.toDouble() }
+    println(circle(r))
+}
+
+fun circle(r: Double): String {
+    val d = r * r * Math.PI
+    val d1 = r * 2 * Math.PI
+    return "${String.format("%.6f", d)} ${String.format("%.6f", d1)}"
 }
 
 fun howManyDivisors(a: Int, b: Int, c: Int): Int {

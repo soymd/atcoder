@@ -10,6 +10,16 @@ class Itp1KtTest {
     }
 
     @Test
+    fun `circle 2`() {
+        assertThat(circle(2.0), equalTo("12.566371 12.566371"))
+    }
+
+    @Test
+    fun `circle 3`() {
+        assertThat(circle(3.0), equalTo("28.274334 18.849556"))
+    }
+
+    @Test
     fun `howManyDivisors 5 14 80`() {
         assertThat(howManyDivisors(5, 14, 80), equalTo(3))
     }
