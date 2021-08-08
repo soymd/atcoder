@@ -11,6 +11,48 @@ class ABC213Test {
     }
 
     @Test
+    fun `takahashiTour 1`() {
+        assertThat(
+            takahashiTour(
+                4, listOf(
+                    listOf(1, 2),
+                    listOf(2, 4),
+                    listOf(1, 3)
+                )
+            ), equalTo("1 2 4 2 1 3 1")
+        )
+    }
+
+    @Test
+    fun `takahashiTour 1-1`() {
+        //todo: not pass
+        assertThat(
+            takahashiTour(
+                4, listOf(
+                    listOf(1, 2),
+                    listOf(2, 4),
+                    listOf(1, 3),
+                    listOf(3, 4)
+                )
+            ), equalTo("1 2 4 3 1")
+        )
+    }
+
+    @Test
+    fun `takahashiTour 2`() {
+        assertThat(
+            takahashiTour(
+                5, listOf(
+                    listOf(1, 2),
+                    listOf(1, 3),
+                    listOf(1, 4),
+                    listOf(1, 5)
+                )
+            ), equalTo("1 2 1 3 1 4 1 5 1")
+        )
+    }
+
+    @Test
     fun `BitwiseExclusiveOr 3 6`() {
         assertThat(bitwiseExclusiveOr(3, 6), equalTo(5))
     }
