@@ -12,6 +12,17 @@ fun main() {
     println(takahashiTour(n, list))
 }
 
+fun backToStart(lastCity: Int, connections: MutableMap<Int, MutableSet<Int>>): List<Int> {
+    val mutableList = mutableListOf<Int>()
+    var city = lastCity
+    do {
+        val connection = connections[city]
+        city = connection?.min()!!
+        mutableList.add(city)
+    } while (mutableList.last() != 1)
+    return mutableList
+}
+
 fun createConnections(roads: List<List<Int>>): MutableMap<Int, MutableSet<Int>> {
     val connections = mutableMapOf<Int, MutableSet<Int>>()
     roads.forEach { road ->
@@ -33,48 +44,30 @@ fun createConnections(roads: List<List<Int>>): MutableMap<Int, MutableSet<Int>> 
 
 fun takahashiTour(cityCount: Int, roads: List<List<Int>>): String {
     val answer = mutableListOf(1)
+    var city = 1
     val rest = mutableSetOf<Int>()
-    for (i in 1..cityCount) {
+    for (i in 2..cityCount) {
         rest.add(i)
     }
-    val connections = mutableMapOf<Int, MutableSet<Int>>()
-    roads.forEach { road ->
-        val set = connections[road.first()]
-        if (set == null) {
-            connections[road.first()] = mutableSetOf(road.last())
-        } else {
-            set.add(road[1])
-        }
-    }
-    var city = 1
-    rest.remove(city)
+    val connections = createConnections(roads)
     do {
-        var connection = connections[city]
-        if (connection == null) {
-            city = answer.takeLast(2).first()
-            answer.add(city)
-            connection = connections[city]
-        }
+        val connection = connections[city]
         val next = connection?.filter {
             rest.contains(it)
-        }?.min()//3を取る
+        }?.min()//first?
         if (next != null && rest.contains(next)) {
             rest.remove(next)
             city = next
             answer.add(next)
         } else {
-            val index = answer.indexOf(city) - 1
-            if (index >= 0) {
-                city = answer[index]
-                answer.add(city)
-            }
+            //最短で1に帰る方法
+            val back = backToStart(city, connections)
+            answer.addAll(back)
+            city = 1
         }
-        if (rest.isEmpty() && city == 1) {
-            return answer.joinToString(separator = " ")
-        }
-    } while (rest.isNotEmpty())
+    } while (!(rest.isEmpty() && city == 1))
 
-    return answer.joinToString(separator = " ") + " 1"
+    return answer.joinToString(separator = " ")
 }
 
 fun boobyPrize(n: Int, scores: List<Long>): Int {

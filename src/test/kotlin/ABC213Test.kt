@@ -104,6 +104,120 @@ class ABC213Test {
     }
 
     @Test
+    fun `backToStart1`() {
+        assertThat(
+            backToStart(
+                3,
+                mutableMapOf(
+                    1 to mutableSetOf(2, 3),
+                    2 to mutableSetOf(1, 4),
+                    3 to mutableSetOf(1),
+                    4 to mutableSetOf(2)
+                )
+            ),
+            equalTo(listOf(1))
+        )
+    }
+
+    @Test
+    fun backToStart2() {
+
+        assertThat(
+            backToStart(
+                3,
+                mutableMapOf(
+                    1 to mutableSetOf(2, 3),
+                    2 to mutableSetOf(1, 4),
+                    3 to mutableSetOf(1, 4),
+                    4 to mutableSetOf(2, 3)
+                )
+            ),
+            equalTo(listOf(1))
+        )
+    }
+
+    @Test
+    fun backToStart3() {
+
+        assertThat(
+            backToStart(
+                4,
+                mutableMapOf(
+                    1 to mutableSetOf(2, 3),
+                    2 to mutableSetOf(1, 3, 4),
+                    3 to mutableSetOf(1, 2, 4),
+                    4 to mutableSetOf(2, 3)
+                )
+            ),
+            equalTo(listOf(2, 1))
+        )
+    }
+
+    @Test
+    fun backToStart4() {
+
+        assertThat(
+            backToStart(
+                4,
+                mutableMapOf(
+                    1 to mutableSetOf(2, 3, 4),
+                    2 to mutableSetOf(1, 3, 4),
+                    3 to mutableSetOf(1, 2, 4),
+                    4 to mutableSetOf(1, 2, 3)
+                )
+            ),
+            equalTo(listOf(1))
+        )
+    }
+
+    @Test
+    fun backToStart5() {
+
+        assertThat(
+            backToStart(
+                5,
+                mutableMapOf(
+                    1 to mutableSetOf(2, 3, 4, 5),
+                    2 to mutableSetOf(1),
+                    3 to mutableSetOf(1),
+                    4 to mutableSetOf(1),
+                    5 to mutableSetOf(1)
+                )
+            ),
+            equalTo(listOf(1))
+        )
+    }
+
+    @Test
+    fun `backToStart6`() {
+        assertThat(
+            backToStart(
+                3,
+                mutableMapOf(
+                    1 to mutableSetOf(2, 3),
+                    2 to mutableSetOf(1, 4),
+                    3 to mutableSetOf(1),
+                    4 to mutableSetOf(2)
+                )
+            ), equalTo(listOf(1))
+        )
+    }
+
+    @Test
+    fun `backToStart7`() {
+        assertThat(
+            backToStart(
+                2,
+                mutableMapOf(
+                    1 to mutableSetOf(3),
+                    2 to mutableSetOf(3),
+                    3 to mutableSetOf(1, 2)
+                )
+            ), equalTo(listOf(3, 1))
+        )
+    }
+
+    @Test
     fun `takahashiTour 1`() {
         assertThat(
             takahashiTour(
@@ -118,7 +232,6 @@ class ABC213Test {
 
     @Test
     fun `takahashiTour 1-1`() {
-        //todo: not pass
         assertThat(
             takahashiTour(
                 4, listOf(
@@ -133,7 +246,6 @@ class ABC213Test {
 
     @Test
     fun `takahashiTour 1-2`() {
-        //todo: not pass
         assertThat(
             takahashiTour(
                 4, listOf(
