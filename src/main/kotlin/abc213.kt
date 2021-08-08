@@ -1,6 +1,12 @@
 fun main() {
-    val (a, b) = readLine()!!.split(" ").map { it.toInt() }
-    println(bitwiseExclusiveOr(a, b))
+    val (n) = readLine()!!.split(" ").map { it.toInt() }
+    val list = readLine()!!.split(" ").map { it.toLong() }
+    println(boobyPrize(n, list))
+}
+
+fun boobyPrize(n: Int, scores: List<Long>): Int {
+    val score = scores.sortedDescending()[1]
+    return scores.indexOf(score) + 1
 }
 
 fun bitwiseExclusiveOr(a: Int, b: Int): Int {
@@ -12,14 +18,14 @@ fun bitwiseExclusiveOr(a: Int, b: Int): Int {
     for (i in 0 until 8 - bitA.length) {
         listA.add(0)
     }
-    for (i in 0 until bitA.length) {
-        listA.add(bitA[i].toString().toInt())
+    for (element in bitA) {
+        listA.add(element.toString().toInt())
     }
     for (i in 0 until 8 - bitB.length) {
         listB.add(0)
     }
-    for (i in 0 until bitB.length) {
-        listB.add(bitB[i].toString().toInt())
+    for (element in bitB) {
+        listB.add(element.toString().toInt())
     }
 
     val answerList = mutableListOf<Int>()

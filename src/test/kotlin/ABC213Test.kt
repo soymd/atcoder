@@ -20,4 +20,21 @@ class ABC213Test {
         assertThat(bitwiseExclusiveOr(10, 12), equalTo(6))
     }
 
+    @Test
+    fun `boobyPrize 1, 123 12345 12 1234 123456`() {
+        assertThat(
+            boobyPrize(6, listOf(1, 123, 12345, 12, 1234, 123456)),
+            equalTo(3)
+        )
+    }
+
+    @Test
+    fun `boobyPrize 5, 3 1 4 15 9`() {
+        assertThat(
+            boobyPrize(5, listOf(3, 1, 4, 15, 9)),
+            equalTo(5)
+        )
+    }
+
+
 }
