@@ -12,6 +12,25 @@ fun main() {
     println(takahashiTour(n, list))
 }
 
+fun createConnections(roads: List<List<Int>>): MutableMap<Int, MutableSet<Int>> {
+    val connections = mutableMapOf<Int, MutableSet<Int>>()
+    roads.forEach { road ->
+        val set = connections[road.first()]
+        if (set == null) {
+            connections[road.first()] = mutableSetOf(road.last())
+        } else {
+            set.add(road.last())
+        }
+        val set2 = connections[road.last()]
+        if (set2 == null) {
+            connections[road.last()] = mutableSetOf(road.first())
+        } else {
+            set2.add(road.first())
+        }
+    }
+    return connections
+}
+
 fun takahashiTour(cityCount: Int, roads: List<List<Int>>): String {
     val answer = mutableListOf(1)
     val rest = mutableSetOf<Int>()
