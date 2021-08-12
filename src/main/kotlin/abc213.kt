@@ -1,8 +1,11 @@
+import java.util.*
+
 fun main() {
     reorderCards().forEach {
         println(it)
     }
 }
+
 
 fun reorderCards(): List<String> {
     val (h, w, n) = readLine()!!.split(" ").map { it.toLong() }
@@ -14,13 +17,13 @@ fun reorderCards(): List<String> {
         xList.add(x)
         yList.add(y)
     }
-    val xSorted = xList.sorted()
-    val ySorted = yList.sorted()
     val ans = mutableListOf<String>()
-    xList.forEachIndexed { index, x ->
-        val ansX = xSorted.indexOf(x) + 1
-        val ansY = ySorted.indexOf(yList[index]) + 1
-        ans.add("$ansX $ansY")
+    val xArr = xList.sorted().toLongArray()
+    val yArr = yList.sorted().toLongArray()
+    for (i in 0 until n) {
+        val x = Arrays.binarySearch(xArr, xList[i.toInt()]) + 1
+        val y = Arrays.binarySearch(yArr, yList[i.toInt()]) + 1
+        ans.add("$x $y")
     }
 
     return ans
