@@ -1,16 +1,16 @@
 fun main() {
+    reorderCards().forEach {
+        println(it)
+    }
+}
+
+fun reorderCards(): List<String> {
     val (h, w, n) = readLine()!!.split(" ").map { it.toLong() }
 
     val list = mutableListOf<List<Long>>()
     for (i in 1..n) {
         list.add(readLine()!!.split(" ").map { it.toLong() })
     }
-    reorderCards(h, w, n, list).forEach {
-        println(it)
-    }
-}
-
-fun reorderCards(h: Long, w: Long, n: Long, list: List<List<Long>>): List<String> {
     val hPosition = mutableSetOf<Long>()
     for (i in 1..h) {
         hPosition.add(i)

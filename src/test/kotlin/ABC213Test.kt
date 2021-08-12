@@ -1,40 +1,51 @@
 import org.hamcrest.CoreMatchers.equalTo
-import org.junit.Assert.assertThat
-import org.junit.Before
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Ignore
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 
 class ABC213Test {
 
-    @Before
+    private val input = StandardInputStream()
+    private val output = StandardOutputStream()
+
+    @BeforeEach
     fun setUp() {
+        System.setIn(input)
+        System.setOut(output)
+    }
+
+    @AfterEach
+    fun tearDown() {
+        System.setIn(null)
+        System.setOut(null)
     }
 
     @Test
     fun `reorderCards 4 5 2`() {
-        val actual = reorderCards(
-            4, 5, 2, listOf(
-                listOf(3L, 2L),
-                listOf(2L, 5)
-            )
-        )
+        input.inputln("4 5 2")
+        input.inputln("3 2")
+        input.inputln("2 5")
+        val actual = reorderCards()
         val expected = listOf("2 1", "1 2")
-
         assertThat(actual, equalTo(expected))
+
+        //not pass... https://qiita.com/aky100200/items/f4f7d6279524774610fc
+//        assertThat(output.readLine(), equalTo("2 1"))
+//        assertThat(output.readLine(), equalTo("1 2"))
     }
 
     @Test
     fun `reorderCards 5 5 5`() {
-        val actual = reorderCards(
-            5, 5, 5, listOf(
-                listOf(1L, 1),
-                listOf(2L, 2),
-                listOf(3L, 3),
-                listOf(4L, 4),
-                listOf(5L, 5)
-            )
-        )
+        input.inputln("5 5 5")
+        input.inputln("1 1")
+        input.inputln("2 2")
+        input.inputln("3 3")
+        input.inputln("4 4")
+        input.inputln("5 5")
+        val actual = reorderCards()
         val expected = listOf(
             "1 1",
             "2 2",
@@ -49,20 +60,19 @@ class ABC213Test {
     @Ignore
     @Test
     fun `reorderCards 1000000000 1000000000 10`() {
-        val actual = reorderCards(
-            1000000000, 1000000000, 10, listOf(
-                listOf(1L, 1),
-                listOf(10L, 10),
-                listOf(100L, 100),
-                listOf(1000L, 1000),
-                listOf(10000L, 10000),
-                listOf(100000L, 100000),
-                listOf(1000000L, 1000000),
-                listOf(10000000L, 10000000),
-                listOf(100000000L, 100000000),
-                listOf(1000000000L, 1000000000)
-            )
-        )
+        input.inputln("1000000000 1000000000 10")
+        input.inputln("1000000000 1000000000 10")
+        input.inputln("1 1")
+        input.inputln("10 10")
+        input.inputln("100 100")
+        input.inputln("1000 1000")
+        input.inputln("10000 10000")
+        input.inputln("100000 100000")
+        input.inputln("1000000 1000000")
+        input.inputln("10000000 10000000")
+        input.inputln("100000000 100000000")
+        input.inputln("1000000000 1000000000")
+        val actual = reorderCards()
         val expected = listOf(
             "1 1",
             "2 2",
