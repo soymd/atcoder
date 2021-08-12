@@ -7,32 +7,20 @@ fun main() {
 fun reorderCards(): List<String> {
     val (h, w, n) = readLine()!!.split(" ").map { it.toLong() }
 
-    val list = mutableListOf<List<Long>>()
+    val xList = mutableListOf<Long>()
+    val yList = mutableListOf<Long>()
     for (i in 1..n) {
-        list.add(readLine()!!.split(" ").map { it.toLong() })
+        val (x, y) = readLine()!!.split(" ").map { it.toLong() }
+        xList.add(x)
+        yList.add(y)
     }
-    val hPosition = mutableSetOf<Long>()
-    for (i in 1..h) {
-        hPosition.add(i)
-    }
-    val wPosition = mutableSetOf<Long>()
-    for (i in 1..w) {
-        wPosition.add(i)
-    }
-
-    list.forEach {
-        hPosition.remove(it.first())
-        wPosition.remove(it.last())
-    }
-
+    val xSorted = xList.sorted()
+    val ySorted = yList.sorted()
     val ans = mutableListOf<String>()
-    list.forEach { position ->
-        val h = position.first()
-        val w = position.last()
-
-        val foo = hPosition.count { it < h }
-        val bar = wPosition.count { it < w }
-        ans.add("${h - foo} ${w - bar}")
+    xList.forEachIndexed { index, x ->
+        val ansX = xSorted.indexOf(x) + 1
+        val ansY = ySorted.indexOf(yList[index]) + 1
+        ans.add("$ansX $ansY")
     }
 
     return ans

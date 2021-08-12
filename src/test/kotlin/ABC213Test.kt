@@ -1,6 +1,5 @@
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
-import org.junit.Ignore
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -57,10 +56,8 @@ class ABC213Test {
         assertThat(actual, equalTo(expected))
     }
 
-    @Ignore
     @Test
     fun `reorderCards 1000000000 1000000000 10`() {
-        input.inputln("1000000000 1000000000 10")
         input.inputln("1000000000 1000000000 10")
         input.inputln("1 1")
         input.inputln("10 10")
