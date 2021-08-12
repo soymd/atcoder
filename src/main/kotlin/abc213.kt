@@ -5,7 +5,9 @@ fun main() {
     for (i in 1..n) {
         list.add(readLine()!!.split(" ").map { it.toLong() })
     }
-    println(reorderCards(h, w, n, list))
+    reorderCards(h, w, n, list).forEach {
+        println(it)
+    }
 }
 
 fun reorderCards(h: Long, w: Long, n: Long, list: List<List<Long>>): List<String> {
