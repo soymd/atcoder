@@ -1,15 +1,39 @@
 fun main() {
-    val (n) = readLine()!!.split(" ").map { it.toInt() }
+    val (h, w, n) = readLine()!!.split(" ").map { it.toLong() }
 
-    val list = readLine()!!.split(" ").map {
-        val l = mutableListOf<Int>()
-        it.split(" ").map { str ->
-            l.add(str.toInt())
-        }
-        l.sort()
-        l
+    val list = mutableListOf<List<Long>>()
+    for (i in 1..n) {
+        list.add(readLine()!!.split(" ").map { it.toLong() })
     }
-    println(takahashiTour(n, list))
+    println(reorderCards(h, w, n, list))
+}
+
+fun reorderCards(h: Long, w: Long, n: Long, list: List<List<Long>>): List<String> {
+    val hPosition = mutableSetOf<Long>()
+    for (i in 1..h) {
+        hPosition.add(i)
+    }
+    val wPosition = mutableSetOf<Long>()
+    for (i in 1..w) {
+        wPosition.add(i)
+    }
+
+    list.forEach {
+        hPosition.remove(it.first())
+        wPosition.remove(it.last())
+    }
+
+    val ans = mutableListOf<String>()
+    list.forEach { position ->
+        val h = position.first()
+        val w = position.last()
+
+        val foo = hPosition.count { it < h }
+        val bar = wPosition.count { it < w }
+        ans.add("${h - foo} ${w - bar}")
+    }
+
+    return ans
 }
 
 fun backToStart(lastCity: Int, connections: MutableMap<Int, MutableSet<Int>>): List<Int> {
