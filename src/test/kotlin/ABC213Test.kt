@@ -13,13 +13,13 @@ class ABC213Test {
     @BeforeEach
     fun setUp() {
         System.setIn(input)
-        System.setOut(output)
+//        System.setOut(output)
     }
 
     @AfterEach
     fun tearDown() {
         System.setIn(null)
-        System.setOut(null)
+//        System.setOut(null)
     }
 
     @Test

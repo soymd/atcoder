@@ -8,22 +8,18 @@ fun main() {
 
 
 fun reorderCards(): List<String> {
-    val (h, w, n) = readLine()!!.split(" ").map { it.toLong() }
-
-    val xList = mutableListOf<Long>()
-    val yList = mutableListOf<Long>()
-    for (i in 1..n) {
-        val (x, y) = readLine()!!.split(" ").map { it.toLong() }
-        xList.add(x)
-        yList.add(y)
+    val (h, w, n) = readLine()!!.trim().split(' ').map(String::toInt)
+    val cards = List(n) {
+        val (a, b) = readLine()!!.trim().split(' ').map(String::toInt)
+        a to b
     }
+    val rows = cards.map { it.first }.toSet().sorted()
+    val rowDest = rows.indices.associateBy { rows[it] }
+    val columns = cards.map(Pair<*, Int>::second).distinct().sorted()
+    val columnDest = columns.indices.associateBy(columns::get)
     val ans = mutableListOf<String>()
-    val xArr = xList.sorted().toLongArray()
-    val yArr = yList.sorted().toLongArray()
-    for (i in 0 until n) {
-        val x = Arrays.binarySearch(xArr, xList[i.toInt()]) + 1
-        val y = Arrays.binarySearch(yArr, yList[i.toInt()]) + 1
-        ans.add("$x $y")
+    for ((a, b) in cards) {
+        ans.add("${rowDest[a]!! + 1} ${columnDest[b]!! + 1}")
     }
 
     return ans
