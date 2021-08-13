@@ -6,6 +6,12 @@ fun main() {
     }
 }
 
+fun output() {
+    val str = readLine()!!
+    println(str)
+//    println(str+str)
+}
+
 
 fun reorderCards(): List<String> {
     val (h, w, n) = readLine()!!.trim().split(' ').map(String::toInt)

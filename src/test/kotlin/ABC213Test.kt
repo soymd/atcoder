@@ -13,13 +13,21 @@ class ABC213Test {
     @BeforeEach
     fun setUp() {
         System.setIn(input)
-//        System.setOut(output)
+        System.setOut(output)
     }
 
     @AfterEach
     fun tearDown() {
         System.setIn(null)
-//        System.setOut(null)
+        System.setOut(null)
+    }
+
+    @Test
+    fun output_test() {
+        input.inputln("foo")
+        output()
+        assertThat(output.readLine(), equalTo("foo"))
+//        assertThat(output.readLine(), equalTo("foofoo"))
     }
 
     @Test

@@ -11,7 +11,7 @@ class StandardOutputStream : PrintStream(ByteArrayOutputStream()) {
     fun readLine(): String {
         var line = ""
         return try {
-            if (br.readLine().also { line = it } != null) return line
+//            if (br.readLine().also { line = it } != null) return line
             br = BufferedReader(StringReader(out.toString()))
             (out as ByteArrayOutputStream).reset()
             br.readLine()
