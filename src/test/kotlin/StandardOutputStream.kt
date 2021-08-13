@@ -19,4 +19,17 @@ class StandardOutputStream : PrintStream(ByteArrayOutputStream()) {
             throw RuntimeException(e)
         }
     }
+
+    fun readLines(): List<String> {
+        val lines = mutableListOf<String>()
+        br = BufferedReader(StringReader(out.toString()))
+        (out as ByteArrayOutputStream).reset()
+        do {
+            val result = br.readLine()
+            if (result != null) {
+                lines.add(result)
+            }
+        } while (result != null)
+        return lines
+    }
 }

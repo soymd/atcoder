@@ -9,7 +9,7 @@ fun main() {
 fun output() {
     val str = readLine()!!
     println(str)
-//    println(str+str)
+    println(str + str)
 }
 
 
