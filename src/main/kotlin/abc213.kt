@@ -1,9 +1,7 @@
 import java.util.*
 
 fun main() {
-    reorderCards().forEach {
-        println(it)
-    }
+    reorderCards()
 }
 
 fun output() {
@@ -13,7 +11,7 @@ fun output() {
 }
 
 
-fun reorderCards(): List<String> {
+fun reorderCards() {
     val (h, w, n) = readLine()!!.trim().split(' ').map(String::toInt)
     val cards = List(n) {
         val (a, b) = readLine()!!.trim().split(' ').map(String::toInt)
@@ -23,12 +21,9 @@ fun reorderCards(): List<String> {
     val rowDest = rows.indices.associateBy { rows[it] }
     val columns = cards.map(Pair<*, Int>::second).distinct().sorted()
     val columnDest = columns.indices.associateBy(columns::get)
-    val ans = mutableListOf<String>()
     for ((a, b) in cards) {
-        ans.add("${rowDest[a]!! + 1} ${columnDest[b]!! + 1}")
+        println("${rowDest[a]!! + 1} ${columnDest[b]!! + 1}")
     }
-
-    return ans
 }
 
 fun backToStart(lastCity: Int, connections: MutableMap<Int, MutableSet<Int>>): List<Int> {

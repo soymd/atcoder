@@ -38,13 +38,11 @@ class ABC213Test {
         input.inputln("4 5 2")
         input.inputln("3 2")
         input.inputln("2 5")
-        val actual = reorderCards()
-        val expected = listOf("2 1", "1 2")
-        assertThat(actual, equalTo(expected))
 
-        //not pass... https://qiita.com/aky100200/items/f4f7d6279524774610fc
-//        assertThat(output.readLine(), equalTo("2 1"))
-//        assertThat(output.readLine(), equalTo("1 2"))
+        reorderCards()
+
+        val expected = listOf("2 1", "1 2")
+        assertThat(output.readLines(), equalTo(expected))
     }
 
     @Test
@@ -55,7 +53,9 @@ class ABC213Test {
         input.inputln("3 3")
         input.inputln("4 4")
         input.inputln("5 5")
-        val actual = reorderCards()
+
+        reorderCards()
+
         val expected = listOf(
             "1 1",
             "2 2",
@@ -63,8 +63,7 @@ class ABC213Test {
             "4 4",
             "5 5"
         )
-
-        assertThat(actual, equalTo(expected))
+        assertThat(output.readLines(), equalTo(expected))
     }
 
     @Test
@@ -80,7 +79,9 @@ class ABC213Test {
         input.inputln("10000000 10000000")
         input.inputln("100000000 100000000")
         input.inputln("1000000000 1000000000")
-        val actual = reorderCards()
+
+        reorderCards()
+
         val expected = listOf(
             "1 1",
             "2 2",
@@ -93,8 +94,7 @@ class ABC213Test {
             "9 9",
             "10 10"
         )
-
-        assertThat(actual, equalTo(expected))
+        assertThat(output.readLines(), equalTo(expected))
     }
 
     @Test
