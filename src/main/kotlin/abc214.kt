@@ -11,8 +11,7 @@ fun distribution() {
     t.forEachIndexed { i, start ->
         var index = i
         var time = start
-        var rest = n
-        do {
+        repeat(n) {
             val i1 = ans[index]
             if (i1 == null) {
                 ans[index] = time
@@ -20,14 +19,13 @@ fun distribution() {
                 ans[index] = time
             }
             val next = s[index]
-            rest--
 
             index++
             if (index >= n) {
                 index = 0
             }
             time += next
-        } while (rest > 0)
+        }
     }
 
     ans.keys.sorted().forEach {
