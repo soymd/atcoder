@@ -23,16 +23,43 @@ class ABC214Test {
     }
 
     @Test
-    fun output_test() {
-        input.inputln("foo")
-        input.inputln("bar")
+    fun howMany_1() {
+        input.inputln("1 0")
 
-        output()
+        howMany()
 
         val result = output.readLines()
-        assertThat(result[0], equalTo("foo"))
-        assertThat(result[1], equalTo("bar"))
-        assertThat(result[2], equalTo("foobar"))
+        assertThat(result, equalTo(listOf("4")))
+    }
+
+    @Test
+    fun howMany_2() {
+        input.inputln("2 5")
+
+        howMany()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("10")))
+    }
+
+    @Test
+    fun howMany_3() {
+        input.inputln("10 10")
+
+        howMany()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("213")))
+    }
+
+    @Test
+    fun howMany_4() {
+        input.inputln("30 100")
+
+        howMany()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("2471")))
     }
 
 }
