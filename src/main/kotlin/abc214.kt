@@ -16,19 +16,18 @@ fun distribution() {
             val i1 = ans[index]
             if (i1 == null) {
                 ans[index] = time
-                rest--
             } else if (i1 > time) {
                 ans[index] = time
-                rest--
             }
             val next = s[index]
+            rest--
 
             index++
             if (index >= n) {
                 index = 0
             }
             time += next
-        } while (rest < 0)
+        } while (rest > 0)
     }
 
     ans.keys.sorted().forEach {
