@@ -35,11 +35,13 @@ fun takahashiTour() {
 }
 
 fun output() {
-    val str = readLine()!!
-    println(str)
-    println(str + str)
-}
+    val str1 = readLine()!!
+    val str2 = readLine()!!
 
+    println(str1)
+    println(str2)
+    println(str1 + str2)
+}
 
 fun reorderCards() {
     val (h, w, n) = readLine()!!.trim().split(' ').map(String::toInt)

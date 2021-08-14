@@ -25,12 +25,14 @@ class ABC213Test {
     @Test
     fun output_test() {
         input.inputln("foo")
+        input.inputln("bar")
 
         output()
 
         val result = output.readLines()
         assertThat(result[0], equalTo("foo"))
-        assertThat(result[1], equalTo("foofoo"))
+        assertThat(result[1], equalTo("bar"))
+        assertThat(result[2], equalTo("foobar"))
     }
 
     @Test
