@@ -1,17 +1,16 @@
-import java.io.*
+import java.io.BufferedReader
+import java.io.ByteArrayOutputStream
+import java.io.PrintStream
+import java.io.StringReader
 
 
 class StandardOutputStream : PrintStream(ByteArrayOutputStream()) {
     private var br = BufferedReader(StringReader(""))
 
     fun readLine(): String {
-        return try {
-            br = BufferedReader(StringReader(out.toString()))
-            (out as ByteArrayOutputStream).reset()
-            br.readLine()
-        } catch (e: IOException) {
-            throw RuntimeException(e)
-        }
+        br = BufferedReader(StringReader(out.toString()))
+        (out as ByteArrayOutputStream).reset()
+        return br.readLine()
     }
 
     fun readLines(): List<String> {
