@@ -305,6 +305,55 @@ class ABC213Test {
     }
 
     @Test
+    fun `so takahashiTour 1`() {
+        input.inputln("4")
+        input.inputln("1 2")
+        input.inputln("4 2")
+        input.inputln("3 1")
+
+        takahashiTour()
+
+        assertThat(output.readLine(), equalTo("1 2 4 2 1 3 1"))
+    }
+
+    @Test
+    fun `so takahashiTour 1-1`() {
+        input.inputln("4")
+        input.inputln("1 2")
+        input.inputln("4 2")
+        input.inputln("3 2")
+
+        takahashiTour()
+
+        assertThat(output.readLine(), equalTo("1 2 3 2 4 2 1"))
+    }
+
+    @Test
+    fun `so takahashiTour 1-2`() {
+        input.inputln("4")
+        input.inputln("1 2")
+        input.inputln("4 2")
+        input.inputln("3 4")
+
+        takahashiTour()
+
+        assertThat(output.readLine(), equalTo("1 2 4 3 4 2 1"))
+    }
+
+    @Test
+    fun `so takahashiTour 2`() {
+        input.inputln("5")
+        input.inputln("1 2")
+        input.inputln("1 3")
+        input.inputln("1 4")
+        input.inputln("1 5")
+
+        takahashiTour()
+
+        assertThat(output.readLine(), equalTo("1 2 1 3 1 4 1 5 1"))
+    }
+
+    @Test
     fun `takahashiTour 1`() {
         assertThat(
             takahashiTour(

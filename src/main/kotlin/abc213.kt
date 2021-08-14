@@ -4,6 +4,34 @@ fun main() {
     reorderCards()
 }
 
+fun takahashiTour() {
+    val n = readLine()!!.trim().toInt()
+    val graph = List(n) { mutableListOf<Int>() }
+    repeat(n - 1) {
+        val (a, b) = readLine()!!.trim().split(' ').map(String::toInt)
+        graph[a - 1].add(b - 1)
+        graph[b - 1].add(a - 1)
+    }
+    for (edge in graph) {
+        edge.sortDescending()
+    }
+    val history = mutableListOf<Int>()
+    val stack = ArrayDeque<Int>(listOf(0))
+    val visit = BooleanArray(n)
+    while (stack.isNotEmpty()) {
+        val top = stack.removeLast()
+        history.add(top + 1)
+        if (visit[top]) continue
+        visit[top] = true
+        for (next in graph[top]) {
+            if (visit[next]) continue
+            stack.addLast(top)
+            stack.addLast(next)
+        }
+    }
+    println(history.joinToString(" "))
+}
+
 fun output() {
     val str = readLine()!!
     println(str)
