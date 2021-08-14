@@ -50,7 +50,7 @@ class ABC214Test {
     fun distribution_3() {
         input.inputln("4")
         input.inputln("1 2 3 4")
-        input.inputln("1 1 4 7")
+        input.inputln("1 2 4 7")
 
         distribution()
 

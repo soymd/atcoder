@@ -1,5 +1,5 @@
 fun main() {
-    howMany()
+    distribution()
 }
 
 fun distribution() {
@@ -7,19 +7,29 @@ fun distribution() {
     val s = readLine()!!.trim().split(' ').map(String::toInt)
     val t = readLine()!!.trim().split(' ').map(String::toInt)
 
-    var time = t.min()!!
-    var index = t.indexOf(time)
     val ans = mutableMapOf<Int, Int>()
-    do {
-        ans[index] = time
-        val next = s[index]
+    t.forEachIndexed { i, start ->
+        var index = i
+        var time = start
+        var rest = n
+        do {
+            val i1 = ans[index]
+            if (i1 == null) {
+                ans[index] = time
+                rest--
+            } else if (i1 > time) {
+                ans[index] = time
+                rest--
+            }
+            val next = s[index]
 
-        index++
-        if (index >= n) {
-            index = 0
-        }
-        time += next
-    } while (ans.count() < n)
+            index++
+            if (index >= n) {
+                index = 0
+            }
+            time += next
+        } while (rest < 0)
+    }
 
     ans.keys.sorted().forEach {
         println(ans[it])
