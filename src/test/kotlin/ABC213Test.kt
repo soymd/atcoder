@@ -313,7 +313,7 @@ class ABC213Test {
 
         takahashiTour()
 
-        assertThat(output.readLine(), equalTo("1 2 4 2 1 3 1"))
+        assertThat(output.readLines(), equalTo(listOf("1 2 4 2 1 3 1")))
     }
 
     @Test

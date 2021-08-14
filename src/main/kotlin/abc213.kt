@@ -9,10 +9,12 @@ fun takahashiTour() {
     val graph = List(n) { mutableListOf<Int>() }
     repeat(n - 1) {
         val (a, b) = readLine()!!.trim().split(' ').map(String::toInt)
+        //各都市の接続先都市を格納
         graph[a - 1].add(b - 1)
         graph[b - 1].add(a - 1)
     }
     for (edge in graph) {
+        //数字が大きく訪問優先順位が低い都市が先頭に来るようソート
         edge.sortDescending()
     }
     val history = mutableListOf<Int>()
