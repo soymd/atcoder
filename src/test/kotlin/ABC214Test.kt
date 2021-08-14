@@ -23,6 +23,55 @@ class ABC214Test {
     }
 
     @Test
+    fun distribution_1() {
+        input.inputln("3")
+        input.inputln("4 1 5")
+        input.inputln("3 10 100")
+
+        distribution()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("3", "7", "8")))
+    }
+
+    @Test
+    fun distribution_2() {
+        input.inputln("4")
+        input.inputln("100 100 100 100")
+        input.inputln("1 1 1 1")
+
+        distribution()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("1", "1", "1", "1")))
+    }
+
+    @Test
+    fun distribution_3() {
+        input.inputln("4")
+        input.inputln("1 2 3 4")
+        input.inputln("1 1 4 7")
+
+        distribution()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("1", "2", "4", "7")))
+    }
+
+    @Test
+    fun distribution_4() {
+        input.inputln("8")
+        input.inputln("84 87 78 16 94 36 87 93")
+        input.inputln("50 22 63 28 91 60 64 27")
+
+        distribution()
+
+        val result = output.readLines()
+        val expected = listOf("50", "22", "63", "28", "44", "60", "64", "27")
+        assertThat(result, equalTo(expected))
+    }
+
+    @Test
     fun howMany_1() {
         input.inputln("1 0")
 
