@@ -28,19 +28,18 @@ fun distribution() {
 fun howMany() {
     val (s, t) = readLine()!!.trim().split(' ').map(String::toInt)
 
-    val list = mutableListOf<List<Int>>()
+    var ans = 0
     for (i in 0..s) {
         for (j in 0..s) {
             for (k in 0..s) {
-                list.add(listOf(i, j, k))
+                if (i + j + k <= s && i * j * k <= t) {
+                    ans++
+                }
             }
         }
     }
 
-    println(list.filter {
-        it[0] + it[1] + it[2] <= s &&
-            it[0] * it[1] * it[2] <= t
-    }.count())
+    println(ans)
 }
 
 fun a() {
