@@ -1,36 +1,28 @@
+import kotlin.math.min
+
 fun main() {
     distribution()
 }
 
 fun distribution() {
-    val n = readLine()!!.trim().toInt()
-    val s = readLine()!!.trim().split(' ').map(String::toInt)
-    val t = readLine()!!.trim().split(' ').map(String::toInt)
-
-    val ans = mutableMapOf<Int, Int>()
-    t.forEachIndexed { i, start ->
-        var index = i
-        var time = start
-        repeat(n) {
-            val i1 = ans[index]
-            if (i1 == null) {
-                ans[index] = time
-            } else if (i1 > time) {
-                ans[index] = time
-            }
-            val next = s[index]
-
-            index++
-            if (index >= n) {
-                index = 0
-            }
-            time += next
-        }
-    }
-
-    ans.keys.sorted().forEach {
-        println(ans[it])
-    }
+    //https://atcoder.jp/contests/abc214/submissions/25033083より
+    val n = readLine()!!.toInt()
+    val s = readLine()!!.split(" ").map(String::toInt)
+    val t = readLine()!!.split(" ").map(String::toInt)
+    val ans = IntArray(n)
+    //最速で高橋から渡されるぬすけのindexを取得
+    val start = (0 until n).minBy { t[it] }!!
+    ans[start] = t[start]
+    var i = start
+    do {
+        //i+1=nのときindexが0になるようにする
+        val nxt = (i + 1) % n
+        //高橋から直接渡される=t[ntx]と前のすぬけから渡されるのとどちらが早いか比較
+        ans[nxt] = min(ans[i] + s[i], t[nxt])
+        i = nxt
+        //startに戻ってくるまでループ
+    } while (i != start)
+    ans.forEach(::println)
 }
 
 fun howMany() {
