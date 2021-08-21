@@ -23,6 +23,36 @@ class ABC215Test {
     }
 
     @Test
+    fun oneMoreAabAbaBaa_1() {
+        input.inputln("aab 2")
+
+        oneMoreAabAbaBaa()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("aba")))
+    }
+
+    @Test
+    fun oneMoreAabAbaBaa_2() {
+        input.inputln("baba 4")
+
+        oneMoreAabAbaBaa()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("baab")))
+    }
+
+    @Test
+    fun oneMoreAabAbaBaa_3() {
+        input.inputln("ydxwacbz 40320")
+
+        oneMoreAabAbaBaa()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("zyxwdcba")))
+    }
+
+    @Test
     fun log2N_1() {
         input.inputln("6")
 
