@@ -22,6 +22,212 @@ class ABC216Test {
         System.setOut(null)
     }
 
+
+    @Test
+    fun manyBalls1() {
+        val n = 1L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls2() {
+        val n = 2L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls3() {
+        val n = 3L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls4() {
+        val n = 4L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls5() {
+        val n = 5L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls6() {
+        val n = 6L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls7() {
+        val n = 7L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls8() {
+        val n = 8L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls9() {
+        val n = 9L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls10() {
+        val n = 10L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls11() {
+        val n = 11L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls12() {
+        val n = 12L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls13() {
+        val n = 13L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls14() {
+        val n = 14L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls15() {
+        val n = 15L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    @Test
+    fun manyBalls1000000() {
+        val n = 1000000L
+        input.inputln(n.toString())
+
+        manyBalls()
+
+        val result = output.readLines()
+        assertThat(foo(result.first()), equalTo(n))
+        assertThat(result.first().length <= 120, equalTo(true))
+    }
+
+    private fun foo(str: String): Long {
+        val foo = str.split("").filter { it != "" }
+        var ans = 0L
+        foo.forEach {
+            if (it == "A") {
+                ans += 1
+            } else if (it == "B") {
+                ans *= 2
+            }
+        }
+        return ans
+    }
+
     @Test
     fun sameName_1() {
         input.inputln("3")
