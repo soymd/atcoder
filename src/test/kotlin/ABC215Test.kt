@@ -23,6 +23,17 @@ class ABC215Test {
     }
 
     @Test
+    fun coprime_1() {
+        input.inputln("3 12")
+        input.inputln("6 1 5")
+
+        coprime2()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("3", "1", "7", "11")))
+    }
+
+    @Test
     fun oneMoreAabAbaBaa_1() {
         input.inputln("aab 2")
 

@@ -1,8 +1,34 @@
 import kotlin.math.pow
 
 fun main() {
-    oneMoreAabAbaBaa()
+    coprime2()
 }
+
+fun coprime2() {
+    val (n, m) = readLine()!!.split(" ").map(String::toInt)
+    val list = readLine()!!.split(" ").map(String::toInt)
+
+    val ans = mutableListOf<Int>()
+    for (i in 1..m) {
+        val bool = mutableListOf<Boolean>()
+        list.forEach { a ->
+            val gcd = gcd(a, i)
+            bool.add(gcd == 1)
+        }
+        if (bool.all { it }) {
+            ans.add(i)
+        }
+    }
+    val set = ans.toSet()
+    println(set.count())
+    set.sorted().forEach {
+        println(it)
+    }
+}
+
+fun gcd(a: Int, b: Int): Int =
+    if (b == 0) a
+    else gcd(b, a % b)
 
 fun oneMoreAabAbaBaa() {
     val (s, _k) = readLine()!!.split(" ")
