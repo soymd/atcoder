@@ -47,7 +47,7 @@ fun manyBalls() {
 
     val n2 = n / 2
 
-    var ans = 0L
+    var ans: Long
     var count = 0
     do {
         ans = 2.0.pow(count).toLong()
