@@ -23,13 +23,42 @@ class ABC216Test {
     }
 
     @Test
-    fun coprime_1() {
-        input.inputln("3 12")
-        input.inputln("6 1 5")
+    fun sameName_1() {
+        input.inputln("3")
+        input.inputln("tanaka taro")
+        input.inputln("sato hanako")
+        input.inputln("tanaka taro")
 
-        coprime2()
+        sameName()
 
         val result = output.readLines()
-        assertThat(result, equalTo(listOf("3", "1", "7", "11")))
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun sameName_2() {
+        input.inputln("3")
+        input.inputln("saito ichiro")
+        input.inputln("saito jiro")
+        input.inputln("saito saburo")
+
+        sameName()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun sameName_3() {
+        input.inputln("4")
+        input.inputln("sypdgidop bkseq")
+        input.inputln("bajsqz hh")
+        input.inputln("ozjekw mcybmtt")
+        input.inputln("qfeysvw dbo")
+
+        sameName()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
     }
 }

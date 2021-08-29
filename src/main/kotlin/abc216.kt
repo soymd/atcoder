@@ -1,5 +1,19 @@
 fun main() {
-    signedDifficulty()
+    sameName()
+}
+
+fun sameName() {
+    val n = readLine()!!.toInt()
+    val list = mutableListOf<String>()
+    repeat(n) {
+        list.add(readLine()!!)
+    }
+
+    if (list.count() == list.distinct().count()) {
+        println("No")
+    } else {
+        println("Yes")
+    }
 }
 
 fun signedDifficulty() {
