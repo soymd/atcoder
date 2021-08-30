@@ -3,7 +3,6 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import java.io.PrintStream
 
 
 class ABC216Test {
@@ -11,11 +10,9 @@ class ABC216Test {
     private val input = StandardInputStream()
     private val output = StandardOutputStream()
 
-    lateinit var out: PrintStream
 
     @BeforeEach
     fun setUp() {
-        out = System.out
         System.setIn(input)
         System.setOut(output)
     }
@@ -34,8 +31,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -48,8 +43,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -62,8 +55,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -76,8 +67,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -90,8 +79,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -104,8 +91,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -118,8 +103,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -132,8 +115,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -146,8 +127,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -160,8 +139,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -174,8 +151,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -188,8 +163,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -202,8 +175,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -216,8 +187,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -230,8 +199,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -244,8 +211,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -258,8 +223,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }
@@ -272,8 +235,6 @@ class ABC216Test {
         manyBalls()
 
         val result = output.readLines()
-        System.setOut(out)
-        println(result.first())
         assertThat(foo(result.first()), equalTo(n))
         assertThat(result.first().length <= 120, equalTo(true))
     }

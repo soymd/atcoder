@@ -1,73 +1,27 @@
-import kotlin.math.pow
-
 fun main() {
     manyBalls()
 }
 
 fun manyBalls() {
     val n = readLine()!!.toLong()
-    when (n.toInt()) {
-        1 -> {
-            println("A")
-            return
-        }
-        2 -> {
-            println("AB")
-            return
-        }
-        3 -> {
-            println("ABA")
-            return
-        }
-        4 -> {
-            println("ABB")
-            return
-        }
-        5 -> {
-            println("ABBA")
-            return
-        }
-        6 -> {
-            println("ABBAA")
-            return
-        }
-        7 -> {
-            println("ABBAAA")
-            return
-        }
-        8 -> {
-            println("ABBB")
-            return
-        }
-        9 -> {
-            println("ABBBA")
-            return
-        }
+    if (n == 1L) {
+        println("A")
+        return
     }
 
-    val n2 = n / 2
+    var temp = n
+    var ans = ""
 
-    var ans: Long
-    var count = 0
     do {
-        ans = 2.0.pow(count).toLong()
-        count += 1
-    } while (ans <= n2)
-
-    var str = "A"
-    repeat(count - 2) {
-        str += "B"
-    }
-    var rest = n2 - ans / 2
-    do {
-        rest -= 1
-        str += "A"
-    } while (rest > 0)
-    if (n % 2 == 1L) {
-        println(str + "BA")
-    } else {
-        println(str + "B")
-    }
+        if (temp % 2 == 0L) {
+            temp /= 2
+            ans = "B$ans"
+        } else {
+            temp -= 1
+            ans = "A$ans"
+        }
+    } while (temp != 1L)
+    println("A$ans")
 }
 
 fun sameName() {
