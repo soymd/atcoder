@@ -6,11 +6,15 @@ fun inverseOfPermutation() {
     val n = readLine()!!.toInt()
     val list = readLine()!!.split(" ").map { it.toInt() }
 
-    for (index in 1..n) {
-        if (index == n) {
-            println(list.indexOf(index) + 1)
-        } else {
-            print((list.indexOf(index) + 1).toString() + " ")
+    val map = mutableMapOf<Int, Int>()
+
+    list.forEachIndexed { index, i ->
+        map[i] = index
+    }
+    for (i in 1..n) {
+        print(map[i]!! + 1)
+        if (i != n) {
+            print(" ")
         }
     }
 }
