@@ -24,6 +24,42 @@ class ABC217Test {
     }
 
     @Test
+    fun inverseOfPermutation1() {
+        input.inputln("3")
+        input.inputln("2 3 1")
+
+        inverseOfPermutation()
+
+        val result = output.readLines().first()
+
+        assertThat(result, equalTo("3 1 2"))
+    }
+
+    @Test
+    fun inverseOfPermutation2() {
+        input.inputln("3")
+        input.inputln("1 2 3")
+
+        inverseOfPermutation()
+
+        val result = output.readLines().first()
+
+        assertThat(result, equalTo("1 2 3"))
+    }
+
+    @Test
+    fun inverseOfPermutation3() {
+        input.inputln("5")
+        input.inputln("5 3 2 4 1")
+
+        inverseOfPermutation()
+
+        val result = output.readLines().first()
+
+        assertThat(result, equalTo("5 3 2 4 1"))
+    }
+
+    @Test
     fun lexicographicOrder1() {
         input.inputln("abc atcoder")
 

@@ -1,5 +1,18 @@
 fun main() {
-    atCoderQuiz()
+    inverseOfPermutation()
+}
+
+fun inverseOfPermutation() {
+    val n = readLine()!!.toInt()
+    val list = readLine()!!.split(" ").map { it.toInt() }
+
+    for (index in 1..n) {
+        if (index == n) {
+            println(list.indexOf(index) + 1)
+        } else {
+            print((list.indexOf(index) + 1).toString() + " ")
+        }
+    }
 }
 
 fun atCoderQuiz() {
