@@ -1,30 +1,28 @@
+import java.util.*
+
 fun main() {
     cuttingWoods()
 }
 
 fun cuttingWoods() {
-    val (l, q) = readLine()!!.split(" ").map { it.toInt() }
-    val queries = mutableListOf<List<Int>>()
-    repeat(q) {
-        queries.add(readLine()!!.split(" ").map { it.toInt() })
+    //https://atcoder.jp/contests/abc217/submissions/25567188より拝借
+    val (l, q) = readLine()!!.trim().split(' ').map(String::toInt)
+    val queries = List(q) {
+        val (c, x) = readLine()!!.trim().split(' ').map(String::toInt)
+        c to x
     }
-    val cuts = mutableListOf<Int>()
-    queries.forEach { query ->
-        val length = query.last()
-        if (query.first() == 1) {
-            cuts.add(length)
+    //TreeSet参考 https://qiita.com/p_shiki37/items/3902f4e3adc3aeb382f1#treeset
+    val cut = TreeSet<Int>().also {
+        it.add(0)
+        it.add(l)
+    }
+    for ((c, x) in queries) {
+        if (c == 1) {
+            cut.add(x)
         } else {
-            cuts.add(length)
-            val sort = cuts.sorted()
-            val index = sort.indexOf(length)
-            if (index == 0 && cuts.count() == 1) {
-                println(l)
-            } else {
-                val start = sort.getOrNull(index - 1) ?: 0
-                val end = sort.getOrNull(index + 1) ?: l
-                println(end - start)
-            }
-            cuts.removeAt(cuts.count() - 1)
+            val from = cut.lower(x)!!
+            val until = cut.higher(x)!!
+            println(until - from)
         }
     }
 }
