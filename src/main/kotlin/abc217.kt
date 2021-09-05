@@ -1,5 +1,32 @@
 fun main() {
-    inverseOfPermutation()
+    cuttingWoods()
+}
+
+fun cuttingWoods() {
+    val (l, q) = readLine()!!.split(" ").map { it.toInt() }
+    val queries = mutableListOf<List<Int>>()
+    repeat(q) {
+        queries.add(readLine()!!.split(" ").map { it.toInt() })
+    }
+    val cuts = mutableListOf<Int>()
+    queries.forEach { query ->
+        val length = query.last()
+        if (query.first() == 1) {
+            cuts.add(length)
+        } else {
+            cuts.add(length)
+            val sort = cuts.sorted()
+            val index = sort.indexOf(length)
+            if (index == 0 && cuts.count() == 1) {
+                println(l)
+            } else {
+                val start = sort.getOrNull(index - 1) ?: 0
+                val end = sort.getOrNull(index + 1) ?: l
+                println(end - start)
+            }
+            cuts.removeAt(cuts.count() - 1)
+        }
+    }
 }
 
 fun inverseOfPermutation() {

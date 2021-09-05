@@ -24,6 +24,55 @@ class ABC217Test {
     }
 
     @Test
+    fun cuttingWoods1() {
+        input.inputln("5 3")
+        input.inputln("2 2")
+        input.inputln("1 3")
+        input.inputln("2 2")
+
+        cuttingWoods()
+
+        val result = output.readLines()
+
+        assertThat(result, equalTo(listOf("5", "3")))
+    }
+
+    @Test
+    fun cuttingWoods2() {
+        input.inputln("5 3")
+        input.inputln("1 2")
+        input.inputln("1 4")
+        input.inputln("2 3")
+
+        cuttingWoods()
+
+        val result = output.readLines()
+
+        assertThat(result, equalTo(listOf("2")))
+    }
+
+    @Test
+    fun cuttingWoods3() {
+        input.inputln("100 10")
+        input.inputln("1 31")
+        input.inputln("2 41")
+        input.inputln("1 59")
+        input.inputln("2 26")
+        input.inputln("1 53")
+        input.inputln("2 58")
+        input.inputln("1 97")
+        input.inputln("2 93")
+        input.inputln("1 23")
+        input.inputln("2 84")
+
+        cuttingWoods()
+
+        val result = output.readLines()
+
+        assertThat(result, equalTo(listOf("69", "31", "6", "38", "38")))
+    }
+
+    @Test
     fun inverseOfPermutation1() {
         input.inputln("3")
         input.inputln("2 3 1")
