@@ -193,6 +193,98 @@ class ABC218Test {
     }
 
     @Test
+    fun shapes_10() {
+        input.inputln("1")
+        input.inputln(".")
+
+        input.inputln(".")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_11() {
+        input.inputln("1")
+        input.inputln("#")
+
+        input.inputln("#")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_12() {
+        input.inputln("1")
+        input.inputln("#")
+
+        input.inputln(".")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun shapes_13() {
+        input.inputln("1")
+        input.inputln("#")
+
+        input.inputln(".")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun shapes_14() {
+        input.inputln("5")
+        input.inputln("#####")
+        input.inputln("#####")
+        input.inputln("##.##")
+        input.inputln("#####")
+        input.inputln("#####")
+
+        input.inputln("#####")
+        input.inputln("#####")
+        input.inputln("##.##")
+        input.inputln("#####")
+        input.inputln("#####")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_15() {
+        input.inputln("4")
+        input.inputln("....")
+        input.inputln("#...")
+        input.inputln(".#..")
+        input.inputln("....")
+
+        input.inputln(".#..")
+        input.inputln("....")
+        input.inputln("..#.")
+        input.inputln("....")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
     fun qwerty_1() {
         input.inputln("1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26")
 
