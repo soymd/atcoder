@@ -24,6 +24,175 @@ class ABC218Test {
     }
 
     @Test
+    fun shapes_1() {
+        input.inputln("5")
+        input.inputln(".....")
+        input.inputln("..#..")
+        input.inputln(".###.")
+        input.inputln(".....")
+        input.inputln(".....")
+
+        input.inputln(".....")
+        input.inputln(".....")
+        input.inputln("....#")
+        input.inputln("...##")
+        input.inputln("....#")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_2() {
+        input.inputln("5")
+        input.inputln("#####")
+        input.inputln("##..#")
+        input.inputln("#..##")
+        input.inputln("#####")
+        input.inputln(".....")
+
+        input.inputln("#####")
+        input.inputln("#..##")
+        input.inputln("##..#")
+        input.inputln("#####")
+        input.inputln(".....")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun shapes_3() {
+        input.inputln("4")
+        input.inputln("#...")
+        input.inputln("..#.")
+        input.inputln("..#.")
+        input.inputln("....")
+
+        input.inputln("#...")
+        input.inputln("#...")
+        input.inputln("..#.")
+        input.inputln("....")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_4() {
+        input.inputln("4")
+        input.inputln("#...")
+        input.inputln(".##.")
+        input.inputln("..#.")
+        input.inputln("....")
+
+        input.inputln("##..")
+        input.inputln("#...")
+        input.inputln("..#.")
+        input.inputln("....")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun shapes_5() {
+        input.inputln("5")
+        input.inputln("#####")
+        input.inputln("#####")
+        input.inputln("#####")
+        input.inputln("#####")
+        input.inputln("#####")
+
+        input.inputln("#####")
+        input.inputln("#####")
+        input.inputln("#####")
+        input.inputln("#####")
+        input.inputln("#####")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_6() {
+        input.inputln("3")
+        input.inputln("##.")
+        input.inputln("#..")
+        input.inputln("...")
+
+        input.inputln("...")
+        input.inputln("##.")
+        input.inputln("#..")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_7() {
+        input.inputln("3")
+        input.inputln("##.")
+        input.inputln("#..")
+        input.inputln("...")
+
+        input.inputln("...")
+        input.inputln("..#")
+        input.inputln(".##")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_8() {
+        input.inputln("3")
+        input.inputln("##.")
+        input.inputln("#..")
+        input.inputln("...")
+
+        input.inputln(".##")
+        input.inputln("..#")
+        input.inputln("...")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun shapes_9() {
+        input.inputln("3")
+        input.inputln("##.")
+        input.inputln("#..")
+        input.inputln("...")
+
+        input.inputln("...")
+        input.inputln(".##")
+        input.inputln("..#")
+
+        shapes()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
     fun qwerty_1() {
         input.inputln("1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26")
 
