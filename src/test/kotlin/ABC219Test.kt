@@ -48,6 +48,30 @@ class ABC219Test {
     }
 
     @Test
+    fun neoLexicographicOrdering_3() {
+        input.inputln("bacdefghijklmnopqrstuvwxzy")
+        input.inputln("4")
+        input.inputln("a")
+        input.inputln("b")
+        input.inputln("ba")
+        input.inputln("bb")
+
+        neoLexicographicOrdering()
+
+        val result = output.readLines()
+        assertThat(
+            result, equalTo(
+                listOf(
+                    "b",
+                    "bb",
+                    "ba",
+                    "a"
+                )
+            )
+        )
+    }
+
+    @Test
     fun neoLexicographicOrdering_2() {
         input.inputln("zyxwvutsrqponmlkjihgfedcba")
         input.inputln("5")

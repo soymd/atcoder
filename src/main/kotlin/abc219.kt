@@ -33,9 +33,6 @@ private fun needSort(s1: String, s2: String, order: List<String>): Boolean {
 
     val list1 = s1.split("").filter { it != "" }
     val list2 = s2.split("").filter { it != "" }
-//    if (s1.substring(0 until length) == s2.substring(0 until length)) {
-//        return s1.length <= s2.length
-//    }
 
     list1.forEachIndexed { index, c ->
         val foo = list2.getOrNull(index)
@@ -45,12 +42,15 @@ private fun needSort(s1: String, s2: String, order: List<String>): Boolean {
                 return s1.length <= s2.length
             }
         } else {
-            if (order.indexOf(c) > order.indexOf(foo)) {
+            val i1 = order.indexOf(c)
+            val i2 = order.indexOf(foo)
+            if (i1 > i2) {
                 return true
+            } else if (i1 < i2) {
+                return false
             }
         }
     }
-
     return false
 }
 
