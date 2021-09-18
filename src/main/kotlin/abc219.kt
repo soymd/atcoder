@@ -1,5 +1,17 @@
 fun main() {
-    atCoderQuiz2()
+    maritozzo()
+}
+
+fun maritozzo() {
+    val s1 = readLine()!!
+    val s2 = readLine()!!
+    val s3 = readLine()!!
+    val t = readLine()!!.split("").filter { it != "" }
+    val list = listOf("", s1, s2, s3)
+
+    t.forEach {
+        print(list[it.toInt()])
+    }
 }
 
 fun atCoderQuiz2() {
