@@ -1,5 +1,17 @@
 fun main() {
-    neoLexicographicOrdering()
+    strangeLunchbox()
+}
+
+fun strangeLunchbox() {
+    val n = readLine()!!.toInt()
+    val (x, y) = readLine()!!.split(" ").map { it.toInt() }
+    val list = mutableListOf<Pair<Int, Int>>()
+    repeat(n) {
+        val temp = readLine()!!.split(" ").map { it.toInt() }
+        list.add(temp.first() to temp.last())
+    }
+
+
 }
 
 fun neoLexicographicOrdering() {

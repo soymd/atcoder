@@ -24,6 +24,36 @@ class ABC219Test {
     }
 
     @Test
+    fun strangeLunchbox_1() {
+        input.inputln("3")
+        input.inputln("5 6")
+
+        input.inputln("2 1")
+        input.inputln("3 4")
+        input.inputln("2 3")
+
+        strangeLunchbox()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("2")))
+    }
+
+    @Test
+    fun strangeLunchbox_2() {
+        input.inputln("3")
+        input.inputln("8 8")
+
+        input.inputln("3 4")
+        input.inputln("2 3")
+        input.inputln("2 1")
+
+        strangeLunchbox()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("-1")))
+    }
+
+    @Test
     fun neoLexicographicOrdering_1() {
         input.inputln("bacdefghijklmnopqrstuvwxzy")
         input.inputln("4")
