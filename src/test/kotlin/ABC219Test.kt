@@ -24,6 +24,56 @@ class ABC219Test {
     }
 
     @Test
+    fun neoLexicographicOrdering_1() {
+        input.inputln("bacdefghijklmnopqrstuvwxzy")
+        input.inputln("4")
+        input.inputln("abx")
+        input.inputln("bzz")
+        input.inputln("bzy")
+        input.inputln("caa")
+
+        neoLexicographicOrdering()
+
+        val result = output.readLines()
+        assertThat(
+            result, equalTo(
+                listOf(
+                    "bzz",
+                    "bzy",
+                    "abx",
+                    "caa"
+                )
+            )
+        )
+    }
+
+    @Test
+    fun neoLexicographicOrdering_2() {
+        input.inputln("zyxwvutsrqponmlkjihgfedcba")
+        input.inputln("5")
+        input.inputln("a")
+        input.inputln("ab")
+        input.inputln("abc")
+        input.inputln("ac")
+        input.inputln("b")
+
+        neoLexicographicOrdering()
+
+        val result = output.readLines()
+        assertThat(
+            result, equalTo(
+                listOf(
+                    "b",
+                    "a",
+                    "ac",
+                    "ab",
+                    "abc"
+                )
+            )
+        )
+    }
+
+    @Test
     fun maritozzo_1() {
         input.inputln("mari")
         input.inputln("to")
