@@ -1,5 +1,14 @@
 fun main() {
-    findMultiple()
+    baseK()
+}
+
+fun baseK() {
+    val k = readLine()!!.toInt()
+    val (a, b) = readLine()!!.split(" ").map { it }
+
+    val a2 = a.toInt(k)
+    val b2 = b.toInt(k)
+    println(a2 * b2)
 }
 
 fun findMultiple() {

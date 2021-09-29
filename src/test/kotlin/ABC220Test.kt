@@ -24,6 +24,28 @@ class ABC220Test {
     }
 
     @Test
+    fun baseK_1() {
+        input.inputln("2")
+        input.inputln("1011 10100")
+
+        baseK()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("220")))
+    }
+
+    @Test
+    fun baseK_2() {
+        input.inputln("7")
+        input.inputln("123 456")
+
+        baseK()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("15642")))
+    }
+
+    @Test
     fun findMultiple_1() {
         input.inputln("123 456 100")
 
