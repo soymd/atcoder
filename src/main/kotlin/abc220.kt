@@ -5,9 +5,8 @@ fun main() {
 fun baseK() {
     val k = readLine()!!.toInt()
     val (a, b) = readLine()!!.split(" ").map { it }
-
-    val a2 = a.toInt(k)
-    val b2 = b.toInt(k)
+    val a2 = a.toLong(k)
+    val b2 = b.toLong(k)
     println(a2 * b2)
 }
 
