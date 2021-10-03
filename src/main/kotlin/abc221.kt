@@ -1,7 +1,31 @@
 import kotlin.math.pow
 
 fun main() {
-    seismicMagnitudeScales()
+    typo()
+}
+
+fun typo() {
+    val s = readLine()!!.split("").filter { it != "" }
+    val t = readLine()!!.split("").filter { it != "" }
+
+    if (s == t) {
+        println("Yes")
+        return
+    }
+
+    s.forEachIndexed { index, str ->
+        if (index == s.size - 1) {
+            println("No")
+            return
+        }
+        val temp = s.toMutableList()
+        temp.removeAt(index)
+        temp.add(index + 1, str)
+        if (temp == t) {
+            println("Yes")
+            return
+        }
+    }
 }
 
 fun seismicMagnitudeScales() {

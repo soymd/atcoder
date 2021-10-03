@@ -24,6 +24,39 @@ class ABC221Test {
     }
 
     @Test
+    fun typo_1() {
+        input.inputln("abc")
+        input.inputln("acb")
+
+        typo()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun typo_2() {
+        input.inputln("aabb")
+        input.inputln("bbaa")
+
+        typo()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun typo_3() {
+        input.inputln("abcde")
+        input.inputln("acbde")
+
+        typo()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
     fun seismicMagnitudeScales_1() {
         input.inputln("6 4")
 
