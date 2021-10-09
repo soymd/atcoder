@@ -1,5 +1,13 @@
 fun main() {
-    fourDigits()
+    failingGrade()
+}
+
+fun failingGrade() {
+    val (n, p) = readLine()!!.split(" ").map { it.toInt() }
+    val a = readLine()!!.split(" ").map { it.toInt() }
+
+    val count = a.filter { it < p }.count()
+    println(count)
 }
 
 fun fourDigits() {

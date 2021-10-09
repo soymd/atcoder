@@ -24,6 +24,39 @@ class ABC222Test {
     }
 
     @Test
+    fun failingGrade_1() {
+        input.inputln("4 50")
+        input.inputln("80 60 40 0")
+
+        failingGrade()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("2")))
+    }
+
+    @Test
+    fun failingGrade_2() {
+        input.inputln("3 90")
+        input.inputln("89 89 89")
+
+        failingGrade()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("3")))
+    }
+
+    @Test
+    fun failingGrade_3() {
+        input.inputln("2 22")
+        input.inputln("6 37")
+
+        failingGrade()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("1")))
+    }
+
+    @Test
     fun fourDigits_1() {
         input.inputln("321")
 
