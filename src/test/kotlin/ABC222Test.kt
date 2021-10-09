@@ -24,6 +24,34 @@ class ABC222Test {
     }
 
     @Test
+    fun swissSystemTournament_1() {
+        input.inputln("2 3")
+        input.inputln("GCP")
+        input.inputln("PPP")
+        input.inputln("CCC")
+        input.inputln("PPC")
+
+        swissSystemTournament()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("3", "1", "2", "4")))
+    }
+
+    @Test
+    fun swissSystemTournament_2() {
+        input.inputln("2 2")
+        input.inputln("GC")
+        input.inputln("PG")
+        input.inputln("CG")
+        input.inputln("PP")
+
+        swissSystemTournament()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("1", "2", "3", "4")))
+    }
+
+    @Test
     fun failingGrade_1() {
         input.inputln("4 50")
         input.inputln("80 60 40 0")
