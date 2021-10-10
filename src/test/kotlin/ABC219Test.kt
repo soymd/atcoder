@@ -65,16 +65,7 @@ class ABC219Test {
         neoLexicographicOrdering()
 
         val result = output.readLines()
-        assertThat(
-            result, equalTo(
-                listOf(
-                    "bzz",
-                    "bzy",
-                    "abx",
-                    "caa"
-                )
-            )
-        )
+        assertThat(result, equalTo(listOf("bzz", "bzy", "abx", "caa")))
     }
 
     @Test
@@ -89,16 +80,7 @@ class ABC219Test {
         neoLexicographicOrdering()
 
         val result = output.readLines()
-        assertThat(
-            result, equalTo(
-                listOf(
-                    "b",
-                    "bb",
-                    "ba",
-                    "a"
-                )
-            )
-        )
+        assertThat(result, equalTo(listOf("b", "bb", "ba", "a")))
     }
 
     @Test
@@ -114,17 +96,7 @@ class ABC219Test {
         neoLexicographicOrdering()
 
         val result = output.readLines()
-        assertThat(
-            result, equalTo(
-                listOf(
-                    "b",
-                    "a",
-                    "ac",
-                    "ab",
-                    "abc"
-                )
-            )
-        )
+        assertThat(result, equalTo(listOf("b", "a", "ac", "ab", "abc")))
     }
 
     @Test
