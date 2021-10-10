@@ -3,75 +3,33 @@ fun main() {
 }
 
 fun swissSystemTournament() {
-    val (n, m) = readLine()!!.split(" ").map { it.toInt() }
-    val hands = mutableListOf<List<String>>()
-    repeat(n * 2) {
-        hands.add(readLine()!!.split("").filter { it != "" })
+    //参考 https://atcoder.jp/contests/abc222/submissions/26446912
+    val (n, m) = readLine()!!.trim().split(' ').map(String::toInt)
+    val predicate = List(2 * n) {
+        readLine()!!.trim().map {
+            when (it) {
+                'G' -> 0
+                'C' -> 1
+                'P' -> 2
+                else -> TODO()
+            }
+        }
     }
-    val map = mutableMapOf<Int, Int>()
-    for (i in 0 until 2 * n) {
-        map[i] = 0
-    }
-    var rank = map.toList().sortedBy { it.second }.toMutableList()
+    val winCount = IntArray(2 * n)
+    val order = predicate.indices.toMutableList()
 
-    for (round in 0 until m) {
-        rank.forEachIndexed { index, pair ->
-            if (index % 2 == 1) {
-                return@forEachIndexed
-            }
-            val a = rank[index].first
-            val b = rank[index + 1].first
-            val aHand = hands.getOrNull(a)?.getOrNull(round)
-            val bHand = hands.getOrNull(b)?.getOrNull(round)
-            if (aHand == null) {
-                return@forEachIndexed
-            }
-            if (bHand == null) {
-                return@forEachIndexed
-            }
-            val result = gcp(aHand, bHand)
-            if (result == 1) {
-                val now = map[a]!!
-                map[a] = now + 1
-            } else if (result == -1) {
-                val now = map[b]!!
-                map[b] = now + 1
+    repeat(m) { round ->
+        for (i in 0 until 2 * n step 2) {
+            val left = order[i]
+            val right = order[i + 1]
+            when (((predicate[left][round] - predicate[right][round]) + 3) % 3) {
+                1 -> winCount[right] += 1
+                2 -> winCount[left] += 1
             }
         }
-        rank = map.toList().sortedByDescending { it.second }.toMutableList()
+        order.sortWith(compareBy(winCount::get).reversed().thenBy { it })
     }
-
-    rank.forEach {
-        println(it.first + 1)
-    }
-}
-
-private fun gcp(a: String, b: String): Int {
-    if (a == b) {
-        return 0
-    }
-    if (a == "G") {
-        return if (b == "C") {
-            1
-        } else {
-            -1
-        }
-    }
-    if (a == "C") {
-        return if (b == "P") {
-            1
-        } else {
-            -1
-        }
-    }
-    if (a == "P") {
-        return if (b == "G") {
-            1
-        } else {
-            -1
-        }
-    }
-    return 0
+    order.forEach { println(it + 1) }
 }
 
 fun failingGrade() {
