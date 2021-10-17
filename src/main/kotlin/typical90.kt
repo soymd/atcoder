@@ -1,5 +1,36 @@
 fun main() {
-    yokanParty()
+    encyclopediaOfParentheses()
+}
+
+fun encyclopediaOfParentheses() {
+    // https://atcoder.jp/contests/typical90/tasks/typical90_b
+    val n = readLine()!!.toInt()
+
+    if (n % 2 == 1) return
+
+    val init = mutableListOf<String>()
+    repeat(n / 2) {
+        init.add("(")
+        init.add(")")
+    }
+    val cases = init.permutationWithoutRepetition(n).toMutableList().distinct()
+    val ans = cases.filter { case ->
+        isValid(case.toMutableList())
+    }.map {
+        it.joinToString("")
+    }.sorted()
+    ans.forEach {
+        println(it)
+    }
+}
+
+private fun isValid(list: MutableList<String>): Boolean {
+    do {
+        if (list.first() == ")") return false
+        list.removeAt(0)
+        list.removeAt(list.indexOf(")"))
+    } while (list.isNotEmpty())
+    return true
 }
 
 fun yokanParty() {
@@ -31,46 +62,6 @@ fun yokanParty() {
     }
     println(ans.max())
 }
-
-//private enum class Repetition {
-//    WITHOUT_REPETITION,
-//    WITH_REPETITION
-//}
-//
-//private fun <T> List<T>.permutation(k: Int, repetition: Repetition) = when (repetition) {
-//    Repetition.WITH_REPETITION ->
-//        permutationWithRepetition(k)
-//    Repetition.WITHOUT_REPETITION ->
-//        permutationWithoutRepetition(k)
-//}
-//
-//private fun <T> List<T>.combination(k: Int, repetition: Repetition) = when (repetition) {
-//    Repetition.WITH_REPETITION ->
-//        combinationWithRepetition(k)
-//    Repetition.WITHOUT_REPETITION ->
-//        combinationWithoutRepetition(k)
-//}
-
-private fun <T> pcSequenceFactory(
-    selecteds: List<T> = emptyList(),
-    filter: (options: List<T>, i: Int) -> List<T>
-): (options: List<T>, k: Int) -> Sequence<List<T>> =
-    { options, k ->
-        sequence {
-            if (k == 0) {
-                yield(selecteds)
-                return@sequence
-            }
-
-            options.forEachIndexed { i, option ->
-                pcSequenceFactory(selecteds + option, filter).let {
-                    it(filter(options, i), k - 1)
-                }.forEach {
-                    yield(it)
-                }
-            }
-        }
-    }
 
 /** 重複なしの順列 */
 private fun <T> List<T>.permutationWithoutRepetition(k: Int): Sequence<List<T>> {
@@ -108,3 +99,23 @@ private fun <T> List<T>.combinationWithRepetition(k: Int): Sequence<List<T>> {
     }(this, k)
 }
 
+private fun <T> pcSequenceFactory(
+    selecteds: List<T> = emptyList(),
+    filter: (options: List<T>, i: Int) -> List<T>
+): (options: List<T>, k: Int) -> Sequence<List<T>> =
+    { options, k ->
+        sequence {
+            if (k == 0) {
+                yield(selecteds)
+                return@sequence
+            }
+
+            options.forEachIndexed { i, option ->
+                pcSequenceFactory(selecteds + option, filter).let {
+                    it(filter(options, i), k - 1)
+                }.forEach {
+                    yield(it)
+                }
+            }
+        }
+    }

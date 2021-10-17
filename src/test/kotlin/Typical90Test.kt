@@ -8,6 +8,132 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class EncyclopediaOfParentheses {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun encyclopediaOfParentheses_1() {
+            input.inputln("2")
+
+            encyclopediaOfParentheses()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("()")))
+        }
+
+        @Test
+        fun encyclopediaOfParentheses_2() {
+            input.inputln("3")
+
+            encyclopediaOfParentheses()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(emptyList()))
+        }
+
+        @Test
+        fun encyclopediaOfParentheses_3() {
+            input.inputln("4")
+
+            encyclopediaOfParentheses()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("(())", "()()")))
+        }
+
+        @Test
+        fun encyclopediaOfParentheses_6() {
+            input.inputln("6")
+
+            encyclopediaOfParentheses()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "((()))",
+                        "(()())",
+                        "(())()",
+                        "()(())",
+                        "()()()"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun encyclopediaOfParentheses_4() {
+            input.inputln("10")
+
+            encyclopediaOfParentheses()
+
+            val result = output.readLines()
+            assertThat(
+                result,
+                equalTo(
+                    listOf(
+                        "((((()))))",
+                        "(((()())))",
+                        "(((())()))",
+                        "(((()))())",
+                        "(((())))()",
+                        "((()(())))",
+                        "((()()()))",
+                        "((()())())",
+                        "((()()))()",
+                        "((())(()))",
+                        "((())()())",
+                        "((())())()",
+                        "((()))(())",
+                        "((()))()()",
+                        "(()((())))",
+                        "(()(()()))",
+                        "(()(())())",
+                        "(()(()))()",
+                        "(()()(()))",
+                        "(()()()())",
+                        "(()()())()",
+                        "(()())(())",
+                        "(()())()()",
+                        "(())((()))",
+                        "(())(()())",
+                        "(())(())()",
+                        "(())()(())",
+                        "(())()()()",
+                        "()(((())))",
+                        "()((()()))",
+                        "()((())())",
+                        "()((()))()",
+                        "()(()(()))",
+                        "()(()()())",
+                        "()(()())()",
+                        "()(())(())",
+                        "()(())()()",
+                        "()()((()))",
+                        "()()(()())",
+                        "()()(())()",
+                        "()()()(())",
+                        "()()()()()"
+                    )
+                )
+            )
+        }
+    }
+
+    @Nested
     class YokanParty {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
