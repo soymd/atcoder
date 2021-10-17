@@ -13,9 +13,7 @@ fun encyclopediaOfParentheses() {
         init.add("(")
         init.add(")")
     }
-    val gfg = GFG()
-    gfg.foo(init)
-    val cases = gfg.mutableList
+    val cases = GFG().distinctPermutation(init)
     val ans = cases.filter { case ->
         isValid(case.toMutableList())
     }.map {
@@ -33,14 +31,6 @@ private fun isValid(list: MutableList<String>): Boolean {
         list.removeAt(list.indexOf(")"))
     } while (list.isNotEmpty())
     return true
-}
-
-private fun factorial(num: Int): Int {
-    var factorial: Long = 1
-    for (i in 1..num) {
-        factorial *= i.toLong()
-    }
-    return factorial.toInt()
 }
 
 fun yokanParty() {
@@ -130,7 +120,15 @@ private fun <T> pcSequenceFactory(
         }
     }
 
-class GFG {
+private fun factorial(num: Int): Int {
+    var factorial: Long = 1
+    for (i in 1..num) {
+        factorial *= i.toLong()
+    }
+    return factorial.toInt()
+}
+
+private class GFG {
     // https://www.geeksforgeeks.org/distinct-permutations-string-set-2/
     // Returns true if str[curr] does not matches with any of the
     // characters after str[start]
@@ -144,7 +142,7 @@ class GFG {
     }
 
     // Prints all distinct permutations in str[0..n-1]
-    val mutableList = mutableListOf<List<String>>()
+    private val mutableList = mutableListOf<List<String>>()
     private fun findPermutations(str: MutableList<String>, index: Int, n: Int) {
         if (index >= n) {
             mutableList.add(str.toList())
@@ -170,15 +168,9 @@ class GFG {
         str[j] = c
     }
 
-//    @JvmStatic
-//    fun main(args: Array<String>) {
-//        val str = mutableListOf("A", "A", "B", "B")
-//        val n = str.size
-//        findPermutations(str, 0, n)
-//    }
-
-    fun foo(list: MutableList<String>) {
+    fun distinctPermutation(list: MutableList<String>): List<List<String>> {
         val n = list.size
         findPermutations(list, 0, n)
+        return mutableList
     }
 }
