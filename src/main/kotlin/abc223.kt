@@ -1,6 +1,100 @@
 fun main() {
-    doukasen()
+    restrictedPermutation()
 }
+
+fun restrictedPermutation() {
+    val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val restricts = List(m) {
+        val (a, b) = readLine()!!.trim().split(" ").map { it.toInt() }
+        a to b
+    }
+
+    val init = IntArray(n) { it + 1 }.toList()
+    val permutations = init.permutationWithoutRepetition(init.count()).toList()
+    var ans = permutations.filter { list ->
+        var bool = true
+        restricts.forEach { restrict ->
+            list.forEachIndexed { index, num ->
+                if (num == restrict.first) {
+                    val before = list.subList(0, index + 1)
+                    val after = list.subList(index, list.count() - 1)
+                    val containsBefore = before.contains(restrict.second)
+                    val containsAfter = after.contains(restrict.second)
+                    if (containsBefore && !containsAfter) {
+                        bool = false
+                        return@forEachIndexed
+                    }
+                }
+            }
+        }
+        bool
+    }
+    val hoge = ans.sortedBy { list ->
+        list.map { it.toString() }.joinToString("").toInt()
+    }
+    if (hoge.isEmpty()) {
+        println(-1)
+    } else {
+        println(hoge.first().joinToString(" "))
+    }
+}
+
+/** 重複なしの順列 */
+private fun <T> List<T>.permutationWithoutRepetition(k: Int): Sequence<List<T>> {
+    require(k in 0..size) { "引数 k は 0 以上かつ $size 以下でなければなりません。k: $k" }
+
+    return pcSequenceFactory<T> { options, i ->
+        options.take(i) + options.drop(i + 1)
+    }(this, k)
+}
+
+/** 重複なしの組み合わせ */
+private fun <T> List<T>.combinationWithoutRepetition(k: Int): Sequence<List<T>> {
+    require(k in 0..size) { "引数 k は 0 以上かつ $size 以下でなければなりません。k: $k" }
+
+    return pcSequenceFactory<T> { options, i ->
+        options.drop(i + 1)
+    }(this, k)
+}
+
+/** 重複ありの順列 */
+private fun <T> List<T>.permutationWithRepetition(k: Int): Sequence<List<T>> {
+    require(k >= 0) { "引数 k は 0 以上でなければなりません。k: $k" }
+
+    return pcSequenceFactory<T> { options, i ->
+        options
+    }(this, k)
+}
+
+/** 重複ありの組み合わせ */
+private fun <T> List<T>.combinationWithRepetition(k: Int): Sequence<List<T>> {
+    require(k >= 0) { "引数 k は 0 以上でなければなりません。k: $k" }
+
+    return pcSequenceFactory<T> { options, i ->
+        options.drop(i)
+    }(this, k)
+}
+
+private fun <T> pcSequenceFactory(
+    selecteds: List<T> = emptyList(),
+    filter: (options: List<T>, i: Int) -> List<T>
+): (options: List<T>, k: Int) -> Sequence<List<T>> =
+    { options, k ->
+        sequence {
+            if (k == 0) {
+                yield(selecteds)
+                return@sequence
+            }
+
+            options.forEachIndexed { i, option ->
+                pcSequenceFactory(selecteds + option, filter).let {
+                    it(filter(options, i), k - 1)
+                }.forEach {
+                    yield(it)
+                }
+            }
+        }
+    }
 
 fun doukasen() {
     val n = readLine()!!.toInt()

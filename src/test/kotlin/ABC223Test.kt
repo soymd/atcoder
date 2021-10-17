@@ -24,6 +24,32 @@ class ABC223Test {
     }
 
     @Test
+    fun restrictedPermutation_1() {
+        input.inputln("4 3")
+        input.inputln("2 1")
+        input.inputln("3 4")
+        input.inputln("2 4")
+
+        restrictedPermutation()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("2 1 3 4")))
+    }
+
+    @Test
+    fun restrictedPermutation_2() {
+        input.inputln("2 3")
+        input.inputln("1 2")
+        input.inputln("1 2")
+        input.inputln("2 1")
+
+        restrictedPermutation()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("-1")))
+    }
+
+    @Test
     fun doukasen_1() {
         input.inputln("3")
         input.inputln("1 1")
