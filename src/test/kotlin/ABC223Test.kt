@@ -1,4 +1,4 @@
-import org.hamcrest.CoreMatchers
+import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -24,13 +24,54 @@ class ABC223Test {
     }
 
     @Test
+    fun doukasen_1() {
+        input.inputln("3")
+        input.inputln("1 1")
+        input.inputln("2 1")
+        input.inputln("3 1")
+
+        doukasen()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("3.000000000000000")))
+    }
+
+    @Test
+    fun doukasen_2() {
+        input.inputln("3")
+        input.inputln("1 3")
+        input.inputln("2 2")
+        input.inputln("3 1")
+
+        doukasen()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("3.833333333333333")))
+    }
+
+    @Test
+    fun doukasen_3() {
+        input.inputln("5")
+        input.inputln("3 9")
+        input.inputln("1 2")
+        input.inputln("4 6")
+        input.inputln("1 5")
+        input.inputln("5 3")
+
+        doukasen()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("8.916666666666668")))
+    }
+
+    @Test
     fun stringShifting_1() {
         input.inputln("aaba")
 
         stringShifting()
 
         val result = output.readLines()
-        assertThat(result, CoreMatchers.equalTo(listOf("aaab", "baaa")))
+        assertThat(result, equalTo(listOf("aaab", "baaa")))
     }
 
     @Test
@@ -40,7 +81,7 @@ class ABC223Test {
         stringShifting()
 
         val result = output.readLines()
-        assertThat(result, CoreMatchers.equalTo(listOf("z", "z")))
+        assertThat(result, equalTo(listOf("z", "z")))
     }
 
     @Test
@@ -50,6 +91,6 @@ class ABC223Test {
         stringShifting()
 
         val result = output.readLines()
-        assertThat(result, CoreMatchers.equalTo(listOf("aabracadabr", "racadabraab")))
+        assertThat(result, equalTo(listOf("aabracadabr", "racadabraab")))
     }
 }
