@@ -1,5 +1,28 @@
 fun main() {
-    encyclopediaOfParentheses()
+    crossSum()
+}
+
+fun crossSum() {
+    val (h, w) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val a = List(h) {
+        readLine()!!.trim().split(" ").map { it.toInt() }
+    }
+
+    val ans = MutableList(h) {
+        MutableList(w) { 0 }
+    }
+
+    a.forEachIndexed { i, row ->
+        row.forEachIndexed { j, column ->
+            val rowSum = a.sumBy { it[j] }
+            val columnSum = row.sum()
+            ans[i][j] = rowSum + columnSum - column
+        }
+    }
+
+    ans.forEach { row ->
+        println(row.joinToString(" "))
+    }
 }
 
 fun encyclopediaOfParentheses() {
