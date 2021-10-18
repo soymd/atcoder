@@ -25,12 +25,19 @@ fun encyclopediaOfParentheses() {
 }
 
 private fun isValid(list: MutableList<String>): Boolean {
-    do {
-        if (list.first() == ")") return false
-        list.removeAt(0)
-        list.removeAt(list.indexOf(")"))
-    } while (list.isNotEmpty())
-    return true
+    var openCount = 0
+    var closeCount = 0
+    list.forEach {
+        if (it == "(") {
+            ++openCount
+        } else if (it == ")") {
+            ++closeCount
+        }
+        if (openCount < closeCount) {
+            return false
+        }
+    }
+    return openCount == closeCount
 }
 
 fun yokanParty() {
