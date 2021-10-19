@@ -14,7 +14,7 @@ fun cpClasses() {
     a.sort()
     val ans = mutableListOf<Int>()
     b.forEach { student ->
-        //二分木探索で近い値を求める https://note.com/kirimin_chan/n/n3b5c9a0d4290
+        //二分木探索で近い値を求める https://note.com/kirimin_chan/n/n3b5c9a0d4290き
         val index = a.binarySearch(student)
         if (index >= 0) {
             ans.add(0)
