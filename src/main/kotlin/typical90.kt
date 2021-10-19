@@ -1,4 +1,4 @@
-import kotlin.math.abs
+import kotlin.math.absoluteValue
 
 fun main() {
     cpClasses()
@@ -6,15 +6,29 @@ fun main() {
 
 fun cpClasses() {
     val n = readLine()!!.toInt()
-    val a = readLine()!!.trim().split(" ").map { it.toLong() }
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }.toMutableList()
     val q = readLine()!!.toInt()
     val b = List(q) {
         readLine()!!.toInt()
     }
-    val ans = mutableListOf<Long>()
-    b.forEach { i ->
-        val min = a.minBy { x: Long -> abs(x - i) }!!
-        ans.add(abs(min - i))
+    a.sort()
+    val ans = mutableListOf<Int>()
+    b.forEach { student ->
+        //二分木探索で近い値を求める https://note.com/kirimin_chan/n/n3b5c9a0d4290
+        val index = a.binarySearch(student)
+        if (index >= 0) {
+            ans.add(0)
+        } else {
+            val largeIndex = -index - 1
+            val smallIndex = -index - 2
+            val large = (a.getOrElse(largeIndex) { a[smallIndex] } - student).absoluteValue
+            val small = (a.getOrElse(smallIndex) { a[largeIndex] } - student).absoluteValue
+            if (large > small) {
+                ans.add(small)
+            } else {
+                ans.add(large)
+            }
+        }
     }
     ans.forEach { println(it) }
 }
