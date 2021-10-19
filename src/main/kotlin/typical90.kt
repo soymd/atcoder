@@ -1,4 +1,4 @@
-import kotlin.math.absoluteValue
+import kotlin.math.abs
 
 fun main() {
     cpClasses()
@@ -13,14 +13,8 @@ fun cpClasses() {
     }
     val ans = mutableListOf<Long>()
     b.forEach { i ->
-        var min = Long.MAX_VALUE
-        a.forEach {
-            val temp = it - i
-            if (temp.absoluteValue < min) {
-                min = temp.absoluteValue
-            }
-        }
-        ans.add(min)
+        val min = a.minBy { x: Long -> abs(x - i) }!!
+        ans.add(abs(min - i))
     }
     ans.forEach { println(it) }
 }
