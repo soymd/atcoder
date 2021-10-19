@@ -25,7 +25,7 @@ class Typical90Test {
         }
 
         @Test
-        fun crossSum_0() {
+        fun crossSum_a() {
             input.inputln("2 2")
 
             input.inputln("1 2")
@@ -39,6 +39,26 @@ class Typical90Test {
                     listOf(
                         "6 7",
                         "8 9"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun crossSum_b() {
+            input.inputln("2 3")
+
+            input.inputln("1 2 3")
+            input.inputln("4 5 6")
+
+            crossSum()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "10 11 12",
+                        "16 17 18"
                     )
                 )
             )

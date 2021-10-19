@@ -8,20 +8,23 @@ fun crossSum() {
         readLine()!!.trim().split(" ").map { it.toInt() }
     }
 
-    val ans = MutableList(h) {
-        MutableList(w) { 0 }
+    val columnSum = MutableList(w) { 0 }
+    val rowSum = mutableListOf<Int>()
+    a.forEachIndexed { i, row ->
+        var temp = 0
+        row.forEachIndexed { j, num ->
+            columnSum[j] += num
+            temp += num
+        }
+        rowSum.add(temp)
     }
 
     a.forEachIndexed { i, row ->
+        val answer = mutableListOf<Int>()
         row.forEachIndexed { j, column ->
-            val rowSum = a.sumBy { it[j] }
-            val columnSum = row.sum()
-            ans[i][j] = rowSum + columnSum - column
+            answer.add(rowSum[i] + columnSum[j] - column)
         }
-    }
-
-    ans.forEach { row ->
-        println(row.joinToString(" "))
+        println(answer.joinToString(" "))
     }
 }
 
