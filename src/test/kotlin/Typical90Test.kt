@@ -8,6 +8,198 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class CPClasses {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun cpClasses_1() {
+            input.inputln("4")
+            input.inputln("4000 4400 5000 3200")
+            input.inputln("3")
+            input.inputln("3312")
+            input.inputln("2992")
+            input.inputln("4229")
+
+            cpClasses()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "112",
+                        "208",
+                        "171"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun cpClasses_2() {
+            input.inputln("1")
+            input.inputln("4000")
+            input.inputln("10")
+            input.inputln("3582")
+            input.inputln("3538")
+            input.inputln("3320")
+            input.inputln("3312")
+            input.inputln("3296")
+            input.inputln("3257")
+            input.inputln("3111")
+            input.inputln("3040")
+            input.inputln("3013")
+            input.inputln("2994")
+
+            cpClasses()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "418",
+                        "462",
+                        "680",
+                        "688",
+                        "704",
+                        "743",
+                        "889",
+                        "960",
+                        "987",
+                        "1006"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun cpClasses_3() {
+            input.inputln("10")
+            input.inputln("869120000 998244353 777777777 123456789 100100100 464646464 987654321 252525252 869120001 1000000000")
+            input.inputln("10")
+            input.inputln("4229")
+            input.inputln("20210406")
+            input.inputln("1")
+            input.inputln("268435456")
+            input.inputln("3582")
+            input.inputln("536870912")
+            input.inputln("1000000000")
+            input.inputln("869120")
+            input.inputln("99999999")
+            input.inputln("869120001")
+
+            cpClasses()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "100095871",
+                        "79889694",
+                        "100100099",
+                        "15910204",
+                        "100096518",
+                        "72224448",
+                        "0",
+                        "99230980",
+                        "100101",
+                        "0"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun cpClasses_4() {
+            input.inputln("100")
+            input.inputln("298750376 229032640 602876667 944779015 909539868 533609371 231368330 445484152 408704870 850216874 349286798 30417810 807260002 554049450 40706045 380488344 749325840 801881841 459457853 66691229 5235900 8100458 46697277 997429858 827651689 790051948 981897272 271364774 536232393 997361572 449659237 602191750 294800444 346669663 792837293 277667068 997282249 468293808 444906878 702693341 894286137 845317003 27053625 926547765 739689211 447395911 902031510 326127348 582956343 842918193 235655766 844300842 438389323 406413067 862896425 464876303 68833418 76340212 911399808 745744264 551223563 854507876 196296968 52144186 431165823 275217640 424495332 847375861 337078801 83054466 648322745 694789156 301518763 319851750 432518459 772897937 630628124 581390864 313132255 350770227 642944345 677742851 448945480 688009163 160941957 290297295 5532462 823543277 19634445 15791361 193309093 66202596 72364149 743270896 297240520 264035189 898589962 59916738 307942952 403411309")
+            input.inputln("30")
+            input.inputln("930579110")
+            input.inputln("22697034")
+            input.inputln("44652533")
+            input.inputln("280533771")
+            input.inputln("753567118")
+            input.inputln("684927419")
+            input.inputln("923477579")
+            input.inputln("557613803")
+            input.inputln("779616458")
+            input.inputln("389130756")
+            input.inputln("323671659")
+            input.inputln("3117850")
+            input.inputln("408004003")
+            input.inputln("224808850")
+            input.inputln("18421958")
+            input.inputln("359047808")
+            input.inputln("364572866")
+            input.inputln("334631363")
+            input.inputln("854759331")
+            input.inputln("647435074")
+            input.inputln("826055423")
+            input.inputln("668443532")
+            input.inputln("620408208")
+            input.inputln("32237184")
+            input.inputln("67299071")
+            input.inputln("251185742")
+            input.inputln("217292659")
+            input.inputln("16181227")
+            input.inputln("850865411")
+            input.inputln("218577687")
+
+            cpClasses()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "4031345",
+                        "3062589",
+                        "2044744",
+                        "2866703",
+                        "4241278",
+                        "3081744",
+                        "3070186",
+                        "3564353",
+                        "6718521",
+                        "8642412",
+                        "2455689",
+                        "2118050",
+                        "700867",
+                        "4223790",
+                        "1212487",
+                        "8277581",
+                        "13802639",
+                        "2447438",
+                        "251455",
+                        "887671",
+                        "1596266",
+                        "9299319",
+                        "10219916",
+                        "1819374",
+                        "607842",
+                        "12849447",
+                        "11739981",
+                        "389866",
+                        "648537",
+                        "10454953"
+                    )
+                )
+            )
+        }
+    }
+
+    @Nested
     class CrossSum {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

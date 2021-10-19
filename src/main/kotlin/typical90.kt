@@ -1,5 +1,28 @@
+import kotlin.math.absoluteValue
+
 fun main() {
-    crossSum()
+    cpClasses()
+}
+
+fun cpClasses() {
+    val n = readLine()!!.toInt()
+    val a = readLine()!!.trim().split(" ").map { it.toLong() }
+    val q = readLine()!!.toInt()
+    val b = List(q) {
+        readLine()!!.toInt()
+    }
+    val ans = mutableListOf<Long>()
+    b.forEach { i ->
+        var min = Long.MAX_VALUE
+        a.forEach {
+            val temp = it - i
+            if (temp.absoluteValue < min) {
+                min = temp.absoluteValue
+            }
+        }
+        ans.add(min)
+    }
+    ans.forEach { println(it) }
 }
 
 fun crossSum() {
