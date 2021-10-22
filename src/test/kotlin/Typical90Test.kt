@@ -8,6 +8,187 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class ScoreSumQueries {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun scoreSumQueries_1() {
+            input.inputln("7")
+            input.inputln("1 72")// 1
+            input.inputln("2 78")// 2
+            input.inputln("2 94")// 3
+            input.inputln("1 23")// 4
+            input.inputln("2 89")// 5
+            input.inputln("1 40")// 6
+            input.inputln("1 75")// 7
+            input.inputln("1")
+            input.inputln("2 6")
+
+            scoreSumQueries()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("63 261")))
+            //学籍番号 2∼6 番の 1 組生徒における、期末試験合計点は 23+40=63 です。
+            //また、学籍番号 2∼6 番の 2 組生徒における、期末試験合計点は 78+94+89=261 です。
+        }
+
+        @Test
+        fun scoreSumQueries_2() {
+            input.inputln("7")
+            input.inputln("1 72")
+            input.inputln("2 78")
+            input.inputln("2 94")
+            input.inputln("1 23")
+            input.inputln("2 89")
+            input.inputln("1 40")
+            input.inputln("1 75")
+            input.inputln("10")
+            input.inputln("1 3")
+            input.inputln("2 4")
+            input.inputln("3 5")
+            input.inputln("4 6")
+            input.inputln("5 7")
+            input.inputln("1 5")
+            input.inputln("2 6")
+            input.inputln("3 7")
+            input.inputln("1 6")
+            input.inputln("2 7")
+
+            scoreSumQueries()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "72 172",
+                        "23 172",
+                        "23 183",
+                        "63 89",
+                        "115 89",
+                        "95 261",
+                        "63 261",
+                        "138 183",
+                        "135 261",
+                        "138 261"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun scoreSumQueries_3() {
+            input.inputln("1")
+            input.inputln("1 100")
+            input.inputln("3")
+            input.inputln("1 1")
+            input.inputln("1 1")
+            input.inputln("1 1")
+
+            scoreSumQueries()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "100 0",
+                        "100 0",
+                        "100 0"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun scoreSumQueries_4() {
+            input.inputln("20")
+            input.inputln("2 90")
+            input.inputln("1 67")
+            input.inputln("2 9")
+            input.inputln("2 17")
+            input.inputln("2 85")
+            input.inputln("2 43")
+            input.inputln("2 11")
+            input.inputln("1 32")
+            input.inputln("2 16")
+            input.inputln("1 19")
+            input.inputln("2 65")
+            input.inputln("1 14")
+            input.inputln("1 51")
+            input.inputln("2 94")
+            input.inputln("1 4")
+            input.inputln("1 55")
+            input.inputln("2 90")
+            input.inputln("1 89")
+            input.inputln("1 35")
+            input.inputln("2 81")
+            input.inputln("20")
+            input.inputln("3 17")
+            input.inputln("5 5")
+            input.inputln("11 11")
+            input.inputln("8 10")
+            input.inputln("3 13")
+            input.inputln("2 6")
+            input.inputln("3 7")
+            input.inputln("3 5")
+            input.inputln("12 18")
+            input.inputln("4 8")
+            input.inputln("3 16")
+            input.inputln("6 8")
+            input.inputln("3 20")
+            input.inputln("1 12")
+            input.inputln("1 6")
+            input.inputln("5 16")
+            input.inputln("3 10")
+            input.inputln("17 19")
+            input.inputln("4 4")
+            input.inputln("7 15")
+
+            scoreSumQueries()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "175 430",
+                        "0 85",
+                        "0 65",
+                        "51 16",
+                        "116 246",
+                        "67 154",
+                        "0 165",
+                        "0 111",
+                        "213 184",
+                        "32 156",
+                        "175 340",
+                        "32 54",
+                        "299 511",
+                        "132 336",
+                        "67 244",
+                        "175 314",
+                        "51 181",
+                        "124 90",
+                        "0 17",
+                        "120 186"
+                    )
+                )
+            )
+        }
+    }
+
+    @Nested
     class CPClasses {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

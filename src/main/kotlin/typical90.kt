@@ -1,7 +1,27 @@
 import kotlin.math.absoluteValue
 
 fun main() {
-    cpClasses()
+    scoreSumQueries()
+}
+
+fun scoreSumQueries() {
+    val n = readLine()!!.toInt()
+    val students = List(n) {
+        val (c, p) = readLine()!!.trim().split(" ").map { it.toInt() }
+        c to p
+    }
+    val q = readLine()!!.toInt()
+    val questions = List(q) {
+        val (l, r) = readLine()!!.trim().split(" ").map { it.toInt() }
+        l - 1 to r
+    }
+
+    questions.forEach { (l, r) ->
+        val subList = students.subList(l, r)
+        val one = subList.filter { it.first == 1 }.sumBy { it.second }
+        val two = subList.filter { it.first == 2 }.sumBy { it.second }
+        println("$one $two")
+    }
 }
 
 fun cpClasses() {
