@@ -6,14 +6,20 @@ fun main() {
 
 fun scoreSumQueries() {
     val n = readLine()!!.toInt()
-    val class1 = mutableListOf<Pair<Int, Int>>()
-    val class2 = mutableListOf<Pair<Int, Int>>()
+    val class1 = mutableListOf<Int>()
+    val class2 = mutableListOf<Int>()
     repeat(n) {
         val (c, p) = readLine()!!.trim().split(" ").map { it.toInt() }
         if (c == 1) {
-            class1.add(it to p)
+            val sum1 = class1.lastOrNull() ?: 0
+            class1.add(sum1 + p)
+            val sum2 = class2.lastOrNull() ?: 0
+            class2.add(sum2)
         } else {
-            class2.add(it to p)
+            val sum2 = class2.lastOrNull() ?: 0
+            class2.add(sum2 + p)
+            val sum1 = class1.lastOrNull() ?: 0
+            class1.add(sum1)
         }
     }
     val q = readLine()!!.toInt()
@@ -23,8 +29,8 @@ fun scoreSumQueries() {
     }
 
     questions.forEach { (l, r) ->
-        val one = class1.filter { it.first in l..r }.sumBy { it.second }
-        val two = class2.filter { it.first in l..r }.sumBy { it.second }
+        val one = class1[r] - (class1.getOrNull(l - 1) ?: 0)
+        val two = class2[r] - (class2.getOrNull(l - 1) ?: 0)
         println("$one $two")
     }
 }
