@@ -6,31 +6,31 @@ fun main() {
 
 fun scoreSumQueries() {
     val n = readLine()!!.toInt()
-    val class1 = mutableListOf<Int>()
-    val class2 = mutableListOf<Int>()
+    val class1 = mutableListOf(0)
+    val class2 = mutableListOf(0)
     repeat(n) {
         val (c, p) = readLine()!!.trim().split(" ").map { it.toInt() }
         if (c == 1) {
-            val sum1 = class1.lastOrNull() ?: 0
+            val sum1 = class1.last()
             class1.add(sum1 + p)
-            val sum2 = class2.lastOrNull() ?: 0
+            val sum2 = class2.last()
             class2.add(sum2)
         } else {
-            val sum2 = class2.lastOrNull() ?: 0
+            val sum2 = class2.last()
             class2.add(sum2 + p)
-            val sum1 = class1.lastOrNull() ?: 0
+            val sum1 = class1.last()
             class1.add(sum1)
         }
     }
     val q = readLine()!!.toInt()
     val questions = List(q) {
         val (l, r) = readLine()!!.trim().split(" ").map { it.toInt() }
-        l - 1 to r - 1
+        l to r
     }
 
     questions.forEach { (l, r) ->
-        val one = class1[r] - (class1.getOrNull(l - 1) ?: 0)
-        val two = class2[r] - (class2.getOrNull(l - 1) ?: 0)
+        val one = class1[r] - class1[l - 1]
+        val two = class2[r] - class2[l - 1]
         println("$one $two")
     }
 }
