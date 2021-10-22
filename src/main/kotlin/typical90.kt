@@ -4,22 +4,19 @@ fun main() {
     scoreSumQueries()
 }
 
+// 累積和
 fun scoreSumQueries() {
     val n = readLine()!!.toInt()
-    val class1 = mutableListOf(0)
-    val class2 = mutableListOf(0)
+    val class1 = IntArray(n + 1) { 0 }
+    val class2 = IntArray(n + 1) { 0 }
     repeat(n) {
         val (c, p) = readLine()!!.trim().split(" ").map { it.toInt() }
         if (c == 1) {
-            val sum1 = class1.last()
-            class1.add(sum1 + p)
-            val sum2 = class2.last()
-            class2.add(sum2)
+            class1[it + 1] = class1[it] + p
+            class2[it + 1] = class2[it]
         } else {
-            val sum2 = class2.last()
-            class2.add(sum2 + p)
-            val sum1 = class1.last()
-            class1.add(sum1)
+            class2[it + 1] = class2[it] + p
+            class1[it + 1] = class1[it]
         }
     }
     val q = readLine()!!.toInt()
