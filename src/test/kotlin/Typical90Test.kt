@@ -8,6 +8,78 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class WeUsedToSingASongTogether {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun weUsedToSingASongTogether_1() {
+            input.inputln("1")  //N
+            input.inputln("869")//A 家位置
+            input.inputln("120")//B 学校
+
+            weUsedToSingASongTogether()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("749")))
+            //小学生 1 の家と小学校 1 の距離は ∣869−120∣=749 です。
+            //この入力では小学生 1 が必ず小学校 1 に通うことになるため、
+            //この値が不便さとして考えられる唯一の値であり、最小値です。
+        }
+
+        @Test
+        fun weUsedToSingASongTogether_2() {
+            input.inputln("6")
+            input.inputln("8 6 9 1 2 0")
+            input.inputln("1 5 7 2 3 9")
+
+            weUsedToSingASongTogether()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("5")))
+            //小学生 1,2,3,4,5,6 をそれぞれ小学校 3,2,6,4,5,1 に通わせることにすると、
+            //不便さは ∣8−7∣+∣6−5∣+∣9−9∣+∣1−2∣+∣2−3∣+∣0−1∣=5 となります。
+            //これ以上不便さを小さくすることはできないため、答えは 5 です。
+        }
+
+        @Test
+        fun weUsedToSingASongTogether_3() {
+            input.inputln("10")
+            input.inputln("31 41 59 26 53 58 97 93 23 84")
+            input.inputln("17 32 5 8 7 56 88 77 29 35")
+
+            weUsedToSingASongTogether()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("211")))
+        }
+
+        @Test
+        fun weUsedToSingASongTogether_4() {
+            input.inputln("20")
+            input.inputln("804289382 846930886 681692776 714636914 957747792 424238335 719885386 649760491 596516649 189641420 25202361 350490026 783368690 102520058 44897761 967513925 365180539 540383425 304089172 303455735")
+            input.inputln("35005211 521595368 294702567 726956428 336465782 861021530 278722862 233665123 145174065 468703135 101513928 801979801 315634021 635723058 369133068 125898166 59961392 89018454 628175011 656478041")
+
+            weUsedToSingASongTogether()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2736647674")))
+        }
+    }
+
+    @Nested
     class ScoreSumQueries {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

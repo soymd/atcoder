@@ -1,7 +1,24 @@
 import kotlin.math.absoluteValue
 
 fun main() {
-    scoreSumQueries()
+    weUsedToSingASongTogether()
+}
+
+// 貪欲法 適当な基準を用いて、局所的に最適なケースを連続して選択する
+fun weUsedToSingASongTogether() {
+    val n = readLine()!!.toInt()
+    val a = readLine()!!.trim().split(" ").map { it.toLong() }.toMutableList()
+    val b = readLine()!!.trim().split(" ").map { it.toLong() }.toMutableList()
+
+    a.sort()
+    b.sort()
+    var ans = 0L
+
+    a.forEachIndexed { index, i ->
+        ans += (i - b[index]).absoluteValue
+    }
+
+    println(ans)
 }
 
 // 累積和
