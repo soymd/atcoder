@@ -4,10 +4,10 @@ fun main() {
     minimumCoins()
 }
 
+//全探索において無駄になっているところを見つける
 fun minimumCoins() {
     val n = readLine()!!.toInt()
-    val coins = readLine()!!.trim().split(" ").map { it.toInt() }.toMutableList()
-    coins.sortDescending()
+    val coins = readLine()!!.trim().split(" ").map { it.toInt() }.sortedDescending()
 
     val counts = IntArray(coins.size) {
         val i = n / coins[it]
