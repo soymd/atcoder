@@ -18,7 +18,7 @@ fun minimumCoins() {
             val coin0sum = coins[0] * i
             val coin1sum = coins[1] * j
             val rest = n - coin0sum - coin1sum
-            if (rest > 0 && rest % coins[2] == 0) {
+            if (rest >= 0 && rest % coins[2] == 0) {
                 val i1 = rest / coins[2]
                 ans.add(i + j + i1)
             }
