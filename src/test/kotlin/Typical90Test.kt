@@ -8,6 +8,83 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class MinimumCoins {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun minimumCoins_a() {
+            input.inputln("20") //N
+            input.inputln("8 7 5")//A B C
+
+            minimumCoins()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("3")))
+        }
+
+        @Test
+        fun minimumCoins_1() {
+            input.inputln("227") //N
+            input.inputln("21 47 56")//A B C
+
+            minimumCoins()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("5")))
+            //21 円硬貨を 1 枚、47 円硬貨を 2 枚、56 円硬貨を 2 枚使って支払うのが最適です。
+            //合計で 5 枚となります。
+        }
+
+        @Test
+        fun minimumCoins_2() {
+            input.inputln("9999") //N
+            input.inputln("1 5 10")//A B C
+
+            minimumCoins()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1004")))
+            //1 円硬貨を 4 枚、5 円硬貨を 1 枚、10 円硬貨を 999 枚使って支払うのが最適です。
+            //合計で 1004 枚となります。
+        }
+
+        @Test
+        fun minimumCoins_3() {
+            input.inputln("998244353") //N
+            input.inputln("314159 265358 97932")//A B C
+
+            minimumCoins()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("3333")))
+        }
+
+        @Test
+        fun minimumCoins_4() {
+            input.inputln("100000000") //N
+            input.inputln("10001 10002 10003")//A B C
+
+            minimumCoins()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("9998")))
+        }
+    }
+
+    @Nested
     class WeUsedToSingASongTogether {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

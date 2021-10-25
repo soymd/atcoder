@@ -1,7 +1,31 @@
 import kotlin.math.absoluteValue
 
 fun main() {
-    weUsedToSingASongTogether()
+    minimumCoins()
+}
+
+fun minimumCoins() {
+    val n = readLine()!!.toInt()
+    val coins = readLine()!!.trim().split(" ").map { it.toInt() }.toMutableList()
+    coins.sortDescending()
+
+    val counts = IntArray(coins.size) {
+        n / coins[it]
+    }
+    for (i in 0..counts[2]) {
+        for (j in 0..counts[1]) {
+            for (k in 0..counts[0]) {
+                val coin1 = coins[0] * k
+                val coin2 = coins[1] * j
+                val coin3 = coins[2] * i
+                val sum = coin1 + coin2 + coin3
+                if (sum == n) {
+                    println(k + j + i)
+                    return
+                }
+            }
+        }
+    }
 }
 
 // 貪欲法 適当な基準を用いて、局所的に最適なケースを連続して選択する
