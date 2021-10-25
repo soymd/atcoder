@@ -17,21 +17,18 @@ fun minimumCoins() {
             i
         }
     }
-    val ans = mutableListOf<Int>()
+    var ans = Int.MAX_VALUE
     for (i in 0..counts[0]) {
         for (j in 0..counts[1]) {
             val coin0sum = coins[0] * i
             val coin1sum = coins[1] * j
             val rest = n - coin0sum - coin1sum
             if (rest >= 0 && rest % coins[2] == 0) {
-                val element = i + j + rest / coins[2]
-                if (element <= 9999) {
-                    ans.add(element)
-                }
+                ans = minOf(ans, i + j + rest / coins[2])
             }
         }
     }
-    println(ans.min())
+    println(ans)
 }
 
 // 貪欲法 適当な基準を用いて、局所的に最適なケースを連続して選択する
