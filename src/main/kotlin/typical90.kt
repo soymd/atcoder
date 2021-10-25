@@ -12,20 +12,19 @@ fun minimumCoins() {
     val counts = IntArray(coins.size) {
         n / coins[it]
     }
-    for (i in 0..counts[2]) {
+    val ans = mutableListOf<Int>()
+    for (i in 0..counts[0]) {
         for (j in 0..counts[1]) {
-            for (k in 0..counts[0]) {
-                val coin1 = coins[0] * k
-                val coin2 = coins[1] * j
-                val coin3 = coins[2] * i
-                val sum = coin1 + coin2 + coin3
-                if (sum == n) {
-                    println(k + j + i)
-                    return
-                }
+            val coin0sum = coins[0] * i
+            val coin1sum = coins[1] * j
+            val rest = n - coin0sum - coin1sum
+            if (rest > 0 && rest % coins[2] == 0) {
+                val i1 = rest / coins[2]
+                ans.add(i + j + i1)
             }
         }
     }
+    println(ans.min())
 }
 
 // 貪欲法 適当な基準を用いて、局所的に最適なケースを連続して選択する

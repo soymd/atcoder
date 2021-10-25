@@ -82,6 +82,17 @@ class Typical90Test {
             val result = output.readLines()
             assertThat(result, equalTo(listOf("9998")))
         }
+
+        @Test
+        fun minimumCoins_rand_01() {
+            input.inputln("825929284") //N
+            input.inputln("86728 105490 106772")//A B C
+
+            minimumCoins()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("7775")))
+        }
     }
 
     @Nested
