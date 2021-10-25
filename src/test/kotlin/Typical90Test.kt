@@ -95,6 +95,17 @@ class Typical90Test {
         }
 
         @Test
+        fun minimumCoins_small_1() {
+            input.inputln("25297") //N
+            input.inputln("1 4 3")//A B C
+
+            minimumCoins()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("6325")))
+        }
+
+        @Test
         fun minimumCoins_small_2() {
             input.inputln("972046963") //N
             input.inputln("945667046 972046963 3805433")//A B C

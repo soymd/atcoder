@@ -10,7 +10,12 @@ fun minimumCoins() {
     coins.sortDescending()
 
     val counts = IntArray(coins.size) {
-        n / coins[it]
+        val i = n / coins[it]
+        if (i > 9999) {
+            9999
+        } else {
+            i
+        }
     }
     val ans = mutableListOf<Int>()
     for (i in 0..counts[0]) {
@@ -19,8 +24,10 @@ fun minimumCoins() {
             val coin1sum = coins[1] * j
             val rest = n - coin0sum - coin1sum
             if (rest >= 0 && rest % coins[2] == 0) {
-                val i1 = rest / coins[2]
-                ans.add(i + j + i1)
+                val element = i + j + rest / coins[2]
+                if (element <= 9999) {
+                    ans.add(element)
+                }
             }
         }
     }
