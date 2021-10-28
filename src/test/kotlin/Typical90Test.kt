@@ -8,6 +8,101 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class StatueOfChokudai {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun statueOfChokudai_a() {
+            input.inputln("360")//T分で1周
+            input.inputln("2 1 1")//L X Y
+            input.inputln("9")//Q
+            input.inputln("10")//E
+            input.inputln("30")//E
+            input.inputln("45")//E
+            input.inputln("60")//E
+            input.inputln("89")//E
+            input.inputln("120")//E
+            input.inputln("210")//E
+            input.inputln("240")//E
+            input.inputln("330")//E
+
+            statueOfChokudai()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("0.000000000000")))
+        }
+
+        @Test
+        fun statueOfChokudai_1() {
+            input.inputln("4")//T分で1周
+            input.inputln("2 1 1")//L X Y
+            input.inputln("4")//Q
+            input.inputln("0")//E
+            input.inputln("1")//E
+            input.inputln("2")//E
+            input.inputln("3")//E
+
+            statueOfChokudai()
+//高橋直大像は、座標 (1,1,0) に存在します。
+//時刻 0 において、E869120 君は座標 (0,0,0) に存在し、E869120 君から見た高橋直大像の俯角は 0 度です。
+//時刻 3 において、E869120 君は座標 (0,1,1) に存在し、E869120 君から見た高橋直大像の俯角は 45 度です。
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "0.000000000000",
+                        "24.094842552111",
+                        "54.735610317245",
+                        "45.000000000000"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun statueOfChokudai_2() {
+            input.inputln("5121")//T
+            input.inputln("312000000 4123 3314")//L X Y
+            input.inputln("6")//Q
+            input.inputln("123")//E
+            input.inputln("12")//E
+            input.inputln("445")//E
+            input.inputln("4114")//E
+            input.inputln("42")//E
+            input.inputln("1233")//E
+
+            statueOfChokudai()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "4.322765775902",
+                        "0.421184234768",
+                        "15.640867693969",
+                        "35.396039162484",
+                        "1.475665637902",
+                        "43.338582976959"
+                    )
+                )
+            )
+        }
+    }
+
+    @Nested
     class MinimumCoins {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

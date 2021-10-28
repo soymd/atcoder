@@ -1,7 +1,78 @@
-import kotlin.math.absoluteValue
+import kotlin.math.*
 
 fun main() {
-    minimumCoins()
+    statueOfChokudai()
+}
+
+fun statueOfChokudai() {
+    val t = readLine()!!.toInt()
+    val (l, x, y) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val q = readLine()!!.toInt()
+    val e = List(q) {
+        readLine()!!.toInt()
+    }
+
+    e.forEach { question ->
+        val xlPos = xlPos(l, t, question)
+        val bottomAndHeight = bottomAndHeight(Pair(x, y), xlPos)
+        val angle = angle(bottomAndHeight.first, bottomAndHeight.second)
+        println(angle)
+    }
+}
+
+private fun xlPos(l: Int, t: Int, e: Int): Pair<Double, Double> {
+    val angle = (e.toDouble() / t.toDouble()) * 360.0
+    val radius = l.toDouble() / 2.0
+    return when {
+        angle == 0.0 -> Pair(0.0, 0.0)
+        angle < 90.0 -> sinAndCos(angle, radius)
+        angle == 90.0 -> Pair(-radius, radius)
+        angle < 180.0 -> sinAndCos(angle, radius)
+        angle == 180.0 -> Pair(0.0, l.toDouble())
+        angle < 270.0 -> sinAndCos(angle, radius)
+        angle == 270.0 -> Pair(radius, radius)
+        angle < 360.0 -> sinAndCos(angle, radius)
+        else -> Pair(0.0, 0.0)
+    }
+
+}
+
+private fun sinAndCos(angle: Double, radius: Double): Pair<Double, Double> {
+    val validAngle = when {
+        angle < 90.0 -> angle
+        angle < 180.0 -> angle - 90
+        angle < 270.0 -> 270 - angle
+        else -> 360 - angle
+    }
+    val radian = Math.toRadians(validAngle)
+    val cos = cos(radian) * radius
+    val sin = sin(radian) * radius
+    val pair = when {
+        angle < 90.0 -> Pair(-sin, radius - cos)
+        angle < 180.0 -> Pair(-cos, radius + sin)//
+        angle < 270.0 -> Pair(cos, radius + sin)
+        else -> Pair(sin, radius - cos)
+    }
+    return pair
+}
+
+private fun bottomAndHeight(
+    chokudai: Pair<Int, Int>,
+    xlPos: Pair<Double, Double>
+): Pair<Double, Double> {
+    val bottom = chokudai.first.toDouble() - xlPos.first
+    val height = chokudai.second.toDouble().absoluteValue
+    val foo = bottom * bottom + height * height
+    return Pair(sqrt(foo), xlPos.second)
+}
+
+private fun angle(bottom: Double, height: Double): Double {
+    if (height == 0.0) {
+        return 0.0
+    }
+    val atan = atan(bottom / height)
+    val degree = Math.toDegrees(atan)
+    return 90.0 - degree
 }
 
 //全探索において無駄になっているところを見つける
