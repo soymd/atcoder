@@ -22,6 +22,52 @@ class ABC225Test {
     }
 
     @Test
+    fun starOrNot_1() {
+        input.inputln("5")
+        input.inputln("1 4")
+        input.inputln("2 4")
+        input.inputln("3 4")
+        input.inputln("4 5")
+
+        starOrNot()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun starOrNot_2() {
+        input.inputln("4")
+        input.inputln("2 4")
+        input.inputln("1 4")
+        input.inputln("2 3")
+
+        starOrNot()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun starOrNot_3() {
+        input.inputln("10")
+        input.inputln("9 10")
+        input.inputln("3 10")
+        input.inputln("4 10")
+        input.inputln("8 10")
+        input.inputln("1 10")
+        input.inputln("2 10")
+        input.inputln("7 10")
+        input.inputln("6 10")
+        input.inputln("5 10")
+
+        starOrNot()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
     fun distinctStrings_1() {
         input.inputln("aba")
 
