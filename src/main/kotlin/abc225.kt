@@ -8,26 +8,28 @@ fun calendarValidator() {
         readLine()!!.trim().split(" ").map { it.toLong() }
     }
 
-    if (n == 1) {
-        val list = b.first()
-        list.forEachIndexed inner@{ index1, i ->
-            val tmp = list.getOrElse(index1 + 1) { return@inner }
-            if (i + 1 != tmp) {
-                println("No")
-                return
-            }
-        }
-    }
+    println(calendarValidator(n, m, b))
+}
 
-    if (m == 1) {
-        b.forEachIndexed { index, list ->
-            val nextList = b.getOrElse(index + 1) { return@forEachIndexed }
-            if (list.first() + 7 != nextList.first()) {
-                println("No")
-                return
-            }
-        }
-    }
+fun calendarValidator(n: Int, m: Int, b: List<List<Long>>): String {
+//    if (n == 1) {
+//        val list = b.first()
+//        list.forEachIndexed inner@{ index1, i ->
+//            val tmp = list.getOrElse(index1 + 1) { return@inner }
+//            if (i + 1 != tmp) {
+//                return "No"
+//            }
+//        }
+//    }
+//
+//    if (m == 1) {
+//        b.forEachIndexed { index, list ->
+//            val nextList = b.getOrElse(index + 1) { return@forEachIndexed }
+//            if (list.first() + 7 != nextList.first()) {
+//                return "No"
+//            }
+//        }
+//    }
 
     b.forEachIndexed { index, list ->
         val nextList = b.getOrElse(index + 1) {
@@ -36,8 +38,7 @@ fun calendarValidator() {
                     return@inner
                 }
                 if (i + 1 != tmp) {
-                    println("No")
-                    return
+                    return "No"
                 }
             }
             return@forEachIndexed
@@ -45,20 +46,37 @@ fun calendarValidator() {
         list.forEachIndexed inner@{ index1, i ->
             val l = nextList[index1]
             if (i + 7 != l) {
-                println("No")
-                return
+                return "No"
             }
             val tmp = list.getOrElse(index1 + 1) {
                 return@inner
             }
             if (i + 1 != tmp) {
-                println("No")
-                return
+                return "No"
             }
         }
     }
 
-    println("Yes")
+    return "Yes"
+}
+
+fun ans(n: Int, m: Int, b: List<List<Long>>): String {
+    //https://atcoder.jp/contests/abc225/submissions/26906979
+    val base = b[0][0]
+    if (m > 7 - (base - 1) % 7) {
+        return "No"
+    }
+
+    for (i in 0 until n) {
+        for (j in 0 until m) {
+            val expected = base + 7 * i + j
+            if (b[i][j] != expected) {
+                return "No"
+            }
+        }
+    }
+
+    return "Yes"
 }
 
 fun starOrNot() {

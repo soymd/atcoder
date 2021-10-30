@@ -21,6 +21,43 @@ class ABC225Test {
         System.setOut(null)
     }
 
+//    @Test
+//    fun calendarValidator_random() {
+//        var n = 0
+//        var m = 0
+//        var b: List<List<Long>>
+//        var diff = false
+//        var count = 0L
+//        do {
+//            count++
+//            n = (1..10).random()
+//            m = (1..7).random()
+//
+//            val list = List(n) {
+//                List(m) {
+//                    (1L..100).random()
+//                }
+//            }
+//            b = list
+//
+//            val ans = ans(n, m, b)
+//            val result = calendarValidator(n, m, b)
+//
+//            diff = ans == result
+//        } while (diff)
+//    }
+
+    @Test
+    fun calendarValidator_aa() {
+        input.inputln("1 2")
+        input.inputln("7 8")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
     @Test
     fun calendarValidator_a() {
         input.inputln("1 3")
