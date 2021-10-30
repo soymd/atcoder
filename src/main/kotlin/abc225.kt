@@ -12,48 +12,22 @@ fun calendarValidator() {
 }
 
 fun calendarValidator(n: Int, m: Int, b: List<List<Long>>): String {
-//    if (n == 1) {
-//        val list = b.first()
-//        list.forEachIndexed inner@{ index1, i ->
-//            val tmp = list.getOrElse(index1 + 1) { return@inner }
-//            if (i + 1 != tmp) {
-//                return "No"
-//            }
-//        }
-//    }
-//
-//    if (m == 1) {
-//        b.forEachIndexed { index, list ->
-//            val nextList = b.getOrElse(index + 1) { return@forEachIndexed }
-//            if (list.first() + 7 != nextList.first()) {
-//                return "No"
-//            }
-//        }
-//    }
-
     b.forEachIndexed { index, list ->
-        val nextList = b.getOrElse(index + 1) {
-            list.forEachIndexed inner@{ index1, i ->
-                val tmp = list.getOrElse(index1 + 1) {
-                    return@inner
-                }
-                if (i + 1 != tmp) {
+        list.forEachIndexed inner@{ index1, i ->
+            list.getOrNull(index1 + 1)?.let {
+                if (i + 1 != it) {
                     return "No"
                 }
             }
-            return@forEachIndexed
+            b.getOrNull(index + 1)?.let { nextList ->
+                val l = nextList[index1]
+                if (i + 7 != l) {
+                    return "No"
+                }
+            }
         }
-        list.forEachIndexed inner@{ index1, i ->
-            val l = nextList[index1]
-            if (i + 7 != l) {
-                return "No"
-            }
-            val tmp = list.getOrElse(index1 + 1) {
-                return@inner
-            }
-            if (i + 1 != tmp) {
-                return "No"
-            }
+        if (list.count() > 1 && list[list.count() - 2] % 7 == 0L) {
+            return "No"
         }
     }
 
