@@ -8,21 +8,6 @@ fun calendarValidator() {
         readLine()!!.trim().split(" ").map { it.toLong() }
     }
 
-    b.forEachIndexed { index, list ->
-        val nextList = b.getOrElse(index + 1) { return@forEachIndexed }
-        list.forEachIndexed inner@{ index1, i ->
-            val tmp = list.getOrElse(index1 + 1) { return@inner }
-            if (i + 1 != tmp) {
-                println("No")
-                return
-            }
-            if (i + 7 != nextList[index1]) {
-                println("No")
-                return
-            }
-        }
-    }
-
     if (n == 1) {
         val list = b.first()
         list.forEachIndexed inner@{ index1, i ->
@@ -38,6 +23,35 @@ fun calendarValidator() {
         b.forEachIndexed { index, list ->
             val nextList = b.getOrElse(index + 1) { return@forEachIndexed }
             if (list.first() + 7 != nextList.first()) {
+                println("No")
+                return
+            }
+        }
+    }
+
+    b.forEachIndexed { index, list ->
+        val nextList = b.getOrElse(index + 1) {
+            list.forEachIndexed inner@{ index1, i ->
+                val tmp = list.getOrElse(index1 + 1) {
+                    return@inner
+                }
+                if (i + 1 != tmp) {
+                    println("No")
+                    return
+                }
+            }
+            return@forEachIndexed
+        }
+        list.forEachIndexed inner@{ index1, i ->
+            val l = nextList[index1]
+            if (i + 7 != l) {
+                println("No")
+                return
+            }
+            val tmp = list.getOrElse(index1 + 1) {
+                return@inner
+            }
+            if (i + 1 != tmp) {
                 println("No")
                 return
             }

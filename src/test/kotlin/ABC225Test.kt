@@ -91,6 +91,30 @@ class ABC225Test {
     }
 
     @Test
+    fun calendarValidator_g() {
+        input.inputln("2 2")
+        input.inputln("1 2")
+        input.inputln("8 8")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun calendarValidator_h() {
+        input.inputln("2 2")
+        input.inputln("1 2")
+        input.inputln("6 9")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
     fun calendarValidator_1() {
         input.inputln("2 3")
         input.inputln("1 2 3")
