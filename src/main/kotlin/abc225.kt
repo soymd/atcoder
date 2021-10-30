@@ -1,5 +1,39 @@
 fun main() {
-    starOrNot()
+    calendarValidator()
+}
+
+fun calendarValidator() {
+    val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val b = List(n) {
+        readLine()!!.trim().split(" ").map { it.toInt() }
+    }
+
+    b.forEachIndexed { index, list ->
+        val nextList = b.getOrElse(index + 1) { return@forEachIndexed }
+        list.forEachIndexed inner@{ index1, i ->
+            val tmp = list.getOrElse(index1 + 1) { return@inner }
+            if (i + 1 != tmp) {
+                println("No")
+                return
+            }
+            if (i + 7 != nextList[index1]) {
+                println("No")
+                return
+            }
+        }
+    }
+
+    if (m == 1) {
+        b.forEachIndexed { index, list ->
+            val nextList = b.getOrElse(index + 1) { return@forEachIndexed }
+            if (list.first() + 7 != nextList.first()) {
+                println("No")
+                return
+            }
+        }
+    }
+
+    println("Yes")
 }
 
 fun starOrNot() {

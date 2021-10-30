@@ -22,6 +22,50 @@ class ABC225Test {
     }
 
     @Test
+    fun calendarValidator_1() {
+        input.inputln("2 3")
+        input.inputln("1 2 3")
+        input.inputln("8 9 10")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun calendarValidator_2() {
+        input.inputln("2 1")
+        input.inputln("1")
+        input.inputln("2")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun calendarValidator_3() {
+        input.inputln("10 4")
+        input.inputln("1346 1347 1348 1349")
+        input.inputln("1353 1354 1355 1356")
+        input.inputln("1360 1361 1362 1363")
+        input.inputln("1367 1368 1369 1370")
+        input.inputln("1374 1375 1376 1377")
+        input.inputln("1381 1382 1383 1384")
+        input.inputln("1388 1389 1390 1391")
+        input.inputln("1395 1396 1397 1398")
+        input.inputln("1402 1403 1404 1405")
+        input.inputln("1409 1410 1411 1412")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
     fun starOrNot_1() {
         input.inputln("5")
         input.inputln("1 4")
