@@ -5,7 +5,7 @@ fun main() {
 fun calendarValidator() {
     val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
     val b = List(n) {
-        readLine()!!.trim().split(" ").map { it.toInt() }
+        readLine()!!.trim().split(" ").map { it.toLong() }
     }
 
     b.forEachIndexed { index, list ->
@@ -17,6 +17,17 @@ fun calendarValidator() {
                 return
             }
             if (i + 7 != nextList[index1]) {
+                println("No")
+                return
+            }
+        }
+    }
+
+    if (n == 1) {
+        val list = b.first()
+        list.forEachIndexed inner@{ index1, i ->
+            val tmp = list.getOrElse(index1 + 1) { return@inner }
+            if (i + 1 != tmp) {
                 println("No")
                 return
             }

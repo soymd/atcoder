@@ -22,6 +22,75 @@ class ABC225Test {
     }
 
     @Test
+    fun calendarValidator_a() {
+        input.inputln("1 3")
+        input.inputln("1 2 3")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun calendarValidator_b() {
+        input.inputln("1 1")
+        input.inputln("1")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun calendarValidator_c() {
+        input.inputln("2 1")
+        input.inputln("1")
+        input.inputln("8")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("Yes")))
+    }
+
+    @Test
+    fun calendarValidator_d() {
+        input.inputln("3 1")
+        input.inputln("1")
+        input.inputln("8")
+        input.inputln("9")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun calendarValidator_e() {
+        input.inputln("1 7")
+        input.inputln("1 2 3 4 5 6 8")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
+    fun calendarValidator_f() {
+        input.inputln("1 2")
+        input.inputln("1 3")
+
+        calendarValidator()
+
+        val result = output.readLines()
+        assertThat(result, equalTo(listOf("No")))
+    }
+
+    @Test
     fun calendarValidator_1() {
         input.inputln("2 3")
         input.inputln("1 2 3")
