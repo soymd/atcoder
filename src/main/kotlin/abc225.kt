@@ -19,15 +19,17 @@ fun calendarValidator(n: Int, m: Int, b: List<List<Long>>): String {
                     return "No"
                 }
             }
+            list.getOrNull(index1 - 1)?.let {
+                if (it % 7 == 0L) {
+                    return "No"
+                }
+            }
             b.getOrNull(index + 1)?.let { nextList ->
                 val l = nextList[index1]
                 if (i + 7 != l) {
                     return "No"
                 }
             }
-        }
-        if (list.count() > 1 && list[list.count() - 2] % 7 == 0L) {
-            return "No"
         }
     }
 
