@@ -25,6 +25,17 @@ class Typical90Test {
         }
 
         @Test
+        fun logInequality_a() {
+            input.inputln("1000000000000000000 3 2")
+
+            logInequality()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+            //log 2 ​ 4=2,3log 2 ​ 2=3×1=3 より、 log 2 ​ 4<3log 2 ​ 2 です。
+        }
+
+        @Test
         fun logInequality_1() {
             input.inputln("4 3 2")
 

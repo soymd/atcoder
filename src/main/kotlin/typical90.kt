@@ -5,16 +5,28 @@ fun main() {
 }
 
 fun logInequality() {
-    val (a, b, c) = readLine()!!.trim().split(" ").map { it.toDouble() }
+    val (a, b, c) = readLine()!!.trim().split(" ").map { it.toLong() }
 
-    val foo = log(a, 2.0)
-    val bar = log(c, 2.0) * b
+    val foo = hoge(a)//log(x, 2.0)
+    val bar = log(c.toDouble(), 2.0).toLong() * b
 
     if (foo < bar) {
         println("Yes")
     } else {
         println("No")
     }
+}
+
+private fun hoge(l: Long): Int {
+    val base = 2L
+    var exponent = 1
+    var result: Long = 1
+
+    while (result < l) {
+        result *= base
+        ++exponent
+    }
+    return exponent
 }
 
 fun statueOfChokudai() {
