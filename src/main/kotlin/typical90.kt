@@ -7,26 +7,23 @@ fun main() {
 fun logInequality() {
     val (a, b, c) = readLine()!!.trim().split(" ").map { it.toLong() }
 
-    val foo = hoge(a)//log(x, 2.0)
-    val bar = log(c.toDouble(), 2.0).toLong() * b
-
-    if (foo < bar) {
+    val r = pow(b, c)
+    if (a < r) {
         println("Yes")
     } else {
         println("No")
     }
 }
 
-private fun hoge(l: Long): Int {
-    val base = 2L
-    var exponent = 1
+private fun pow(b: Long, c: Long): Long {
+    val base = b.toInt()
+    val exponent = c
     var result: Long = 1
 
-    while (result < l) {
-        result *= base
-        ++exponent
+    repeat(base) {
+        result *= exponent
     }
-    return exponent
+    return result
 }
 
 fun statueOfChokudai() {

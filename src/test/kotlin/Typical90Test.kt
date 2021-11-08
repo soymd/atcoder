@@ -25,14 +25,23 @@ class Typical90Test {
         }
 
         @Test
-        fun logInequality_a() {
-            input.inputln("1000000000000000000 3 2")
+        fun logInequality_b() {
+            input.inputln("8650415919381337932 17 13")
+
+            logInequality()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun `logInequality_Killer_Type_A_-1`() {
+            input.inputln("8650415919381337934 17 13")
 
             logInequality()
 
             val result = output.readLines()
             assertThat(result, equalTo(listOf("No")))
-            //log 2 ​ 4=2,3log 2 ​ 2=3×1=3 より、 log 2 ​ 4<3log 2 ​ 2 です。
         }
 
         @Test
