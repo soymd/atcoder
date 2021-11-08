@@ -8,6 +8,57 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class LogInequality {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun logInequality_1() {
+            input.inputln("4 3 2")
+
+            logInequality()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+            //log 2 ​ 4=2,3log 2 ​ 2=3×1=3 より、 log 2 ​ 4<3log 2 ​ 2 です。
+        }
+
+        @Test
+        fun logInequality_2() {
+            input.inputln("16 3 2")
+
+            logInequality()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+            //log 2 ​ 16=4,3log 2 ​ 2=3×1=3 より、 log 2 ​ 16<3log 2 ​ 2 ではありません。
+        }
+
+        @Test
+        fun logInequality_3() {
+            input.inputln("8 3 2")
+
+            logInequality()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+            //log 2 ​ 8=3,3log 2 ​ 2=3×1=3 より、 log 2 ​ 8=3log 2 ​ 2 です。 両辺の値が等しいときも No を出力することに注意してください。
+        }
+    }
+
+    @Nested
     class StatueOfChokudai {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

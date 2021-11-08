@@ -1,7 +1,20 @@
 import kotlin.math.*
 
 fun main() {
-    statueOfChokudai()
+    logInequality()
+}
+
+fun logInequality() {
+    val (a, b, c) = readLine()!!.trim().split(" ").map { it.toDouble() }
+
+    val foo = log(a, 2.0)
+    val bar = log(c, 2.0) * b
+
+    if (foo < bar) {
+        println("Yes")
+    } else {
+        println("No")
+    }
 }
 
 fun statueOfChokudai() {
