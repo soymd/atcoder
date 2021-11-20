@@ -85,16 +85,6 @@ class ABC228Test {
 
         @Test
         fun onAndOff_c() {
-            input.inputln("0 1 1")
-
-            onAndOff()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("No")))
-        }
-
-        @Test
-        fun onAndOff_d() {
             input.inputln("0 1 0")
 
             onAndOff()
@@ -104,8 +94,18 @@ class ABC228Test {
         }
 
         @Test
+        fun onAndOff_d() {
+            input.inputln("0 1 1")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
         fun onAndOff_e() {
-            input.inputln("0 1 2")
+            input.inputln("0 1 23")
 
             onAndOff()
 
@@ -116,6 +116,26 @@ class ABC228Test {
         @Test
         fun onAndOff_f() {
             input.inputln("0 1 23")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun `onAndOff_1 0 0`() {
+            input.inputln("1 0 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun `onAndOff_23 0 0`() {
+            input.inputln("23 0 0")
 
             onAndOff()
 
@@ -135,7 +155,7 @@ class ABC228Test {
 
         @Test
         fun onAndOff_h() {
-            input.inputln("0 23 0")
+            input.inputln("1 0 23")
 
             onAndOff()
 
@@ -181,6 +201,37 @@ class ABC228Test {
 
             val result = output.readLines()
             assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun onAndOff_m() {
+            input.inputln("1 0 1")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+
+        @Test
+        fun onAndOff_p() {
+            input.inputln("1 0 2")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun onAndOff_q() {
+            input.inputln("1 0 23")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
         }
 
         @Test

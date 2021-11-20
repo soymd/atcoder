@@ -21,7 +21,7 @@ fun takahashisSecret() {
 }
 
 fun onAndOff() {
-    var (s, t, x) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val (s, t, x) = readLine()!!.trim().split(" ").map { it.toInt() }
 
     if (s < t) {
         if (s <= x && x < t) {
@@ -31,8 +31,15 @@ fun onAndOff() {
         }
     } else {
         if (t == 0) {
-            t = 24
-            if (s <= x && x < t) {
+            if (x == 0) {
+                if (s == 1) {
+                    println("Yes")
+                } else {
+                    println("No")
+                }
+                return
+            }
+            if (s <= x && x < 24) {
                 println("Yes")
             } else {
                 println("No")
