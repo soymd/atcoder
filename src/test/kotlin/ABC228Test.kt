@@ -1,75 +1,156 @@
+import org.hamcrest.CoreMatchers.equalTo
+import org.hamcrest.MatcherAssert.assertThat
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
+
 class ABC228Test {
-//    @Nested
-//    inner class SignUpRequest {
-//        private val input = StandardInputStream()
-//        private val output = StandardOutputStream()
-//
-//        @BeforeEach
-//        fun setUp() {
-//            System.setIn(input)
-//            System.setOut(output)
-//        }
-//
-//        @AfterEach
-//        fun tearDown() {
-//            System.setIn(null)
-//            System.setOut(null)
-//        }
-//
-//        @Test
-//        fun signUpRequest_1() {
-//            input.inputln("5")
-//            input.inputln("e869120")
-//            input.inputln("atcoder")
-//            input.inputln("e869120")
-//            input.inputln("square1001")
-//            input.inputln("square1001")
-//
-//            signUpRequest()
-//
-//            val result = output.readLines().map { it.toInt() }
-//            assertThat(result, equalTo(listOf(1, 2, 4)))
-//            //1 日目にはユーザ名 e869120 が申請され、このユーザ名のユーザはいないため、LowCoder に登録されます。
-//            //2 日目にはユーザ名 atcoder が申請され、このユーザ名のユーザはいないため、LowCoder に登録されます。
-//            //3 日目にはユーザ名 e869120 が申請されますが、このユーザ名のユーザは既に登録されているため、受理されません。
-//            //4 日目にはユーザ名 square1001 が申請され、このユーザ名のユーザはいないため、LowCoder に登録されます。
-//            //5 日目にはユーザ名 square1001 が申請されますが、このユーザ名のユーザは既に登録されているため、受理されません。
-//        }
-//
-//        @Test
-//        fun signUpRequest_2() {
-//            input.inputln("4")
-//            input.inputln("taro")
-//            input.inputln("hanako")
-//            input.inputln("yuka")
-//            input.inputln("takashi")
-//
-//            signUpRequest()
-//
-//            val result = output.readLines().map { it.toInt() }
-//            assertThat(result, equalTo(listOf(1, 2, 3, 4)))
-//            //受理されない登録申請が存在しない場合もあります。
-//        }
-//
-//        @Test
-//        fun signUpRequest_3() {
-//            input.inputln("10")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//            input.inputln("square869120")
-//
-//            signUpRequest()
-//
-//            val result = output.readLines().map { it.toInt() }
-//            assertThat(result, equalTo(listOf(1)))
-//            //S i ​ がすべて同じである可能性もあります。。
-//        }
-//    }
+    @Nested
+    inner class OnAndOff {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun onAndOff_a() {
+            input.inputln("20 21 20")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun onAndOff_b() {
+            input.inputln("20 21 20")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun onAndOff_c() {
+            input.inputln("0 1 1")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun onAndOff_d() {
+            input.inputln("0 1 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun onAndOff_e() {
+            input.inputln("0 1 2")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun onAndOff_f() {
+            input.inputln("0 1 23")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun onAndOff_g() {
+            input.inputln("0 23 23")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun onAndOff_h() {
+            input.inputln("0 23 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun onAndOff_i() {
+            input.inputln("23 0 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun onAndOff_j() {
+            input.inputln("23 0 23")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun onAndOff_1() {
+            input.inputln("7 20 12")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun onAndOff_2() {
+            input.inputln("20 7 12")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun onAndOff_3() {
+            input.inputln("23 0 23")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+    }
 }
