@@ -1,7 +1,20 @@
 import kotlin.math.*
 
 fun main() {
-    signUpRequest()
+    atCoderEkiden032()
+}
+
+fun atCoderEkiden032() {
+    val n = readLine()!!.trim().toInt()
+    val a = List(n) {
+        readLine()!!.trim().split(" ").map { it.toInt() }
+    }
+    val m = readLine()!!.trim().toInt()
+    val rumor = List(m) {
+        readLine()!!.trim().split(" ").map { it.toInt() } - 1
+    }
+
+    println()
 }
 
 fun signUpRequest() {

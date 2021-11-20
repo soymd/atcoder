@@ -8,6 +8,80 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    inner class AtCoderEkiden032 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        //1 ≤ N ≤ 10
+        //1 ≤ Aij ≤ 1000 (i ≤ j ≤ N, 1 ≤ j ≤ N)
+        //0 ≤ M ≤ N (N -1) / 2
+        //1 ≤ Xi < Yi ≤ N (1 ≤ i ≤ M)
+        //(Xi, Yi) != (Xj, Yj) (i != j)
+        @Test
+        fun atCoderEkiden032_1() {
+            input.inputln("3")//選手の数 n人
+            input.inputln("1 10 100")//選手nが区間を走るのにかかる時間 a
+            input.inputln("10 1 100")
+            input.inputln("100 10 1")
+            input.inputln("1")//噂の数 m個
+            input.inputln("1 2")//仲の悪い選手 x,y
+
+            atCoderEkiden032()
+            //ゴールするまでにかかる時間の最小値を出力してください。
+            //ただし、各選手が走る区間をどのように決めてもゴールできない場合 -1 を出力してください。
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1)))
+            //選手 1 が第 1 区を走り、選手 2 が第 3 区を走り、
+            //選手 3 が第 2 区を走ることで最小値 111 を達成できます。
+        }
+
+        @Test
+        fun atCoderEkiden032_2() {
+            input.inputln("4")
+            input.inputln("1 2 3 4")
+            input.inputln("5 6 7 8")
+            input.inputln("9 10 11 12")
+            input.inputln("13 14 15 16")
+            input.inputln("3")
+            input.inputln("1 2")
+            input.inputln("1 3")
+            input.inputln("2 3")
+
+            atCoderEkiden032()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(-1)))
+        }
+
+        @Test
+        fun atCoderEkiden032_3() {
+            input.inputln("3")
+            input.inputln("1 10 100")
+            input.inputln("10 1 100")
+            input.inputln("100 10 1")
+            input.inputln("0")
+
+            atCoderEkiden032()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(3)))
+        }
+    }
+
+    @Nested
     inner class SignUpRequest {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
