@@ -8,6 +8,66 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class SelectOne {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun selectOne_1() {
+            input.inputln("2 5")
+            input.inputln("1 3")
+            input.inputln("2 1")
+
+            selectOne()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+            //たとえば、次のようにちょうど 5 回の操作で A を B に一致させることができます。
+            //i=1 を選び、A 1 ​ を A 1 ​ −1 で置き換える。すると、A は (0,3) になる
+            //i=2 を選び、A 2 ​ を A 2 ​ −1 で置き換える。すると、A は (0,2) になる
+            //i=2 を選び、A 2 ​ を A 2 ​ −1 で置き換える。すると、A は (0,1) になる
+            //i=1 を選び、A 1 ​ を A 1 ​ +1 で置き換える。すると、A は (1,1) になる
+            //i=1 を選び、A 1 ​ を A 1 ​ +1 で置き換える。すると、A は (2,1) になり、B に一致する
+        }
+
+        @Test
+        fun selectOne_2() {
+            input.inputln("3 1")
+            input.inputln("7 8 9")
+            input.inputln("7 8 9")
+
+            selectOne()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun selectOne_3() {
+            input.inputln("7 999999999")
+            input.inputln("3 1 4 1 5 9 2")
+            input.inputln("1 2 3 4 5 6 7")
+
+            selectOne()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+    }
+
+    @Nested
     class CubicCake {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

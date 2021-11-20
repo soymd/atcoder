@@ -1,7 +1,30 @@
 import kotlin.math.*
 
 fun main() {
-    cubicCake()
+    selectOne()
+}
+
+fun selectOne() {
+    val (n, k) = readLine()!!.trim().split(" ").map { it.toLong() }
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }
+    val b = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    val sumA = a.sum()
+    val sumB = b.sum()
+    val diff = (sumA - sumB).absoluteValue
+    if (diff > k) {
+        println("No")
+        return
+    } else if (diff.toLong() == k) {
+        println("Yes")
+        return
+    }
+
+    if (diff % 2 == (k % 2).toInt()) {
+        println("Yes")
+    } else {
+        println("No")
+    }
 }
 
 fun cubicCake() {
