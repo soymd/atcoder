@@ -7,6 +7,46 @@ import org.junit.jupiter.api.Test
 
 class ABC228Test {
     @Nested
+    inner class TakahashisSecret {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun takahashisSecret_a() {
+            input.inputln("4 2")
+            input.inputln("3 1 1 2")
+
+            takahashisSecret()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("3")))
+        }
+
+        @Test
+        fun takahashisSecret_b() {
+            input.inputln("20 12")
+            input.inputln("7 11 10 1 7 20 14 2 17 3 2 5 19 20 8 14 18 2 10 10")
+
+            takahashisSecret()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("7")))
+        }
+    }
+
+    @Nested
     inner class OnAndOff {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

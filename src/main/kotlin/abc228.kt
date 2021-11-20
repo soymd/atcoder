@@ -1,5 +1,23 @@
 fun main() {
-    onAndOff()
+    takahashisSecret()
+}
+
+fun takahashisSecret() {
+    val (n, x) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val a = readLine()!!.trim().split(" ").map { it.toInt() - 1 }
+
+    val map = mutableMapOf<Int, Boolean>()
+    repeat(n) {
+        map[it] = false
+    }
+
+    var next = x - 1
+    do {
+        map[next] = true
+        next = a[next]
+    } while (map[next] != true)
+
+    println(map.filter { it.value }.count())
 }
 
 fun onAndOff() {
