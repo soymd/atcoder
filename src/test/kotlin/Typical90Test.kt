@@ -7,35 +7,82 @@ import org.junit.jupiter.api.Test
 
 
 class Typical90Test {
-//    @Nested
-//    inner class SignUpRequest {
-//        private val input = StandardInputStream()
-//        private val output = StandardOutputStream()
-//
-//        @BeforeEach
-//        fun setUp() {
-//            System.setIn(input)
-//            System.setOut(output)
-//        }
-//
-//        @AfterEach
-//        fun tearDown() {
-//            System.setIn(null)
-//            System.setOut(null)
-//        }
-//
-//        @Test
-//        fun signUpRequest_1() {
-//            input.inputln("2 5")
-//            input.inputln("1 3")
-//            input.inputln("2 1")
-//
-//            signUpRequest()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("Yes")))
-//        }
-//    }
+    @Nested
+    inner class SignUpRequest {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        //1≤N≤10^5
+        //S i ​ (1≤i≤N) は英小文字および数字からなる 1 文字以上 15 文字以下の文字列である。
+        //より正確には、S i ​ は正規表現 [a-z0-9]{1,15} で表せる文字列である。
+        @Test
+        fun signUpRequest_1() {
+            input.inputln("5")
+            input.inputln("e869120")
+            input.inputln("atcoder")
+            input.inputln("e869120")
+            input.inputln("square1001")
+            input.inputln("square1001")
+
+            signUpRequest()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1, 2, 4)))
+            //1 日目にはユーザ名 e869120 が申請され、このユーザ名のユーザはいないため、LowCoder に登録されます。
+            //2 日目にはユーザ名 atcoder が申請され、このユーザ名のユーザはいないため、LowCoder に登録されます。
+            //3 日目にはユーザ名 e869120 が申請されますが、このユーザ名のユーザは既に登録されているため、受理されません。
+            //4 日目にはユーザ名 square1001 が申請され、このユーザ名のユーザはいないため、LowCoder に登録されます。
+            //5 日目にはユーザ名 square1001 が申請されますが、このユーザ名のユーザは既に登録されているため、受理されません。
+        }
+
+        @Test
+        fun signUpRequest_2() {
+            input.inputln("4")
+            input.inputln("taro")
+            input.inputln("hanako")
+            input.inputln("yuka")
+            input.inputln("takashi")
+
+            signUpRequest()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1, 2, 3, 4)))
+            //受理されない登録申請が存在しない場合もあります。
+        }
+
+        @Test
+        fun signUpRequest_3() {
+            input.inputln("10")
+            input.inputln("square869120")
+            input.inputln("square869120")
+            input.inputln("square869120")
+            input.inputln("square869120")
+            input.inputln("square869120")
+            input.inputln("square869120")
+            input.inputln("square869120")
+            input.inputln("square869120")
+            input.inputln("square869120")
+            input.inputln("square869120")
+
+            signUpRequest()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1)))
+            //S i ​ がすべて同じである可能性もあります。。
+        }
+    }
 
     @Nested
     inner class SelectOne {

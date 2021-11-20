@@ -1,7 +1,27 @@
 import kotlin.math.*
 
 fun main() {
-    selectOne()
+    signUpRequest()
+}
+
+fun signUpRequest() {
+    val (n) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val s = mutableListOf<String>()
+    repeat(n) {
+        s.add(readLine()!!.trim())
+    }
+
+    val map = mutableMapOf<String, Int>()
+    s.forEachIndexed { index, string ->
+        if (map.contains(string)) {
+            return@forEachIndexed
+        }
+        map[string] = index
+    }
+
+    map.forEach {
+        println(it.value + 1)
+    }
 }
 
 fun selectOne() {
