@@ -7,13 +7,41 @@ import org.junit.jupiter.api.Test
 
 
 class Typical90Test {
-    companion object {
-        val input = StandardInputStream()
-        val output = StandardOutputStream()
-    }
+//    @Nested
+//    inner class SignUpRequest {
+//        private val input = StandardInputStream()
+//        private val output = StandardOutputStream()
+//
+//        @BeforeEach
+//        fun setUp() {
+//            System.setIn(input)
+//            System.setOut(output)
+//        }
+//
+//        @AfterEach
+//        fun tearDown() {
+//            System.setIn(null)
+//            System.setOut(null)
+//        }
+//
+//        @Test
+//        fun signUpRequest_1() {
+//            input.inputln("2 5")
+//            input.inputln("1 3")
+//            input.inputln("2 1")
+//
+//            signUpRequest()
+//
+//            val result = output.readLines()
+//            assertThat(result, equalTo(listOf("Yes")))
+//        }
+//    }
 
     @Nested
-    class SelectOne {
+    inner class SelectOne {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -130,7 +158,10 @@ class Typical90Test {
     }
 
     @Nested
-    class CubicCake {
+    inner class CubicCake {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -185,7 +216,10 @@ class Typical90Test {
     }
 
     @Nested
-    class LogInequality {
+    inner class LogInequality {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -253,7 +287,10 @@ class Typical90Test {
     }
 
     @Nested
-    class StatueOfChokudai {
+    inner class StatueOfChokudai {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -345,7 +382,10 @@ class Typical90Test {
     }
 
     @Nested
-    class MinimumCoins {
+    inner class MinimumCoins {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -452,7 +492,10 @@ class Typical90Test {
     }
 
     @Nested
-    class WeUsedToSingASongTogether {
+    inner class WeUsedToSingASongTogether {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -521,7 +564,10 @@ class Typical90Test {
     }
 
     @Nested
-    class ScoreSumQueries {
+    inner class ScoreSumQueries {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -699,7 +745,10 @@ class Typical90Test {
     }
 
     @Nested
-    class CPClasses {
+    inner class CPClasses {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -888,7 +937,10 @@ class Typical90Test {
     }
 
     @Nested
-    class CrossSum {
+    inner class CrossSum {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -1041,7 +1093,10 @@ class Typical90Test {
     }
 
     @Nested
-    class EncyclopediaOfParentheses {
+    inner class EncyclopediaOfParentheses {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -1164,7 +1219,10 @@ class Typical90Test {
     }
 
     @Nested
-    class YokanParty {
+    inner class YokanParty {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
         @BeforeEach
         fun setUp() {
             System.setIn(input)
