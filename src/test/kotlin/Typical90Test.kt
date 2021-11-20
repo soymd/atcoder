@@ -7,11 +7,13 @@ import org.junit.jupiter.api.Test
 
 
 class Typical90Test {
+    companion object {
+        val input = StandardInputStream()
+        val output = StandardOutputStream()
+    }
+
     @Nested
     class SelectOne {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -129,9 +131,6 @@ class Typical90Test {
 
     @Nested
     class CubicCake {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -187,9 +186,6 @@ class Typical90Test {
 
     @Nested
     class LogInequality {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -258,9 +254,6 @@ class Typical90Test {
 
     @Nested
     class StatueOfChokudai {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -353,9 +346,6 @@ class Typical90Test {
 
     @Nested
     class MinimumCoins {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -463,9 +453,6 @@ class Typical90Test {
 
     @Nested
     class WeUsedToSingASongTogether {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -535,9 +522,6 @@ class Typical90Test {
 
     @Nested
     class ScoreSumQueries {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -716,9 +700,6 @@ class Typical90Test {
 
     @Nested
     class CPClasses {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -908,9 +889,6 @@ class Typical90Test {
 
     @Nested
     class CrossSum {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -1064,9 +1042,6 @@ class Typical90Test {
 
     @Nested
     class EncyclopediaOfParentheses {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
@@ -1190,9 +1165,6 @@ class Typical90Test {
 
     @Nested
     class YokanParty {
-        private val input = StandardInputStream()
-        private val output = StandardOutputStream()
-
         @BeforeEach
         fun setUp() {
             System.setIn(input)
