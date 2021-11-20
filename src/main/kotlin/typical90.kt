@@ -13,6 +13,7 @@ fun atCoderEkiden032() {
     val rumor = List(m) {
         readLine()!!.trim().split(" ").map { it.toInt() } - 1
     }
+    //TODO wip
 
     println()
 }
