@@ -9,9 +9,11 @@ fun selectOne() {
     val a = readLine()!!.trim().split(" ").map { it.toInt() }
     val b = readLine()!!.trim().split(" ").map { it.toInt() }
 
-    val sumA = a.sum()
-    val sumB = b.sum()
-    val diff = (sumA - sumB).absoluteValue
+    var diff = 0
+    a.forEachIndexed { index, i ->
+        diff += (i - b[index]).absoluteValue
+    }
+
     if (diff > k) {
         println("No")
         return
