@@ -124,6 +124,26 @@ class ABC228Test {
         }
 
         @Test
+        fun onAndOff_k() {
+            input.inputln("0 23 22")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun onAndOff_l() {
+            input.inputln("23 0 22")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
         fun onAndOff_1() {
             input.inputln("7 20 12")
 
