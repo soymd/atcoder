@@ -1,23 +1,5 @@
 fun main() {
-    takahashisSecret()
-}
-
-fun takahashisSecret() {
-    val (n, x) = readLine()!!.trim().split(" ").map { it.toInt() }
-    val a = readLine()!!.trim().split(" ").map { it.toInt() - 1 }
-
-    val map = mutableMapOf<Int, Boolean>()
-    repeat(n) {
-        map[it] = false
-    }
-
-    var next = x - 1
-    do {
-        map[next] = true
-        next = a[next]
-    } while (map[next] != true)
-
-    println(map.filter { it.value }.count())
+    onAndOff()
 }
 
 fun onAndOff() {
@@ -45,11 +27,31 @@ fun onAndOff() {
                 println("No")
             }
         } else {
-            if (t <= x && s < t) {
+            val x1 = x + 24
+            val t1 = t + 24
+            if (s <= x1 && x1 < t1) {
                 println("Yes")
             } else {
                 println("No")
             }
         }
     }
+}
+
+fun takahashisSecret() {
+    val (n, x) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val a = readLine()!!.trim().split(" ").map { it.toInt() - 1 }
+
+    val map = mutableMapOf<Int, Boolean>()
+    repeat(n) {
+        map[it] = false
+    }
+
+    var next = x - 1
+    do {
+        map[next] = true
+        next = a[next]
+    } while (map[next] != true)
+
+    println(map.filter { it.value }.count())
 }
