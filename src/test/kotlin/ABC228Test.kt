@@ -64,7 +64,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_a() {
+        fun `onAndOff_20 21 20`() {
             input.inputln("20 21 20")
 
             onAndOff()
@@ -74,17 +74,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_b() {
-            input.inputln("20 21 20")
-
-            onAndOff()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("Yes")))
-        }
-
-        @Test
-        fun onAndOff_c() {
+        fun `onAndOff_0 1 0`() {
             input.inputln("0 1 0")
 
             onAndOff()
@@ -94,7 +84,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_d() {
+        fun `onAndOff_0 1 1`() {
             input.inputln("0 1 1")
 
             onAndOff()
@@ -104,17 +94,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_e() {
-            input.inputln("0 1 23")
-
-            onAndOff()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("No")))
-        }
-
-        @Test
-        fun onAndOff_f() {
+        fun `onAndOff_0 1 23`() {
             input.inputln("0 1 23")
 
             onAndOff()
@@ -134,6 +114,26 @@ class ABC228Test {
         }
 
         @Test
+        fun `onAndOff_0 23 23`() {
+            input.inputln("0 23 23")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun `onAndOff_1 0 23`() {
+            input.inputln("1 0 23")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
         fun `onAndOff_23 0 0`() {
             input.inputln("23 0 0")
 
@@ -144,37 +144,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_g() {
-            input.inputln("0 23 23")
-
-            onAndOff()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("No")))
-        }
-
-        @Test
-        fun onAndOff_h() {
-            input.inputln("1 0 23")
-
-            onAndOff()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("Yes")))
-        }
-
-        @Test
-        fun onAndOff_i() {
-            input.inputln("23 0 0")
-
-            onAndOff()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("No")))
-        }
-
-        @Test
-        fun onAndOff_j() {
+        fun `onAndOff_23 0 23`() {
             input.inputln("23 0 23")
 
             onAndOff()
@@ -184,7 +154,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_k() {
+        fun `onAndOff_0 23 22`() {
             input.inputln("0 23 22")
 
             onAndOff()
@@ -194,7 +164,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_l() {
+        fun `onAndOff_23 0 22`() {
             input.inputln("23 0 22")
 
             onAndOff()
@@ -204,7 +174,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_m() {
+        fun `onAndOff_1 0 1`() {
             input.inputln("1 0 1")
 
             onAndOff()
@@ -215,7 +185,7 @@ class ABC228Test {
 
 
         @Test
-        fun onAndOff_p() {
+        fun `onAndOff_1 0 2`() {
             input.inputln("1 0 2")
 
             onAndOff()
@@ -225,17 +195,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_q() {
-            input.inputln("1 0 23")
-
-            onAndOff()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("Yes")))
-        }
-
-        @Test
-        fun onAndOff_r() {
+        fun `onAndOff_23 22 0`() {
             input.inputln("23 22 0")
 
             onAndOff()
@@ -245,7 +205,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_s() {
+        fun `onAndOff_23 22 22`() {
             input.inputln("23 22 22")
 
             onAndOff()
@@ -255,7 +215,7 @@ class ABC228Test {
         }
 
         @Test
-        fun onAndOff_t() {
+        fun `onAndOff_23 22 23`() {
             input.inputln("23 22 23")
 
             onAndOff()
