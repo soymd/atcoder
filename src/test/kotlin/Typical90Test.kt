@@ -65,6 +65,30 @@ class Typical90Test {
             val result = output.readLines()
             assertThat(result, equalTo(listOf("Yes")))
         }
+
+        @Test
+        fun selectOne_a() {
+            input.inputln("3 2")
+            input.inputln("7 8 9")
+            input.inputln("7 8 9")
+
+            selectOne()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun selectOne_b() {
+            input.inputln("3 2")
+            input.inputln("7 8 9")
+            input.inputln("7 8 9")
+
+            selectOne()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
     }
 
     @Nested

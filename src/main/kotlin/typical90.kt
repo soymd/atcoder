@@ -5,7 +5,7 @@ fun main() {
 }
 
 fun selectOne() {
-    val (n, k) = readLine()!!.trim().split(" ").map { it.toLong() }
+    val (n, k) = readLine()!!.trim().split(" ").map { it.toInt() }
     val a = readLine()!!.trim().split(" ").map { it.toInt() }
     val b = readLine()!!.trim().split(" ").map { it.toInt() }
 
@@ -15,12 +15,12 @@ fun selectOne() {
     if (diff > k) {
         println("No")
         return
-    } else if (diff.toLong() == k) {
+    } else if (diff == k) {
         println("Yes")
         return
     }
 
-    if (diff % 2 == (k % 2).toInt()) {
+    if (diff % 2 == (k % 2)) {
         println("Yes")
     } else {
         println("No")
