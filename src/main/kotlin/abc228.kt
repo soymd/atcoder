@@ -4,31 +4,18 @@ fun main() {
 
 fun onAndOff() {
     val (s, t, x) = readLine()!!.trim().split(" ").map { it.toInt() }
-
     if (s < t) {
         if (s <= x && x < t) {
             println("Yes")
         } else {
             println("No")
         }
-        return
-    }
-
-    if (t == 0 && x == 0) {
-        println("No")
-        return
-    }
-
-    val x1 = if (x < t) {
-        x + 24
     } else {
-        x
-    }
-    val t1 = t + 24
-    if (s <= x1 && x1 < t1) {
-        println("Yes")
-    } else {
-        println("No")
+        if (t <= x && x < s) {
+            println("No")
+        } else {
+            println("Yes")
+        }
     }
 }
 
