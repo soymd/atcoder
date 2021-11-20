@@ -110,7 +110,57 @@ class ABC228Test {
             onAndOff()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("Yes")))
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun `onAndOff_2 0 0`() {
+            input.inputln("2 0 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun `onAndOff_12 0 0`() {
+            input.inputln("12 0 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun `onAndOff_11 0 0`() {
+            input.inputln("11 0 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun `onAndOff_23 0 0`() {
+            input.inputln("23 0 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun `onAndOff_22 0 0`() {
+            input.inputln("22 0 0")
+
+            onAndOff()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
         }
 
         @Test
@@ -131,16 +181,6 @@ class ABC228Test {
 
             val result = output.readLines()
             assertThat(result, equalTo(listOf("Yes")))
-        }
-
-        @Test
-        fun `onAndOff_23 0 0`() {
-            input.inputln("23 0 0")
-
-            onAndOff()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("No")))
         }
 
         @Test
