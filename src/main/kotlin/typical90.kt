@@ -1,7 +1,52 @@
 import kotlin.math.*
 
 fun main() {
-    logInequality()
+    cubicCake()
+}
+
+fun cubicCake() {
+    val (x, y, z) = readLine()!!.trim().split(" ").map { it.toLong() }
+    val list = mutableListOf(mutableListOf(x, y, z))
+    var count = 0
+
+    do {
+        var removeIndex = 0
+        val cuts = mutableListOf<MutableList<Long>>()
+        list.forEachIndexed { i, cube ->
+            if (cube.isSquare()) {
+                return@forEachIndexed
+            }
+            val index = cube.indexOf(cube.longest())
+            val cut1 = cube.toMutableList()
+            cut1[index] = cube.shortest()
+            val cut2 = cube.toMutableList()
+            cut2[index] = cube.longest() - cube.shortest()
+            cuts.add(cut1)
+            cuts.add(cut2)
+            count++
+            removeIndex = i
+            return@forEachIndexed
+        }
+        list.removeAt(removeIndex)
+        cuts.forEach {
+            list.add(it)
+        }
+    } while (!list.all { it.isSquare() })
+
+
+    println(count)
+}
+
+private fun List<Long>.isSquare(): Boolean {
+    return all { it == first() }
+}
+
+private fun List<Long>.longest(): Long {
+    return max() ?: first()
+}
+
+private fun List<Long>.shortest(): Long {
+    return min() ?: first()
 }
 
 fun logInequality() {

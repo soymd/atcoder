@@ -8,6 +8,64 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    class CubicCake {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun cubicCake_a() {
+            input.inputln("2 2 6")
+
+            cubicCake()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2")))
+        }
+
+        @Test
+        fun cubicCake_1() {
+            input.inputln("2 2 3")
+
+            cubicCake()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("4")))
+        }
+
+        @Test
+        fun cubicCake_2() {
+            input.inputln("2 2 4")
+
+            cubicCake()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1")))
+        }
+
+//        @Test
+//        fun cubicCake_3() {
+//            input.inputln("1000000000000000000 999999999999999999 999999999999999998")
+//
+//            cubicCake()
+//
+//            val result = output.readLines()
+//            assertThat(result, equalTo(listOf("2999999999999999994")))
+//        }
+    }
+
+    @Nested
     class LogInequality {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
