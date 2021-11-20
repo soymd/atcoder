@@ -27,8 +27,8 @@ fun onAndOff() {
                 println("No")
             }
         } else {
-            val x1 = if (x == 0) {
-                24
+            val x1 = if (x < t) {
+                x + 24
             } else {
                 x
             }
