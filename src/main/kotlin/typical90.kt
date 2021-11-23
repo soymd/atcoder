@@ -13,8 +13,13 @@ fun atCoderEkiden032() {
     val rumor = List(m) {
         readLine()!!.trim().split(" ").map { it.toInt() } - 1
     }
-    //TODO wip
 
+    if (rumor.count() >= n - 1) {
+        println(-1)
+        return
+    }
+
+    //todo: wip
     println()
 }
 

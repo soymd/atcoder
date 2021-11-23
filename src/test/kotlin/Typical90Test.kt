@@ -40,10 +40,11 @@ class Typical90Test {
 
             atCoderEkiden032()
             //ゴールするまでにかかる時間の最小値を出力してください。
-            //ただし、各選手が走る区間をどのように決めてもゴールできない場合 -1 を出力してください。
+            //ただし、各選手が走る区間をどのように決めてもゴールできない場合
+            //-1 を出力してください。
 
             val result = output.readLines().map { it.toInt() }
-            assertThat(result, equalTo(listOf(1)))
+            assertThat(result, equalTo(listOf(111)))
             //選手 1 が第 1 区を走り、選手 2 が第 3 区を走り、
             //選手 3 が第 2 区を走ることで最小値 111 を達成できます。
         }
