@@ -8,6 +8,112 @@ import org.junit.jupiter.api.Test
 
 class Typical90Test {
     @Nested
+    inner class NotTooBright033 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        //1 ≤ H, W ≤ 100
+        @Test
+        fun notTooBright033_1() {
+            input.inputln("2 3")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(2)))
+            //#.#
+            //...
+        }
+
+        @Test
+        fun notTooBright033_2() {
+            input.inputln("3 4")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(4)))
+            //#..#
+            //....
+            //#..#
+        }
+
+        @Test
+        fun notTooBright033_3() {
+            input.inputln("3 6")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(6)))
+            //#..#.#
+            //......
+            //#..#.#
+        }
+
+        @Test
+        fun `notTooBright033_2 2`() {
+            input.inputln("2 2")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1)))
+            //#.
+            //..
+        }
+
+        @Test
+        fun `notTooBright033_2 4`() {
+            input.inputln("2 4")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(2)))
+            //#.#.
+            //....
+        }
+
+        @Test
+        fun `notTooBright033_2 5`() {
+            input.inputln("2 5")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(3)))
+            //#.#.#
+            //.....
+        }
+
+        @Test
+        fun `notTooBright033_3 5`() {
+            input.inputln("3 5")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(6)))
+            //#.#.#
+            //.....
+            //#.#.#
+        }
+    }
+
+    @Nested
     inner class AtCoderEkiden032 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()

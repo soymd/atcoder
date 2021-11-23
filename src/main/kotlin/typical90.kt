@@ -1,7 +1,22 @@
 import kotlin.math.*
 
 fun main() {
-    atCoderEkiden032()
+    notTooBright033()
+}
+
+fun notTooBright033() {
+    val (h, w) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val x = if (w % 2 == 0) {
+        w / 2
+    } else {
+        w / 2 + 1
+    }
+    val foo = if (h % 2 == 0) {
+        x * ((h / 2))
+    } else {
+        x * ((h / 2) + 1)
+    }
+    println(foo)
 }
 
 fun atCoderEkiden032() {
