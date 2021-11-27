@@ -6,6 +6,15 @@ fun main() {
 
 fun notTooBright033() {
     val (h, w) = readLine()!!.trim().split(" ").map { it.toInt() }
+    if (h == 1) {
+        println(w)
+        return
+    }
+    if (w == 1) {
+        println(h)
+        return
+    }
+
     val x = if (w % 2 == 0) {
         w / 2
     } else {

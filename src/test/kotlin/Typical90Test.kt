@@ -209,7 +209,7 @@ class Typical90Test {
             notTooBright033()
 
             val result = output.readLines().map { it.toInt() }
-            assertThat(result, equalTo(listOf(1)))
+            assertThat(result, equalTo(listOf(2)))
             //#.
         }
 
@@ -265,7 +265,7 @@ class Typical90Test {
             notTooBright033()
 
             val result = output.readLines().map { it.toInt() }
-            assertThat(result, equalTo(listOf(2)))
+            assertThat(result, equalTo(listOf(3)))
             //#.#
         }
 
@@ -276,7 +276,7 @@ class Typical90Test {
             notTooBright033()
 
             val result = output.readLines().map { it.toInt() }
-            assertThat(result, equalTo(listOf(50)))
+            assertThat(result, equalTo(listOf(100)))
         }
 
         @Test
@@ -297,6 +297,16 @@ class Typical90Test {
 
             val result = output.readLines().map { it.toInt() }
             assertThat(result, equalTo(listOf(100)))
+        }
+
+        @Test
+        fun `notTooBright033_65 1`() {
+            input.inputln("65 1")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(65)))
         }
     }
 
