@@ -1,7 +1,20 @@
 import kotlin.math.*
 
 fun main() {
-    notTooBright033()
+    selectFive055()
+}
+
+fun selectFive055() {
+    val (n, p, q) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    val combination = a.combinationWithoutRepetition(5).toList()
+    val ans = combination.map { list ->
+        list.fold(1) { initial, value -> initial * value }
+    }.filter {
+        it % p == q
+    }
+    println(ans.count())
 }
 
 fun notTooBright033() {

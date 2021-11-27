@@ -5,8 +5,77 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-
 class Typical90Test {
+//    @Nested
+//    inner class Foo {
+//        private val input = StandardInputStream()
+//        private val output = StandardOutputStream()
+//
+//        @BeforeEach
+//        fun setUp() {
+//            System.setIn(input)
+//            System.setOut(output)
+//        }
+//
+//        @AfterEach
+//        fun tearDown() {
+//            System.setIn(null)
+//            System.setOut(null)
+//        }
+//
+//        @Test
+//        fun foo_1() {
+//            input.inputln("2 3")
+//
+//            foo()
+//
+//            val result = output.readLines()
+//            assertThat(result, equalTo(listOf("2")))
+//        }
+//    }
+
+    @Nested
+    inner class SelectFive055 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        //この中から5個を選ぶ方法のうち、これら5個の整数の積をPで割ると
+        //Q余るようなものが何通りあるか求めてください。
+        @Test
+        fun selectFive055_1() {
+            input.inputln("6 7 1")//n, p, q
+            input.inputln("1 2 3 4 5 6")//a1, a2....
+
+            selectFive055()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1)))
+        }
+
+        @Test
+        fun selectFive055_2() {
+            input.inputln("10 1 0")//n, p, q
+            input.inputln("0 0 0 0 0 0 0 0 0 0")//a1, a2....
+
+            selectFive055()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(252)))
+        }
+    }
+
     @Nested
     inner class NotTooBright033 {
         private val input = StandardInputStream()
