@@ -1,5 +1,31 @@
 fun main() {
-    hardCalculation()
+    cheese()
+}
+
+fun cheese() {
+    val (n, w) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val cheeses = List(n) {
+        readLine()!!.trim().split(" ").map { it.toInt() }
+    }.toMutableList()
+
+    cheeses.sortByDescending { it.first() }
+
+    var limit = w.toLong()
+    var sum = 0L
+    cheeses.forEachIndexed { index, cheese ->
+        val taste = cheese.first().toLong()
+        val total = cheese.last().toLong()
+        if (total <= limit) {
+            sum += taste * total
+            limit -= total
+        } else {
+            sum += taste * limit
+            println(sum)
+            return
+        }
+    }
+
+    println(sum)
 }
 
 fun hardCalculation() {
