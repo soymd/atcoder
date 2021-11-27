@@ -111,6 +111,193 @@ class Typical90Test {
             //.....
             //#.#.#
         }
+
+        @Test
+        fun `notTooBright033_5 5`() {
+            input.inputln("5 5")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(9)))
+            //#.#.#
+            //.....
+            //#.#.#
+            //.....
+            //#.#.#
+        }
+
+        @Test
+        fun `notTooBright033_5 6`() {
+            input.inputln("5 6")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(9)))
+            //#.#.#.
+            //......
+            //#.#.#.
+            //......
+            //#.#.#.
+        }
+
+        @Test
+        fun `notTooBright033_6 6`() {
+            input.inputln("6 6")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(9)))
+            //#.#.#.
+            //......
+            //#.#.#.
+            //......
+            //#.#.#.
+            //......
+        }
+
+        @Test
+        fun `notTooBright033_6 7`() {
+            input.inputln("6 7")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(12)))
+            //#.#.#.#
+            //.......
+            //#.#.#.#
+            //.......
+            //#.#.#.#
+            //.......
+        }
+
+        @Test
+        fun `notTooBright033_7 7`() {
+            input.inputln("7 7")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(16)))
+            //#.#.#.#
+            //.......
+            //#.#.#.#
+            //.......
+            //#.#.#.#
+            //.......
+            //#.#.#.#
+        }
+
+        @Test
+        fun `notTooBright033_1 1`() {
+            input.inputln("1 1")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1)))
+            //#
+        }
+
+        @Test
+        fun `notTooBright033_1 2`() {
+            input.inputln("1 2")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1)))
+            //#.
+        }
+
+        @Test
+        fun `notTooBright033_3 3`() {
+            input.inputln("3 3")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(4)))
+            //#.#
+            //...
+            //#.#
+        }
+
+        @Test
+        fun `notTooBright033_4 4`() {
+            input.inputln("4 4")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(4)))
+            //#.#.
+            //....
+            //#.#.
+            //....
+        }
+
+        @Test
+        fun `notTooBright033_8 8`() {
+            input.inputln("8 8")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(16)))
+            //#.#.#..#
+            //........
+            //#.#.#..#
+            //........
+            //#.#.#..#
+            //........
+            //........
+            //#.#.#..#
+        }
+
+        @Test
+        fun `notTooBright033_1 3`() {
+            input.inputln("1 3")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(2)))
+            //#.#
+        }
+
+        @Test
+        fun `notTooBright033_1 100`() {
+            input.inputln("1 100")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(50)))
+        }
+
+        @Test
+        fun `notTooBright033_2 100`() {
+            input.inputln("2 100")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(50)))
+        }
+
+        @Test
+        fun `notTooBright033_3 100`() {
+            input.inputln("3 100")//H, W
+
+            notTooBright033()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(100)))
+        }
     }
 
     @Nested

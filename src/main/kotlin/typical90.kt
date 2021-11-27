@@ -11,12 +11,12 @@ fun notTooBright033() {
     } else {
         w / 2 + 1
     }
-    val foo = if (h % 2 == 0) {
-        x * ((h / 2))
+    val y = if (h % 2 == 0) {
+        h / 2
     } else {
-        x * ((h / 2) + 1)
+        (h / 2) + 1
     }
-    println(foo)
+    println(x * y)
 }
 
 fun atCoderEkiden032() {
