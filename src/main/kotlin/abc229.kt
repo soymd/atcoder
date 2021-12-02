@@ -1,5 +1,32 @@
 fun main() {
-    cheese()
+    longestX()
+}
+
+fun longestX() {
+    //todo wip
+    val s = readLine()!!.trim().split("").filter { it != "" }
+    val k = readLine()!!.trim().toInt()
+
+    var index = 0
+    var ans = 0
+    do {
+        var rest = k
+        var length = 0
+        do {
+            if (s[index] == "X") {
+                index++
+            } else if (rest > 0) {
+                index++
+                rest--
+            }
+            length++
+        } while (rest != 0)
+        if (length > ans) {
+            ans = length
+        }
+    } while (index < s.count())
+
+    println(ans)
 }
 
 fun cheese() {

@@ -7,6 +7,50 @@ import org.junit.jupiter.api.Test
 
 class ABC229Test {
     @Nested
+    inner class LongestX {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun longestX_1() {//   0123456789A
+            input.inputln("XX...X.X.X.")//n種類 wグラム
+            input.inputln("2")
+
+            longestX()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(5)))
+            //S の 7 文字目と 9 文字目の . を X に置き換えて XX...XXXXX. とすると、
+            // 6 文字目から 10 文字目で X が 5 個連続しています。
+            //X を 6 個以上連続させることはできないので、答えは 5 です。
+        }
+
+        @Test
+        fun longestX_2() {
+            input.inputln("XXXX")//n種類 wグラム
+            input.inputln("200000")
+
+            longestX()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(4)))
+            //操作を行う回数は 0 回でも構いません。
+        }
+    }
+
+    @Nested
     inner class Cheese {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
