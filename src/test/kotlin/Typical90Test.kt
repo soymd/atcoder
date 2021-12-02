@@ -74,6 +74,17 @@ class Typical90Test {
             val result = output.readLines().map { it.toInt() }
             assertThat(result, equalTo(listOf(252)))
         }
+
+        @Test
+        fun selectFive055_a() {
+            input.inputln("5 428779066 91226726")//n, p, q
+            input.inputln("570186334 936593512 228948074 933043052 721356966")//a1, a2....
+
+            selectFive055()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1)))
+        }
     }
 
     @Nested

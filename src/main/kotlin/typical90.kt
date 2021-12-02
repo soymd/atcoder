@@ -5,12 +5,12 @@ fun main() {
 }
 
 fun selectFive055() {
-    val (n, p, q) = readLine()!!.trim().split(" ").map { it.toInt() }
-    val a = readLine()!!.trim().split(" ").map { it.toInt() }
+    val (n, p, q) = readLine()!!.trim().split(" ").map { it.toLong() }
+    val a = readLine()!!.trim().split(" ").map { it.toLong() }
 
     val combination = a.combinationWithoutRepetition(5).toList()
     val ans = combination.map { list ->
-        list.fold(1) { initial, value -> initial * value }
+        list.fold(1L) { initial, value -> initial * value }
     }.filter {
         it % p == q
     }
