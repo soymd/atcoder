@@ -1,7 +1,15 @@
 import kotlin.math.*
 
 fun main() {
-    selectFive055()
+    deck061()
+}
+
+fun deck061() {
+    val (q) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val operations = List(q) {
+        readLine()!!.trim().split(" ").map { it.toInt() }
+    }
+
 }
 
 fun selectFive055() {

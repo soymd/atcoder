@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
 class Typical90Test {
-//    @Nested
+    //    @Nested
 //    inner class Foo {
 //        private val input = StandardInputStream()
 //        private val output = StandardOutputStream()
@@ -33,6 +33,74 @@ class Typical90Test {
 //            assertThat(result, equalTo(listOf("2")))
 //        }
 //    }
+    @Nested
+    inner class Deck061 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun deck061_1() {
+            //ti = 1 のとき、整数 xi が書かれたカードを山札の一番上にいれる
+            //ti = 2 のとき、整数 xi が書かれたカードを山札の一番下にいれる
+            //ti = 3 のとき、山札の上から xi 番目のカードに書かれた数を紙に書き出す
+            input.inputln("6")
+            input.inputln("1 2")
+            input.inputln("1 1")
+            input.inputln("2 3")
+            input.inputln("3 1")
+            input.inputln("3 2")
+            input.inputln("3 3")
+
+            deck061()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1, 2, 3)))
+        }
+
+        @Test
+        fun deck061_2() {
+            input.inputln("6")
+            input.inputln("2 1")
+            input.inputln("3 1")
+            input.inputln("2 2")
+            input.inputln("3 1")
+            input.inputln("2 3")
+            input.inputln("3 1")
+
+            deck061()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1, 1, 1)))
+        }
+
+        @Test
+        fun deck061_3() {
+            input.inputln("6")
+            input.inputln("1 1000000000")
+            input.inputln("2 200000000")
+            input.inputln("1 30000000")
+            input.inputln("2 4000000")
+            input.inputln("1 500000")
+            input.inputln("3 3")
+
+            deck061()
+
+            val result = output.readLines().map { it.toInt() }
+            assertThat(result, equalTo(listOf(1000000000)))
+        }
+    }
 
     @Nested
     inner class SelectFive055 {
