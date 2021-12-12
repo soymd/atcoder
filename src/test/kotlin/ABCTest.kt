@@ -5,7 +5,82 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-class ABC230Test {
+class ABCTest {
+    //    @Nested
+//    inner class Foo {
+//        private val input = StandardInputStream()
+//        private val output = StandardOutputStream()
+//
+//        @BeforeEach
+//        fun setUp() {
+//            System.setIn(input)
+//            System.setOut(output)
+//        }
+//
+//        @AfterEach
+//        fun tearDown() {
+//            System.setIn(null)
+//            System.setOut(null)
+//        }
+//
+//        @Test
+//        fun foo_1() {
+//            input.inputln("2 3")
+//
+//            //foo()
+//
+//            val result = output.readLines()
+//            assertThat(result, equalTo(listOf("2")))
+//        }
+//    }
+    @Nested
+    inner class WaterPressure {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun waterPressure_1() {
+            input.inputln("1000")
+
+            waterPressure()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("10")))
+        }
+
+        @Test
+        fun waterPressure_2() {
+            input.inputln("50")
+
+            waterPressure()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("0.5")))
+        }
+
+        @Test
+        fun waterPressure_3() {
+            input.inputln("3141")
+
+            waterPressure()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("31.41")))
+        }
+    }
+
     @Nested
     inner class XDrawing {
         private val input = StandardInputStream()
