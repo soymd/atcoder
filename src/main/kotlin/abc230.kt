@@ -1,5 +1,29 @@
+import kotlin.math.max
+import kotlin.math.min
+
 fun main() {
-    tripleMetre()
+    xDrawing()
+}
+
+fun xDrawing() {
+    val (n, a, b) = readLine()!!.trim().split(" ").map { it.toLong() }
+    val (p, q, r, s) = readLine()!!.trim().split(" ").map { it.toLong() }
+
+    val range1 = max(1 - a, 1 - b)..min(n - a, n - b)
+    val range2 = max(1 - a, b - n)..min(n - a, b - 1)
+
+    val black1 = range1.map { k ->
+        a + k to b + k
+    }
+
+    val black2 = range2.map { k ->
+        a + k to b - k
+    }
+    val ans = mutableListOf<String>()
+    repeat((q - p).toInt() + 1) {
+
+    }
+    println()
 }
 
 fun tripleMetre() {

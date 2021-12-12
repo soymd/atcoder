@@ -7,6 +7,82 @@ import org.junit.jupiter.api.Test
 
 class ABC230Test {
     @Nested
+    inner class XDrawing {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun xDrawing_1() {
+            input.inputln("5 3 2")//n, a, b
+            input.inputln("1 5 1 5")//p, q, r, s
+
+            xDrawing()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "...#.",
+                        "#.#..",
+                        ".#...",
+                        "#.#..",
+                        "...#."
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun xDrawing_2() {
+            input.inputln("5 3 3")
+            input.inputln("4 5 2 5")
+
+            xDrawing()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "#.#.",
+                        "...#"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun xDrawing_3() {
+            input.inputln("1000000000000000000 999999999999999999 999999999999999999")
+            input.inputln("999999999999999998 1000000000000000000 999999999999999998 1000000000000000000")
+
+            xDrawing()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "#.#",
+                        ".#.",
+                        "#.#"
+                    )
+                )
+            )
+        }
+    }
+
+    @Nested
     inner class TripleMetre {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
