@@ -27,12 +27,56 @@ class ABCTest {
 //        fun foo_1() {
 //            input.inputln("2 3")
 //
-//            //foo()
+//            foo()
 //
 //            val result = output.readLines()
 //            assertThat(result, equalTo(listOf("2")))
 //        }
 //    }
+    @Nested
+    inner class Election {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun election_1() {
+            input.inputln("5")
+            input.inputln("snuke")
+            input.inputln("snuke")
+            input.inputln("takahashi")
+            input.inputln("takahashi")
+            input.inputln("takahashi")
+
+            election()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("takahashi")))
+        }
+
+        @Test
+        fun election_2() {
+            input.inputln("1")
+            input.inputln("a")
+
+            election()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("a")))
+        }
+    }
+
     @Nested
     inner class WaterPressure {
         private val input = StandardInputStream()
