@@ -51,6 +51,50 @@ class ABCTest {
         }
 
         @Test
+        fun caesarCipher_1() {
+            input.inputln("abc")
+            input.inputln("ijk")
+
+            caesarCipher()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun caesarCipher_2() {
+            input.inputln("z")
+            input.inputln("a")
+
+            caesarCipher()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun caesarCipher_3() {
+            input.inputln("ppq")
+            input.inputln("qqp")
+
+            caesarCipher()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun caesarCipher_4() {
+            input.inputln("atcoder")
+            input.inputln("atcoder")
+
+            caesarCipher()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
         fun qqSolver_1() {
             input.inputln("3x7")
 
