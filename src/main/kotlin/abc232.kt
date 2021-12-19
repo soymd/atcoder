@@ -18,10 +18,32 @@ fun caesarCipher() {
         list.indexOf(it)
     }
 
-    val diff = sIndex.first() - tIndex.first()
-
     sIndex.forEachIndexed { index, i ->
-        if (i - tIndex[index] != diff) {
+        if (index == sIndex.count() - 1) {
+            var diff1 = sIndex.last() - sIndex.first()
+            var diff2 = tIndex.last() - tIndex.first()
+            if (diff1 < 0) {
+                diff1 += 26
+            }
+            if (diff2 < 0) {
+                diff2 += 26
+            }
+            if (diff1 != diff2) {
+                println("No")
+                return
+            }
+            return@forEachIndexed
+        }
+        var diff1 = sIndex[index + 1] - i
+        var diff2 = tIndex[index + 1] - tIndex[index]
+        if (diff1 < 0) {
+            diff1 += 26
+        }
+        if (diff2 < 0) {
+            diff2 += 26
+        }
+
+        if (diff1 != diff2) {
             println("No")
             return
         }
