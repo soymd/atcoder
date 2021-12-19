@@ -34,6 +34,44 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC232 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun qqSolver_1() {
+            input.inputln("3x7")
+
+            qqSolver()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("21")))
+        }
+
+        @Test
+        fun qqSolver_2() {
+            input.inputln("9x9")
+
+            qqSolver()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("81")))
+        }
+    }
+
+    @Nested
     inner class Election {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
