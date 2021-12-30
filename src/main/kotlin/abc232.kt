@@ -1,5 +1,17 @@
 fun main() {
-    caesarCipher()
+    graphIsomorphism()
+}
+
+fun graphIsomorphism() {
+    val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val takahashi = List(m) {
+        readLine()!!.trim().split("").filter { it != " " }.map { it.toInt() }
+    }
+    val aoki = List(m) {
+        readLine()!!.trim().split("").filter { it != " " }.map { it.toInt() }
+    }
+
+    //wip
 }
 
 fun caesarCipher() {

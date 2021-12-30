@@ -51,6 +51,60 @@ class ABCTest {
         }
 
         @Test
+        fun graphIsomorphism_1() {
+            input.inputln("4 4")
+
+            input.inputln("1 2")
+            input.inputln("1 3")
+            input.inputln("1 4")
+            input.inputln("3 4")
+
+            input.inputln("1 3")
+            input.inputln("1 4")
+            input.inputln("2 3")
+            input.inputln("3 4")
+
+            graphIsomorphism()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun graphIsomorphism_2() {
+            input.inputln("5 6")
+
+            input.inputln("1 2")
+            input.inputln("1 3")
+            input.inputln("1 4")
+            input.inputln("3 4")
+            input.inputln("3 5")
+            input.inputln("4 5")
+
+            input.inputln("1 2")
+            input.inputln("1 3")
+            input.inputln("1 4")
+            input.inputln("1 5")
+            input.inputln("3 5")
+            input.inputln("4 5")
+
+            graphIsomorphism()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun graphIsomorphism_3() {
+            input.inputln("8 0")
+
+            graphIsomorphism()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
         fun caesarCipher_a() {
             input.inputln("za")
             input.inputln("ab")
