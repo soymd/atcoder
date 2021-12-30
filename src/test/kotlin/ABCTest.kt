@@ -79,6 +79,62 @@ class ABCTest {
             val result = output.readLines()
             assertThat(result, equalTo(listOf("48")))
         }
+
+        @Test
+        fun aReverse_1() {
+            input.inputln("3 7")
+            input.inputln("abcdefgh")
+
+            aReverse()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("abgfedch")))
+        }
+
+        @Test
+        fun aReverse_2() {
+            input.inputln("1 7")
+            input.inputln("reviver")
+
+            aReverse()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("reviver")))
+        }
+
+        @Test
+        fun aReverse_3() {
+            input.inputln("4 13")
+            input.inputln("merrychristmas")
+
+            aReverse()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("meramtsirhcyrs")))
+        }
+
+
+        @Test
+        fun aReverse_a() {
+            input.inputln("1 1")
+            input.inputln("merrychristmas")
+
+            aReverse()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("merrychristmas")))
+        }
+
+        @Test
+        fun aReverse_b() {
+            input.inputln("1 3")
+            input.inputln("foo")
+
+            aReverse()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("oof")))
+        }
     }
 
     @Nested
