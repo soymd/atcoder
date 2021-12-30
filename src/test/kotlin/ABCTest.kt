@@ -34,6 +34,54 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC233 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun tenYenStamp_1() {
+            input.inputln("80 94")
+
+            tenYenStamp()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2")))
+        }
+
+        @Test
+        fun tenYenStamp_2() {
+            input.inputln("1000 63")
+
+            tenYenStamp()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("0")))
+        }
+
+        @Test
+        fun tenYenStamp_3() {
+            input.inputln("270 750")
+
+            tenYenStamp()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("48")))
+        }
+    }
+
+    @Nested
     inner class ABC232 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
