@@ -34,6 +34,44 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC235 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun rotate_1() {
+            input.inputln("123")
+
+            rotate()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("666")))
+        }
+
+        @Test
+        fun rotate_9() {
+            input.inputln("999")
+
+            rotate()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2997")))
+        }
+    }
+
+    @Nested
     inner class ABC233 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
