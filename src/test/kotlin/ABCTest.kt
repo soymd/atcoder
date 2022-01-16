@@ -51,6 +51,39 @@ class ABCTest {
         }
 
         @Test
+        fun climbingTakahashi_1() {
+            input.inputln("5")
+            input.inputln("1 5 10 4 2")
+
+            climbingTakahashi()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("10")))
+        }
+
+        @Test
+        fun climbingTakahashi_2() {
+            input.inputln("3")
+            input.inputln("100 1000 100000")
+
+            climbingTakahashi()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("100000")))
+        }
+
+        @Test
+        fun climbingTakahashi_3() {
+            input.inputln("4")
+            input.inputln("27 1828 1828 9242")
+
+            climbingTakahashi()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1828")))
+        }
+
+        @Test
         fun rotate_1() {
             input.inputln("123")
 
