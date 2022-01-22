@@ -34,6 +34,54 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC234 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun weirdFunction_1() {
+            input.inputln("0")
+
+            weirdFunction()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1371")))
+        }
+
+        @Test
+        fun weirdFunction_2() {
+            input.inputln("3")
+
+            weirdFunction()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("722502")))
+        }
+
+        @Test
+        fun weirdFunction_3() {
+            input.inputln("10")
+
+            weirdFunction()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1111355571")))
+        }
+    }
+
+    @Nested
     inner class ABC235 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
