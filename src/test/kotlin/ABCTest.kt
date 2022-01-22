@@ -51,6 +51,61 @@ class ABCTest {
         }
 
         @Test
+        fun longestSegment_a() {
+            input.inputln("3")
+            input.inputln("0 0")
+            input.inputln("0 1")
+            input.inputln("2 2")
+
+            longestSegment()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2.82842712475")))
+        }
+
+        @Test
+        fun longestSegment_b() {
+            input.inputln("3")
+            input.inputln("0 0")
+            input.inputln("-1 1")
+            input.inputln("1 1")
+
+            longestSegment()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2")))
+//            assertThat(result, equalTo(listOf("2.2360679775")))
+        }
+
+        @Test
+        fun longestSegment_1() {
+            input.inputln("3")
+            input.inputln("0 0")
+            input.inputln("0 1")
+            input.inputln("1 1")
+
+            longestSegment()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1.4142135624")))
+        }
+
+        @Test
+        fun longestSegment_2() {
+            input.inputln("5")
+            input.inputln("315 271")
+            input.inputln("-2 -621")
+            input.inputln("-205 -511")
+            input.inputln("-952 482")
+            input.inputln("165 463")
+
+            longestSegment()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1455.7159750446")))
+        }
+
+        @Test
         fun weirdFunction_1() {
             input.inputln("0")
 
