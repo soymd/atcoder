@@ -34,6 +34,57 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC236 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun chokudai_1() {
+            input.inputln("chokudai")
+            input.inputln("3 5")
+
+            chokudai()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("chukodai")))
+        }
+
+        @Test
+        fun chokudai_2() {
+            input.inputln("aa")
+            input.inputln("1 2")
+
+            chokudai()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("aa")))
+        }
+
+        @Test
+        fun chokudai_3() {
+            input.inputln("aaaabbbb")
+            input.inputln("1 8")
+
+            chokudai()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("baaabbba")))
+        }
+    }
+
+    @Nested
     inner class ABC234 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
