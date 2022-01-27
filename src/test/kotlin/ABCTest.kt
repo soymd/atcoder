@@ -51,6 +51,39 @@ class ABCTest {
         }
 
         @Test
+        fun whoIsMissing_1() {
+            input.inputln("3")
+            input.inputln("1 3 2 3 3 2 2 1 1 1 2")
+
+            whoIsMissing()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("3")))
+        }
+
+        @Test
+        fun whoIsMissing_2() {
+            input.inputln("1")
+            input.inputln("1 1 1")
+
+            whoIsMissing()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1")))
+        }
+
+        @Test
+        fun whoIsMissing_3() {
+            input.inputln("4")
+            input.inputln("3 2 1 1 2 4 4 4 4 3 1 3 2 1 3")
+
+            whoIsMissing()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2")))
+        }
+
+        @Test
         fun chokudai_1() {
             input.inputln("chokudai")
             input.inputln("3 5")

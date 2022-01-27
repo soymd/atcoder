@@ -1,5 +1,28 @@
 fun main() {
-    chokudai()
+    whoIsMissing()
+}
+
+fun whoIsMissing() {
+    val n = readLine()!!.trim().toInt()
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }.toMutableList()
+
+    a.sort()
+    val distinct = a.distinct().sorted()
+    var count = 0
+    var index = 0
+    distinct.forEach {
+        count = 0
+        do {
+            if (a[index] == it) {
+                count++
+            }
+            index++
+        } while (index < a.size && a[index] == it)
+        if (count == 3) {
+            println(it)
+            return
+        }
+    }
 }
 
 fun chokudai() {
