@@ -51,6 +51,47 @@ class ABCTest {
         }
 
         @Test
+        fun matrixTransposition_1() {
+            input.inputln("4 3")
+            input.inputln("1 2 3")
+            input.inputln("4 5 6")
+            input.inputln("7 8 9")
+            input.inputln("10 11 12")
+
+            matrixTransposition()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "1 4 7 10",
+                        "2 5 8 11",
+                        "3 6 9 12"
+                    )
+                )
+            )
+        }
+
+        @Test
+        fun matrixTransposition_2() {
+            input.inputln("2 2")
+            input.inputln("1000000000 1000000000")
+            input.inputln("1000000000 1000000000")
+
+            matrixTransposition()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "1000000000 1000000000",
+                        "1000000000 1000000000"
+                    )
+                )
+            )
+        }
+
+        @Test
         fun notOverFlow_1() {
             input.inputln("10")
 
