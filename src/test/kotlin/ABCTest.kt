@@ -34,6 +34,44 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC237 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun notOverFlow_1() {
+            input.inputln("10")
+
+            notOverFlow()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun notOverFlow_2() {
+            input.inputln("-9876543210")
+
+            notOverFlow()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+    }
+
+    @Nested
     inner class ABC236 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
