@@ -902,12 +902,12 @@ fun main() {
     val five = list.asSequence().map { s -> s.split("").filter { it != "" } }.filter { it.count() == 5 }
     val rest = five
 //        .filter { it.contains("ジ") }
-        .filter { it.contains("ー") }
+//        .filter { it.contains("ー") }
 //        .filter { it.contains("ラ") }
 //        .filter { it.contains("ン") }
 //        .filter { it.contains("ス") }
         .filter { !it.contains("ジ") }
-//        .filter { !it.contains("ー") }
+        .filter { !it.contains("ー") }
         .filter { !it.contains("ラ") }
         .filter { !it.contains("ン") }
         .filter { !it.contains("ス") }
@@ -917,7 +917,7 @@ fun main() {
 //        .filter { it[3] == "ン" }
 //        .filter { it[4] == "ス" }
 //        .filter { it[0] != "ジ" }
-        .filter { it[1] != "ー" }
+//        .filter { it[1] != "ー" }
 //        .filter { it[2] != "ラ" }
 //        .filter { it[3] != "ン" }
 //        .filter { it[4] != "ス" }
@@ -933,17 +933,23 @@ fun main() {
 private fun candidate(candidate: List<List<String>>) {
     var count = Int.MAX_VALUE
     var str = ""
-    candidate.forEach { s ->
-        val rest = candidate.asSequence()
-            .filter { !it.contains(s[0]) }
-            .filter { !it.contains(s[1]) }
-            .filter { !it.contains(s[2]) }
-            .filter { !it.contains(s[3]) }
-            .filter { !it.contains(s[4]) }
-            .toList()
-        if (count > rest.count()) {
+    var restCandidate: List<List<String>> = candidate
+    restCandidate.forEach { s ->
+        s
+//            .filter { it != "ー" }
+            .forEach { ss ->
+                restCandidate = restCandidate.filter { !it.contains(ss) }
+            }
+//        val rest = candidate.asSequence()
+//            .filter { !it.contains(s[0]) }
+//            .filter { !it.contains(s[1]) }
+//            .filter { !it.contains(s[2]) }
+//            .filter { !it.contains(s[3]) }
+//            .filter { !it.contains(s[4]) }
+//            .toList()
+        if (count > restCandidate.count()) {
             str = s.joinToString("")
-            count = rest.count()
+            count = restCandidate.count()
         }
     }
     println("candidate: $count")
