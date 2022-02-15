@@ -34,6 +34,54 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC238 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun exponentialOrQuadratic_1() {
+            input.inputln("5")
+
+            exponentialOrQuadratic()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun exponentialOrQuadratic_2() {
+            input.inputln("2")
+
+            exponentialOrQuadratic()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun exponentialOrQuadratic_3() {
+            input.inputln("623947744")
+
+            exponentialOrQuadratic()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+    }
+
+    @Nested
     inner class ABC237 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
