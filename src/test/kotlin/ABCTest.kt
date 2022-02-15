@@ -84,6 +84,17 @@ class ABCTest {
         }
 
         @Test
+        fun pizza_a() {
+            input.inputln("1")
+            input.inputln("359")
+
+            pizza()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("359")))
+        }
+
+        @Test
         fun exponentialOrQuadratic_1() {
             input.inputln("5")
 

@@ -10,6 +10,7 @@ fun pizza() {
     val a = readLine()!!.trim().split(" ").map { it.toInt() }
 
     val cuts = mutableListOf<Int>()
+    cuts.add(0)
     var index = 0
 
     a.forEach { i ->
