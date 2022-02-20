@@ -51,6 +51,76 @@ class ABCTest {
         }
 
         @Test
+        fun integerDivision_1() {
+            input.inputln("47")
+
+            integerDivision()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("4")))
+        }
+
+        @Test
+        fun integerDivision_2() {
+            input.inputln("-24")
+
+            integerDivision()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("-3")))
+        }
+
+        @Test
+        fun integerDivision_3() {
+            input.inputln("50")
+
+            integerDivision()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("5")))
+        }
+
+        @Test
+        fun integerDivision__10() {
+            input.inputln("-10")
+
+            integerDivision()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("-1")))
+        }
+
+        @Test
+        fun integerDivision_0() {
+            input.inputln("0")
+
+            integerDivision()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("0")))
+        }
+
+        @Test
+        fun integerDivision__9() {
+            input.inputln("-9")
+
+            integerDivision()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("-1")))
+        }
+
+        @Test
+        fun integerDivision_9() {
+            input.inputln("9")
+
+            integerDivision()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("0")))
+        }
+
+        @Test
         fun horizon_1() {
             input.inputln("333")
 
