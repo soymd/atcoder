@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 class ABCTest {
     //    @Nested
-//    inner class Foo {
+//    inner class ABC {
 //        private val input = StandardInputStream()
 //        private val output = StandardOutputStream()
 //
@@ -33,6 +33,44 @@ class ABCTest {
 //            assertThat(result, equalTo(listOf("2")))
 //        }
 //    }
+    @Nested
+    inner class ABC239 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun horizon_1() {
+            input.inputln("333")
+
+            horizon()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("65287.907678222")))
+        }
+
+        @Test
+        fun horizon_2() {
+            input.inputln("634")
+
+            horizon()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("90086.635834623")))
+        }
+    }
+
     @Nested
     inner class ABC238 {
         private val input = StandardInputStream()
