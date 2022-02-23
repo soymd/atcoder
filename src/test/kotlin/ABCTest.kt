@@ -51,6 +51,39 @@ class ABCTest {
         }
 
         @Test
+        fun countDistinctIntegers_1() {
+            input.inputln("6")
+            input.inputln("1 4 1 2 2 1")
+
+            countDistinctIntegers()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("3")))
+        }
+
+        @Test
+        fun countDistinctIntegers_2() {
+            input.inputln("1")
+            input.inputln("1")
+
+            countDistinctIntegers()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1")))
+        }
+
+        @Test
+        fun countDistinctIntegers_3() {
+            input.inputln("11")
+            input.inputln("3 1 4 1 5 9 2 6 5 3 5")
+
+            countDistinctIntegers()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("7")))
+        }
+
+        @Test
         fun edgeChecker_1() {
             input.inputln("4 5")
 

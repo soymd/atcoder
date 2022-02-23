@@ -1,7 +1,14 @@
 import kotlin.math.absoluteValue
 
 fun main() {
-    edgeChecker()
+    countDistinctIntegers()
+}
+
+fun countDistinctIntegers() {
+    val n = readLine()!!.toInt()
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    println(a.distinct().count())
 }
 
 fun edgeChecker() {
