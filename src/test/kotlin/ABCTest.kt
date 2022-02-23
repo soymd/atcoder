@@ -34,6 +34,54 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC240 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun edgeChecker_1() {
+            input.inputln("4 5")
+
+            edgeChecker()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun edgeChecker_2() {
+            input.inputln("3 5")
+
+            edgeChecker()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun edgeChecker_3() {
+            input.inputln("1 10")
+
+            edgeChecker()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+    }
+
+    @Nested
     inner class ABC239 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
