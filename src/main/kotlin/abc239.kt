@@ -1,7 +1,22 @@
 import kotlin.math.sqrt
 
 fun main() {
-    integerDivision()
+    digitnum()
+}
+
+fun digitnum() {
+    val n = readLine()!!.trim().toLong()
+
+    // ( x 以下の正整数で、 x と桁数が同じものの数) とします。
+
+    val temp = ((n / 10)) * 45
+
+    val quotient = n % 10
+
+    val foo = (quotient + 1) * (quotient + 2) / 2
+
+    val ans = temp + foo
+    println(ans % 998244353)
 }
 
 fun integerDivision() {

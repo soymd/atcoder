@@ -51,6 +51,36 @@ class ABCTest {
         }
 
         @Test
+        fun digitnum_1() {
+            input.inputln("16")
+
+            digitnum()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("73")))
+        }
+
+        @Test
+        fun digitnum_2() {
+            input.inputln("238")
+
+            digitnum()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("13870")))
+        }
+
+        @Test
+        fun digitnum_3() {
+            input.inputln("999999999999999999")
+
+            digitnum()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("762062362")))
+        }
+
+        @Test
         fun integerDivision_1() {
             input.inputln("47")
 
