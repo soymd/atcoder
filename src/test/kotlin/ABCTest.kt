@@ -51,6 +51,53 @@ class ABCTest {
         }
 
         @Test
+        fun toRoman_1() {
+            assertThat(toRoman(1), equalTo("I"))
+            assertThat(toRoman(2), equalTo("II"))
+            assertThat(toRoman(3), equalTo("III"))
+            assertThat(toRoman(4), equalTo("IV"))
+            assertThat(toRoman(5), equalTo("V"))
+        }
+
+        @Test
+        fun jumpingTakahashi_1() {
+            input.inputln("2 10")
+            input.inputln("3 6")
+            input.inputln("4 5")
+
+            jumpingTakahashi()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
+        fun jumpingTakahashi_2() {
+            input.inputln("2 10")
+            input.inputln("10 100")
+            input.inputln("10 100")
+
+            jumpingTakahashi()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
+
+        @Test
+        fun jumpingTakahashi_3() {
+            input.inputln("4 12")
+            input.inputln("1 8")
+            input.inputln("5 7")
+            input.inputln("3 4")
+            input.inputln("2 6")
+
+            jumpingTakahashi()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
+
+        @Test
         fun countDistinctIntegers_1() {
             input.inputln("6")
             input.inputln("1 4 1 2 2 1")
