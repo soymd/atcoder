@@ -51,6 +51,42 @@ class ABCTest {
         }
 
         @Test
+        fun oneDPawn_1() {
+            input.inputln("5 3 5")
+            input.inputln("1 3 4")
+            input.inputln("3 3 1 1 2")
+
+            oneDPawn()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2 4 5")))
+        }
+
+        @Test
+        fun oneDPawn_2() {
+            input.inputln("2 2 2")
+            input.inputln("1 2")
+            input.inputln("1 2")
+
+            oneDPawn()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1 2")))
+        }
+
+        @Test
+        fun oneDPawn_3() {
+            input.inputln("10 6 9")
+            input.inputln("1 3 5 7 8 9")
+            input.inputln("1 2 3 4 5 6 5 6 2")
+
+            oneDPawn()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("2 5 6 7 9 10")))
+        }
+
+        @Test
         fun aToZString2_1() {
             input.inputln("1 3")
 
