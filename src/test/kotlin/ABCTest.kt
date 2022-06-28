@@ -34,6 +34,44 @@ class ABCTest {
 //        }
 //    }
     @Nested
+    inner class ABC257 {
+        private val input = StandardInputStream()
+        private val output = StandardOutputStream()
+
+        @BeforeEach
+        fun setUp() {
+            System.setIn(input)
+            System.setOut(output)
+        }
+
+        @AfterEach
+        fun tearDown() {
+            System.setIn(null)
+            System.setOut(null)
+        }
+
+        @Test
+        fun aToZString2_1() {
+            input.inputln("1 3")
+
+            aToZString2()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("C")))
+        }
+
+        @Test
+        fun aToZString2_2() {
+            input.inputln("2 12")
+
+            aToZString2()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("F")))
+        }
+    }
+
+    @Nested
     inner class ABC240 {
         private val input = StandardInputStream()
         private val output = StandardOutputStream()
