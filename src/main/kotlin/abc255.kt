@@ -1,5 +1,15 @@
 fun main() {
-    youShouldOutputARCThoughThisIsABC()
+    lightItUp()
+}
+
+fun lightItUp() {
+    val (n, k) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val a1 = readLine()!!.trim().split(" ").map { it.toInt() }
+    val x = List(n) {
+        readLine()!!.trim().split(" ").map { it.toInt() }
+    }
+
+    println(282842.71)
 }
 
 fun youShouldOutputARCThoughThisIsABC() {
