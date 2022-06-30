@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-class ABCTest {
+class ABC255Test {
     @Nested
     inner class A {
         private val input = StandardInputStream()
@@ -25,53 +25,39 @@ class ABCTest {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("1 2")
+            input.inputln("1 0")
+            input.inputln("0 1")
 
-            //()
+            youShouldOutputARCThoughThisIsABC()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("0")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("2 2")
+            input.inputln("1 2")
+            input.inputln("3 4")
 
-            //()
+            youShouldOutputARCThoughThisIsABC()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("4")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("2 1")
+            input.inputln("90 80")
+            input.inputln("70 60")
 
-            //()
+            youShouldOutputARCThoughThisIsABC()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("70")))
         }
-
-//        @Test
-//        fun a_4() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
-//
-//        @Test
-//        fun a_5() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
     }
 
     @Nested
@@ -110,36 +96,6 @@ class ABCTest {
             val result = output.readLines()
             assertThat(result, equalTo(listOf("")))
         }
-
-        @Test
-        fun a_3() {
-            input.inputln("")
-
-            //()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
-        }
-
-//        @Test
-//        fun a_4() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
-//
-//        @Test
-//        fun a_5() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
     }
 
     @Nested
@@ -178,35 +134,5 @@ class ABCTest {
             val result = output.readLines()
             assertThat(result, equalTo(listOf("")))
         }
-
-        @Test
-        fun a_3() {
-            input.inputln("")
-
-            //()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
-        }
-
-//        @Test
-//        fun a_4() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
-//
-//        @Test
-//        fun a_5() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
     }
 }
