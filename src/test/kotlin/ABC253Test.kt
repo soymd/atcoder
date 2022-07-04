@@ -93,22 +93,29 @@ class ABC253Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("2 3")
+            input.inputln("--o")
+            input.inputln("o--")
 
-            //()
+            distanceBetweenToken()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("3")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("5 4")
+            input.inputln("-o--")
+            input.inputln("----")
+            input.inputln("----")
+            input.inputln("----")
+            input.inputln("-o--")
 
-            //()
+            distanceBetweenToken()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("4")))
         }
 
         @Test
