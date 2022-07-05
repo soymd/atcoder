@@ -21,6 +21,16 @@ fun abc252b() {
         }
     }
     println("No")
+    // https://atcoder.jp/contests/abc252/submissions/31892040
+    // val (n, k) = readLine()!!.split(' ').map(String::toInt)
+    // val food = readLine()!!.split(' ').map(String::toInt)
+    // val hate = readLine()!!.split(' ').map(String::toInt)
+    // val max = food.max()!!
+    // if (food.indices.any { food[it] == max && it + 1 in hate }) {
+    //     println("Yes")
+    // } else {
+    //     println("No")
+    // }
 }
 
 fun abc252a() {
