@@ -1,5 +1,14 @@
 fun main() {
-    abc252b()
+    abc251a()
+}
+
+fun abc251a() {
+    val s = readLine()!!
+    when (s.length) {
+        1 -> println(s + s + s + s + s + s)
+        2 -> println(s + s + s)
+        3 -> println(s + s)
+    }
 }
 
 fun abc252b() {
