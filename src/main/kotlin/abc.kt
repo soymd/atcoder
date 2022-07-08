@@ -1,5 +1,46 @@
 fun main() {
-    abc251b()
+    abc250a()
+}
+
+fun abc250a() {
+    val (h, w) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val (r, c) = readLine()!!.trim().split(" ").map { it.toInt() }
+    if (h == 1 && w == 1) {
+        println(0)
+        return
+    }
+    val isSingleRow = h == 1 && w != 1
+    if (isSingleRow) {
+        val isEnd = c == 1 || c == w
+        if (isEnd) {
+            println(1)
+        } else {
+            println(2)
+        }
+        return
+    }
+    val isSingleColumn = h != 1 && w == 1
+    if (isSingleColumn) {
+        val isEnd = r == 1 || r == h
+        if (isEnd) {
+            println(1)
+        } else {
+            println(2)
+        }
+        return
+    }
+    val isCorner = (r == 1 && c == 1) || (r == 1 && c == w) || (r == h && c == 1) || (r == h && c == w)
+    if (isCorner) {
+        println(2)
+        return
+    }
+
+    val isSide = r == 1 || c == 1 || r == h || c == w
+    if (isSide) {
+        println(3)
+        return
+    }
+    println(4)
 }
 
 fun abc251b() {
