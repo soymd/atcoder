@@ -1,5 +1,42 @@
 fun main() {
-    abc250a()
+    abc250b()
+}
+
+fun abc250b() {
+    val (n, a, b) = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    var row1 = ""
+    var row2 = ""
+    var count = 1
+    for (i in 1..(n * b)) {
+        if (count <= b) {
+            row1 += "."
+            row2 += "#"
+        } else {
+            row1 += "#"
+            row2 += "."
+        }
+        if (b * 2 <= count) {
+            count = 1
+        } else {
+            count++
+        }
+    }
+    val ans = mutableListOf<String>()
+    var count1 = 1
+    for (i in 1..n * a) {
+        if (count1 <= a) {
+            ans.add(row1)
+        } else {
+            ans.add(row2)
+        }
+        if (a * 2 <= count1) {
+            count1 = 1
+        } else {
+            count1++
+        }
+    }
+    ans.forEach { println(it) }
 }
 
 fun abc250a() {

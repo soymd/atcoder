@@ -110,43 +110,100 @@ class ABC250Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("4 3 2")
 
-            //()
+            abc250b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "..##..##",
+                        "..##..##",
+                        "..##..##",
+                        "##..##..",
+                        "##..##..",
+                        "##..##..",
+                        "..##..##",
+                        "..##..##",
+                        "..##..##",
+                        "##..##..",
+                        "##..##..",
+                        "##..##.."
+                    )
+                )
+            )
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("5 1 5")
 
-            //()
+            abc250b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        ".....#####.....#####.....",
+                        "#####.....#####.....#####",
+                        ".....#####.....#####.....",
+                        "#####.....#####.....#####",
+                        ".....#####.....#####....."
+                    )
+                )
+            )
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("4 4 1")
 
-            //()
+            abc250b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        ".#.#",
+                        ".#.#",
+                        ".#.#",
+                        ".#.#",
+                        "#.#.",
+                        "#.#.",
+                        "#.#.",
+                        "#.#.",
+                        ".#.#",
+                        ".#.#",
+                        ".#.#",
+                        ".#.#",
+                        "#.#.",
+                        "#.#.",
+                        "#.#.",
+                        "#.#."
+                    )
+                )
+            )
         }
 
-//        @Test
-//        fun a_4() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
+        @Test
+        fun a_4() {
+            input.inputln("1 4 4")
+
+            abc250b()
+
+            val result = output.readLines()
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "....",
+                        "....",
+                        "....",
+                        "...."
+                    )
+                )
+            )
+        }
 //
 //        @Test
 //        fun a_5() {
