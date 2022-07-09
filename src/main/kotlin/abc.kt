@@ -5,23 +5,10 @@ fun main() {
 fun abc249b() {
     val s = readLine()!!.trim().split("").map { it }.filter { it != "" }
 
-    if (s.count() != s.distinct().count()) {
-        println("No")
-        return
-    }
-    var containsUpperCase = false
-    var containsLowerCase = false
-    for (str in s) {
-        if (str.toUpperCase() == str) {
-            containsUpperCase = true
-            continue
-        }
-        if (str.toLowerCase() == str) {
-            containsLowerCase = true
-            continue
-        }
-    }
-    if (containsUpperCase && containsLowerCase) {
+    val unique = s.count() == s.distinct().count()
+    val containsUpperCase = s.any { it.toUpperCase() == it }
+    val containsLowerCase = s.any { it.toLowerCase() == it }
+    if (containsUpperCase && containsLowerCase && unique) {
         println("Yes")
     } else {
         println("No")
