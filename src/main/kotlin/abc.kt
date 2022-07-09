@@ -1,5 +1,31 @@
 fun main() {
-    abc249a()
+    abc249b()
+}
+
+fun abc249b() {
+    val s = readLine()!!.trim().split("").map { it }.filter { it != "" }
+
+    if (s.count() != s.distinct().count()) {
+        println("No")
+        return
+    }
+    var containsUpperCase = false
+    var containsLowerCase = false
+    for (str in s) {
+        if (str.toUpperCase() == str) {
+            containsUpperCase = true
+            continue
+        }
+        if (str.toLowerCase() == str) {
+            containsLowerCase = true
+            continue
+        }
+    }
+    if (containsUpperCase && containsLowerCase) {
+        println("Yes")
+    } else {
+        println("No")
+    }
 }
 
 fun abc249a() {

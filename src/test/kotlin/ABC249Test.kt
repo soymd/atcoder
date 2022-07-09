@@ -93,43 +93,43 @@ class ABC249Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("AtCoder")
 
-            //()
+            abc249b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("Yes")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("Aa")
 
-            //()
+            abc249b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("Yes")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("atcoder")
 
-            //()
+            abc249b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("No")))
         }
 
-//        @Test
-//        fun a_4() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
+        @Test
+        fun a_4() {
+            input.inputln("Perfect")
+
+            abc249b()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("No")))
+        }
 //
 //        @Test
 //        fun a_5() {
