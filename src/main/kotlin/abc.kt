@@ -1,5 +1,38 @@
 fun main() {
-    abc250b()
+    abc249a()
+}
+
+fun abc249a() {
+    val list = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    val (a, b, c) = list.subList(0, 3)
+    val (d, e, f) = list.subList(3, 6)
+    val x = list[6]
+
+    val takahashi = calcDistance(a, b, c, x)
+    val aoki = calcDistance(d, e, f, x)
+
+    if (takahashi > aoki) {
+        println("Takahashi")
+    } else if (aoki > takahashi) {
+        println("Aoki")
+    } else {
+        println("Draw")
+    }
+}
+
+private fun calcDistance(walkTime: Int, perSecond: Int, restTime: Int, totalTime: Int): Int {
+    val cycleTime = walkTime + restTime
+    val progressPerCycle = walkTime * perSecond
+    val cycleCount = totalTime / cycleTime
+    val reminderTime = totalTime % cycleTime
+    val fractionProgress = if (reminderTime >= walkTime) {
+        progressPerCycle
+    } else {
+        reminderTime * perSecond
+    }
+
+    return (cycleCount * progressPerCycle) + fractionProgress
 }
 
 fun abc250b() {
