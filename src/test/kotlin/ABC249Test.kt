@@ -53,6 +53,26 @@ class ABC249Test {
             assertThat(result, equalTo(listOf("Draw")))
         }
 
+        @Test
+        fun a_4() {
+            input.inputln("1 2 1 1 1 1 1")
+
+            abc249a()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Takahashi")))
+        }
+
+        @Test
+        fun a_5() {
+            input.inputln("10 5 10 5 10 1 12")
+
+            abc249a()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Aoki")))
+        }
+
 //        @Test
 //        fun a_4() {
 //            input.inputln("")

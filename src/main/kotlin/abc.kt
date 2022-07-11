@@ -5,33 +5,37 @@ fun main() {
 fun abc249b() {
     val s = readLine()!!.trim().split("").map { it }.filter { it != "" }
 
-    val unique = s.count() == s.distinct().count()
-    val containsUpperCase = s.any { it.toUpperCase() == it }
-    val containsLowerCase = s.any { it.toLowerCase() == it }
-    if (containsUpperCase && containsLowerCase && unique) {
-        println("Yes")
-    } else {
-        println("No")
-    }
+    val includesUppercase = s.any { it.toUpperCase() == it }
+    val includesLowercase = s.any { it.toUpperCase() == it }
+    val isUnique = s.toSet().count() == s.count()
+
+    println(
+        if (includesUppercase && includesLowercase && isUnique) {
+            "Yes"
+        } else {
+            "No"
+        }
+    )
 }
 
 fun abc249a() {
     val list = readLine()!!.trim().split(" ").map { it.toInt() }
 
-    val (a, b, c) = list.subList(0, 3)
-    val (d, e, f) = list.subList(3, 6)
+    val (a, b, c) = list.take(3)
+    val (d, e, f) = list.drop(3)
     val x = list[6]
 
-    val takahashi = calcDistance(a, b, c, x)
-    val aoki = calcDistance(d, e, f, x)
-
-    if (takahashi > aoki) {
-        println("Takahashi")
-    } else if (aoki > takahashi) {
-        println("Aoki")
-    } else {
-        println("Draw")
-    }
+    val takahashiTime = calcDistance(a, b, c, x)
+    val aokiTime = calcDistance(d, e, f, x)
+    println(
+        if (takahashiTime > aokiTime) {
+            "Takahashi"
+        } else if (aokiTime > takahashiTime) {
+            "Aoki"
+        } else {
+            "Draw"
+        }
+    )
 }
 
 private fun calcDistance(walkTime: Int, perSecond: Int, restTime: Int, totalTime: Int): Int {
