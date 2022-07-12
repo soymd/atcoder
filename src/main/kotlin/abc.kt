@@ -25,8 +25,8 @@ fun abc249a() {
     val (d, e, f) = list.drop(3)
     val x = list[6]
 
-    val takahashiTime = calcDistance(a, b, c, x)
-    val aokiTime = calcDistance(d, e, f, x)
+    val takahashiTime = calcDistance2(a, b, c, x)
+    val aokiTime = calcDistance2(d, e, f, x)
     println(
         if (takahashiTime > aokiTime) {
             "Takahashi"
@@ -38,7 +38,7 @@ fun abc249a() {
     )
 }
 
-private fun calcDistance(walkTime: Int, perSecond: Int, restTime: Int, totalTime: Int): Int {
+fun calcDistance(walkTime: Int, perSecond: Int, restTime: Int, totalTime: Int): Int {
     val cycleTime = walkTime + restTime
     val progressPerCycle = walkTime * perSecond
     val cycleCount = totalTime / cycleTime
@@ -50,6 +50,17 @@ private fun calcDistance(walkTime: Int, perSecond: Int, restTime: Int, totalTime
     }
 
     return (cycleCount * progressPerCycle) + fractionProgress
+}
+
+fun calcDistance2(walkTime: Int, perSecond: Int, restTime: Int, totalTime: Int): Int {
+    var total = 0
+    for (i in 0 until totalTime) {
+        // for (i in 1..totalTime) {
+        if (i % (walkTime + restTime) < walkTime) {
+            total += perSecond
+        }
+    }
+    return total
 }
 
 fun abc250b() {
