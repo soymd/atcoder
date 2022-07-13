@@ -19,13 +19,8 @@ fun abc248b() {
 }
 
 fun abc248a() {
-    val s = readLine()!!.trim().split("").map { it }.filter { it != "" }
-
-    val set = mutableSetOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-    s.forEach {
-        set.remove(it.toInt())
-    }
-    println(set.first())
+    val s = readLine()!!
+    println(('0'..'9').find { it !in s })
 }
 
 fun abc249b() {
