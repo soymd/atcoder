@@ -3,7 +3,7 @@ fun main() {
 }
 
 fun abc248b() {
-    val (a, b, k) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val (a, b, k) = readLine()!!.trim().split(" ").map { it.toLong() }
 
     if (a >= b) {
         println(0)
