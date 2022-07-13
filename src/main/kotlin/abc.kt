@@ -1,5 +1,21 @@
 fun main() {
-    abc248a()
+    abc248b()
+}
+
+fun abc248b() {
+    val (a, b, k) = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    if (a >= b) {
+        println(0)
+        return
+    }
+    var i = a
+    var count = 0
+    do {
+        i *= k
+        count++
+    } while (i < b)
+    println(count)
 }
 
 fun abc248a() {

@@ -93,32 +93,32 @@ class ABC248Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("1 4 2")
 
-            //()
+            abc248b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("2")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("7 7 10")
 
-            //()
+            abc248b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("0")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("31 415926 5")
 
-            //()
+            abc248b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("6")))
         }
 
 //        @Test
