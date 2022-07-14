@@ -1,5 +1,10 @@
 fun main() {
-    abc248b()
+    abc247a()
+}
+
+fun abc247a() {
+    val s = readLine()!!.trim().split("").map { it }.filter { it != "" }
+    println("0" + s.dropLast(1).joinToString(""))
 }
 
 fun abc248b() {
