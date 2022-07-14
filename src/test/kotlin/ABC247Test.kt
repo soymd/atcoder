@@ -93,43 +93,54 @@ class ABC247Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("3")
+            input.inputln("tanaka taro")
+            input.inputln("tanaka jiro")
+            input.inputln("suzuki hanako")
 
-            //()
+            abc247b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("Yes")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("3")
+            input.inputln("aaa bbb")
+            input.inputln("xxx aaa")
+            input.inputln("bbb yyy")
 
-            //()
+            abc247b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("No")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("2")
+            input.inputln("tanaka taro")
+            input.inputln("tanaka taro")
 
-            //()
+            abc247b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("No")))
         }
 
-//        @Test
-//        fun a_4() {
-//            input.inputln("")
-//
-//            //()
-//
-//            val result = output.readLines()
-//            assertThat(result, equalTo(listOf("")))
-//        }
+        @Test
+        fun a_4() {
+            input.inputln("3")
+            input.inputln("takahashi chokudai")
+            input.inputln("aoki kensho")
+            input.inputln("snu ke")
+
+            abc247b()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("Yes")))
+        }
 //
 //        @Test
 //        fun a_5() {

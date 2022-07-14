@@ -1,5 +1,24 @@
 fun main() {
-    abc247a()
+    abc247b()
+}
+
+fun abc247b() {
+    val n = readLine()!!.toInt()
+    val list = List(n) {
+        readLine()!!.trim().split(" ").map { it }
+    }
+
+    list.forEachIndexed { index, name ->
+        val mutableList = list.toMutableList()
+        mutableList.removeAt(index)
+        val names = mutableList.flatten()
+        val isUnique = !names.contains(name.first()) || !names.contains(name.last())
+        if (!isUnique) {
+            println("No")
+            return
+        }
+    }
+    println("Yes")
 }
 
 fun abc247a() {
