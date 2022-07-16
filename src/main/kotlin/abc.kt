@@ -1,5 +1,26 @@
 fun main() {
-    abc247b()
+    abc246a()
+}
+
+fun abc246a() {
+    val list = List(3) {
+        readLine()!!.trim().split(" ").map { it.toInt() }
+    }
+
+    val maxX = list.maxBy { it.first() }!!.first()
+    val minX = list.minBy { it.first() }!!.first()
+    val maxY = list.maxBy { it.last() }!!.last()
+    val minY = list.minBy { it.last() }!!.last()
+
+    val mutableList = mutableListOf<List<Int>>()
+    mutableList.add(listOf(maxX, maxY))
+    mutableList.add(listOf(minX, maxY))
+    mutableList.add(listOf(minX, minY))
+    mutableList.add(listOf(maxX, minY))
+
+    val ans = mutableList.filter { !list.contains(it) }
+
+    println(ans.first().joinToString(" "))
 }
 
 fun abc247b() {
