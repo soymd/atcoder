@@ -1,7 +1,21 @@
 import java.util.*
 
 fun main() {
-    abc245a()
+    abc245b()
+}
+
+fun abc245b() {
+    val n = readLine()!!.toInt()
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }.toSet()
+
+    val list = (0..n).toList()
+
+    list.forEach { i ->
+        if (!a.contains(i)) {
+            println(i)
+            return
+        }
+    }
 }
 
 fun abc245a() {

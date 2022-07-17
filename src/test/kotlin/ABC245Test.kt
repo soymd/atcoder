@@ -90,35 +90,37 @@ class ABC245Test {
             System.setIn(null)
             System.setOut(null)
         }
-
-        @Test
-        fun a_1() {
-            input.inputln("")
-
-            //()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
-        }
+        //
+        // @Test
+        // fun a_1() {
+        //     input.inputln("")
+        //
+        //     //()
+        //
+        //     val result = output.readLines()
+        //     assertThat(result, equalTo(listOf("")))
+        // }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("8")
+            input.inputln("0 3 2 6 2 1 0 0")
 
-            //()
+            abc245b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("4")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("3")
+            input.inputln("2000 2000 2000")
 
-            //()
+            abc245b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("0")))
         }
 
 //        @Test
