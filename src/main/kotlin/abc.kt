@@ -1,5 +1,20 @@
+import java.util.*
+
 fun main() {
-    abc246a()
+    abc245a()
+}
+
+fun abc245a() {
+    val (a, b, c, d) = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    val takahashi = Date(2022, 7, 17, a, b, 0)
+    val aoki = Date(2022, 7, 17, c, d, 1)
+
+    if (takahashi.before(aoki)) {
+        println("Takahashi")
+    } else {
+        println("Aoki")
+    }
 }
 
 fun abc246a() {
