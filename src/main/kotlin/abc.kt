@@ -1,7 +1,30 @@
 import java.util.*
 
 fun main() {
-    abc245b()
+    abc243a()
+}
+
+fun abc243a() {
+    val (v, f, m, t) = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    val list = listOf(f, m, t)
+
+    var rest = v
+    do {
+        list.forEachIndexed { index, i ->
+            rest -= i
+            if (rest < 0) {
+                println(
+                    when (index) {
+                        0 -> "F"
+                        1 -> "M"
+                        else -> "T"
+                    }
+                )
+                return
+            }
+        }
+    } while (rest >= 0)
 }
 
 fun abc245b() {
