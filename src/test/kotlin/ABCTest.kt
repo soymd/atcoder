@@ -72,6 +72,8 @@ class ABCTest {
 //            val result = output.readLines()
 //            assertThat(result, equalTo(listOf("")))
 //        }
+
+//         assertThat(result.first().toDouble(), closeTo(2.23606797749978969, 0.0005))
     }
 
     @Nested
