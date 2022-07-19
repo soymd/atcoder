@@ -1,7 +1,22 @@
 import java.util.*
 
 fun main() {
-    abc243b()
+    abc242a()
+}
+
+fun abc242a() {
+    val (a, b, c, x) = readLine()!!.trim().split(" ").map { it.toDouble() }
+
+    if (x <= a) {
+        println(1)
+        return
+    }
+    if (x > b) {
+        println(0)
+        return
+    }
+
+    println(c / (b - a))
 }
 
 fun abc243b() {
