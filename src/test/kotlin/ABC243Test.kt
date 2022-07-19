@@ -93,32 +93,38 @@ class ABC243Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("4")
+            input.inputln("1 3 5 2")
+            input.inputln("2 3 1 4")
 
-            //()
+            abc243b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("1", "2")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("3")
+            input.inputln("1 2 3")
+            input.inputln("4 5 6")
 
-            //()
+            abc243b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("0", "0")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("7")
+            input.inputln("4 8 1 7 9 5 6")
+            input.inputln("3 5 1 7 8 2 6")
 
-            //()
+            abc243b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("3", "2")))
         }
 
 //        @Test

@@ -1,7 +1,26 @@
 import java.util.*
 
 fun main() {
-    abc243a()
+    abc243b()
+}
+
+fun abc243b() {
+    val n = readLine()!!.toInt()
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }
+    val b = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    var ans1 = 0
+    var ans2 = 0
+    a.forEachIndexed { index, i ->
+        if (b[index] == i) {
+            ans1++
+        }
+        if (b.contains(i)) {
+            ans2++
+        }
+    }
+    println(ans1)
+    println(ans2 - ans1)
 }
 
 fun abc243a() {
