@@ -1,8 +1,76 @@
 import java.util.*
 
 fun main() {
-    abc242a()
+    abc242b()
 }
+
+fun abc242b() {
+    val s = readLine()!!.trim().split("").map { it }
+
+    val permutation = s.permutationWithoutRepetition(s.count()).toMutableList()
+    val list = permutation.map { it.joinToString("") }.distinct().toMutableList()
+    list.sort()
+
+    println(list.first())
+
+}
+
+/** 重複なしの順列 */
+private fun <T> List<T>.permutationWithoutRepetition(k: Int): Sequence<List<T>> {
+    require(k in 0..size) { "引数 k は 0 以上かつ $size 以下でなければなりません。k: $k" }
+
+    return pcSequenceFactory<T> { options, i ->
+        options.take(i) + options.drop(i + 1)
+    }(this, k)
+}
+
+/** 重複なしの組み合わせ */
+private fun <T> List<T>.combinationWithoutRepetition(k: Int): Sequence<List<T>> {
+    require(k in 0..size) { "引数 k は 0 以上かつ $size 以下でなければなりません。k: $k" }
+
+    return pcSequenceFactory<T> { options, i ->
+        options.drop(i + 1)
+    }(this, k)
+}
+
+/** 重複ありの順列 */
+private fun <T> List<T>.permutationWithRepetition(k: Int): Sequence<List<T>> {
+    require(k >= 0) { "引数 k は 0 以上でなければなりません。k: $k" }
+
+    return pcSequenceFactory<T> { options, i ->
+        options
+    }(this, k)
+}
+
+/** 重複ありの組み合わせ */
+private fun <T> List<T>.combinationWithRepetition(k: Int): Sequence<List<T>> {
+    require(k >= 0) { "引数 k は 0 以上でなければなりません。k: $k" }
+
+    return pcSequenceFactory<T> { options, i ->
+        options.drop(i)
+    }(this, k)
+}
+
+private fun <T> pcSequenceFactory(
+    selecteds: List<T> = emptyList(),
+    filter: (options: List<T>, i: Int) -> List<T>
+): (options: List<T>, k: Int) -> Sequence<List<T>> =
+    { options, k ->
+        sequence {
+            if (k == 0) {
+                yield(selecteds)
+                return@sequence
+            }
+
+            options.forEachIndexed { i, option ->
+                pcSequenceFactory(selecteds + option, filter).let {
+                    it(filter(options, i), k - 1)
+                }.forEach {
+                    yield(it)
+                }
+            }
+        }
+    }
 
 fun abc242a() {
     val (a, b, c, x) = readLine()!!.trim().split(" ").map { it.toDouble() }
@@ -325,36 +393,6 @@ private fun count(combination: Sequence<List<Int>>, w: Int): List<Int> {
     }
     return weights
 }
-
-private fun <T> List<T>.combinationWithoutRepetition(k: Int): Sequence<List<T>> {
-    require(k in 0..size) { "引数 k は 0 以上かつ $size 以下でなければなりません。k: $k" }
-
-    return pcSequenceFactory<T> { options, i ->
-        options.drop(i + 1)
-    }(this, k)
-}
-
-private fun <T> pcSequenceFactory(
-    selecteds: List<T> = emptyList(),
-    filter: (options: List<T>, i: Int) -> List<T>
-): (options: List<T>, k: Int) -> Sequence<List<T>> =
-    { options, k ->
-        sequence {
-            if (k == 0) {
-                yield(selecteds)
-                return@sequence
-            }
-
-            options.forEachIndexed { i, option ->
-                pcSequenceFactory(selecteds + option, filter).let {
-                    it(filter(options, i), k - 1)
-                }.forEach {
-                    yield(it)
-                }
-            }
-        }
-    }
-
 
 fun abc251a() {
     val s = readLine()!!
