@@ -5,14 +5,8 @@ fun main() {
 }
 
 fun abc242b() {
-    val s = readLine()!!.trim().split("").map { it }
-
-    val permutation = s.permutationWithoutRepetition(s.count()).toMutableList()
-    val list = permutation.map { it.joinToString("") }.distinct().toMutableList()
-    list.sort()
-
-    println(list.first())
-
+    val s = readLine()!!
+    println(s.toCharArray().sorted().joinToString(""))
 }
 
 /** 重複なしの順列 */
