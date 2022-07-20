@@ -1,7 +1,17 @@
 import java.util.*
 
 fun main() {
-    abc242b()
+    abc241a()
+}
+
+fun abc241a() {
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    var ans = 0
+    repeat(3) {
+        ans = a[ans]
+    }
+    println(ans)
 }
 
 fun abc242b() {
