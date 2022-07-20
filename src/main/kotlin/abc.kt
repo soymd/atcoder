@@ -1,7 +1,23 @@
 import java.util.*
 
 fun main() {
-    abc241a()
+    abc241b()
+}
+
+fun abc241b() {
+    val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val pastas = readLine()!!.trim().split(" ").map { it.toInt() }.toMutableList()
+    val plans = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    plans.forEach { plan ->
+        if (pastas.contains(plan)) {
+            pastas.remove(plan)
+        } else {
+            println("No")
+            return
+        }
+    }
+    println("Yes")
 }
 
 fun abc241a() {

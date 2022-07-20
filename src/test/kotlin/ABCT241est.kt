@@ -95,32 +95,38 @@ class ABCT241est {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("3 2")
+            input.inputln("1 1 3")
+            input.inputln("3 1")
 
-            //()
+            abc241b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("Yes")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("1 1")
+            input.inputln("1000000000")
+            input.inputln("1")
 
-            //()
+            abc241b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("No")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("5 2")
+            input.inputln("1 2 3 4 5")
+            input.inputln("5 5")
 
-            //()
+            abc241b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("No")))
         }
 
 //        @Test
