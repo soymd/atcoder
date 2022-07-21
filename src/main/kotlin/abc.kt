@@ -1,7 +1,17 @@
 import java.util.*
 
 fun main() {
-    abc241b()
+    abc240a()
+}
+
+fun abc240a() {
+    val (a, b) = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    if (a - b == 1 || b - a == 1 || (a == 1 && b == 10) || (a == 10 && b == 1)) {
+        println("Yes")
+    } else {
+        println("No")
+    }
 }
 
 fun abc241b() {
