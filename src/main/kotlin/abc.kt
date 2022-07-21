@@ -1,7 +1,14 @@
 import java.util.*
 
 fun main() {
-    abc240a()
+    abc240b()
+}
+
+fun abc240b() {
+    val n = readLine()!!.toInt()
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    println(a.toSet().count())
 }
 
 fun abc240a() {
