@@ -11,12 +11,14 @@ fun abc251c() {
         Triple(i, list.first(), list.last().toInt())
     }
 
-    val distinct = poems.map { it.second }.distinct()
-    val original = distinct.map { d ->
-        poems.first { it.second == d }
+    val map = mutableMapOf<String, Pair<Int, Int>>()
+    poems.forEachIndexed { index, triple ->
+        if (!map.contains(triple.second)) {
+            map[triple.second] = Pair(triple.first, triple.third)
+        }
     }
-    val ans = original.maxBy { it.third }
-    println(ans!!.first + 1)
+    val ans = map.maxBy { it.value.second }
+    println(ans!!.value.first + 1)
 }
 
 fun abc240b() {
