@@ -165,32 +165,50 @@ class ABC251Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("3")
+            input.inputln("aaa 10")
+            input.inputln("bbb 20")
+            input.inputln("aaa 30")
 
-            //()
+            abc251c()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("2")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("5")
+            input.inputln("aaa 9")
+            input.inputln("bbb 10")
+            input.inputln("ccc 10")
+            input.inputln("ddd 10")
+            input.inputln("bbb 11")
 
-            //()
+            abc251c()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("2")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("10")
+            input.inputln("bb 3")
+            input.inputln("ba 1")
+            input.inputln("aa 4")
+            input.inputln("bb 1")
+            input.inputln("ba 5")
+            input.inputln("aa 9")
+            input.inputln("aa 2")
+            input.inputln("ab 6")
+            input.inputln("bb 5")
+            input.inputln("ab 3")
 
-            //()
+            abc251c()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("8")))
         }
 
 //        @Test

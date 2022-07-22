@@ -1,7 +1,22 @@
 import java.util.*
 
 fun main() {
-    abc240b()
+    abc251c()
+}
+
+fun abc251c() {
+    val n = readLine()!!.toInt()
+    val poems = List(n) { i ->
+        val list = readLine()!!.trim().split(" ").map { it }
+        Triple(i, list.first(), list.last().toInt())
+    }
+
+    val distinct = poems.map { it.second }.distinct()
+    val original = distinct.map { d ->
+        poems.first { it.second == d }
+    }
+    val ans = original.maxBy { it.third }
+    println(ans!!.first + 1)
 }
 
 fun abc240b() {
