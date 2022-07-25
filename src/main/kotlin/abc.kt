@@ -6,19 +6,26 @@ fun main() {
 
 fun abc251c() {
     val n = readLine()!!.toInt()
-    val poems = List(n) { i ->
-        val list = readLine()!!.trim().split(" ").map { it }
-        Triple(i, list.first(), list.last().toInt())
+    val submits = List(n) {
+        val temp = readLine()!!.trim().split(" ").map { it }
+        Pair(temp.first(), temp.last().toInt())
     }
 
-    val map = mutableMapOf<String, Pair<Int, Int>>()
-    poems.forEachIndexed { index, triple ->
-        if (!map.contains(triple.second)) {
-            map[triple.second] = Pair(triple.first, triple.third)
+    val set = mutableSetOf<String>()
+    var max = 0
+    var ans = 0
+    submits.forEachIndexed { index, pair ->
+        val poem = pair.first
+        if (!set.contains(poem)) {
+            set.add(poem)
+            val score = pair.second
+            if (score > max) {
+                max = score
+                ans = index
+            }
         }
     }
-    val ans = map.maxBy { it.value.second }
-    println(ans!!.value.first + 1)
+    println(ans + 1)
 }
 
 fun abc240b() {
