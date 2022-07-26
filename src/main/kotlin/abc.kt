@@ -1,7 +1,29 @@
 import java.util.*
 
 fun main() {
-    abc261a()
+    abc261b()
+}
+
+fun abc261b() {
+    val n = readLine()!!.toInt()
+    val table = List(n) {
+        readLine()!!.trim().split("").filter { it != "" }
+    }
+
+    for (y in 0 until n) {
+        for (x in 0 until n) {
+            if (x == y) continue
+            val p1 = table[x][y]
+            val p2 = table[y][x]
+            val p1win = p1 == "W" && p2 == "L"
+            val p2win = p1 == "L" && p2 == "W"
+            val draw = p1 == "D" && p2 == "D"
+            if (p1win || p2win || draw) continue
+            println("incorrect")
+            return
+        }
+    }
+    println("correct")
 }
 
 fun abc261a() {

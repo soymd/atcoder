@@ -155,22 +155,28 @@ class ABC261Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("4")
+            input.inputln("-WWW")
+            input.inputln("L-DD")
+            input.inputln("LD-W")
+            input.inputln("LDW-")
 
-            //()
+            abc261b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("incorrect")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("2")
+            input.inputln("-D")
+            input.inputln("D-")
 
-            //()
+            abc261b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("correct")))
         }
 
         @Test
