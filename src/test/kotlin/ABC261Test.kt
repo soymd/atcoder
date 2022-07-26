@@ -63,6 +63,16 @@ class ABC261Test {
             assertThat(result, equalTo(listOf("1")))
         }
 
+        @Test
+        fun a_b() {
+            input.inputln("1 0 2 3")
+
+            abc261a()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("1")))
+        }
+
 //        @Test
 //        fun a_4() {
 //            input.inputln("")
