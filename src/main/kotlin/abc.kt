@@ -26,8 +26,8 @@ fun abc261c() {
 fun abc251c() {
     val n = readLine()!!.toInt()
     val submits = List(n) {
-        val temp = readLine()!!.trim().split(" ").map { it }
-        Pair(temp.first(), temp.last().toInt())
+        val (poem, score) = readLine()!!.trim().split(" ")
+        Pair(poem, score.toInt())
     }
 
     val set = mutableSetOf<String>()
