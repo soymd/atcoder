@@ -53,25 +53,65 @@ class ABC261Test {
             assertThat(result, equalTo(listOf("0")))
         }
 
-        @Test
-        fun a_a() {
-            input.inputln("0 1 3 2")
-
-            abc261a()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("1")))
-        }
-
-        @Test
-        fun a_b() {
-            input.inputln("1 0 2 3")
-
-            abc261a()
-
-            val result = output.readLines()
-            assertThat(result, equalTo(listOf("1")))
-        }
+        // @Test
+        // fun a_a() {
+        //     input.inputln("0 1 3 2")
+        //
+        //     abc261a()
+        //
+        //     val result = output.readLines()
+        //     assertThat(result, equalTo(listOf("1")))
+        // }
+        //
+        // @Test
+        // fun a_b() {
+        //     input.inputln("1 0 2 3")
+        //
+        //     abc261a()
+        //
+        //     val result = output.readLines()
+        //     assertThat(result, equalTo(listOf("1")))
+        // }
+        //
+        // @Test
+        // fun a_c() {
+        //     input.inputln("0 0 1 1")
+        //
+        //     abc261a()
+        //
+        //     val result = output.readLines()
+        //     assertThat(result, equalTo(listOf("1")))
+        // }
+        //
+        // @Test
+        // fun a_d() {
+        //     input.inputln("0 0 2 3")
+        //
+        //     abc261a()
+        //
+        //     val result = output.readLines()
+        //     assertThat(result, equalTo(listOf("2")))
+        // }
+        //
+        // @Test
+        // fun a_e() {
+        //     input.inputln("0 1 3 4")
+        //
+        //     abc261a()
+        //
+        //     val result = output.readLines()
+        //     assertThat(result, equalTo(listOf("2")))
+        // }
+        //
+        // @Test
+        // fun a_f() {
+        //     input.inputln("1 0 4 3")
+        //
+        //     abc261a()
+        //
+        //     val result = output.readLines()
+        //     assertThat(result, equalTo(listOf("2")))
+        // }
 
 //        @Test
 //        fun a_4() {
