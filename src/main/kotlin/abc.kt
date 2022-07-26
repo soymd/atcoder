@@ -1,7 +1,26 @@
 import java.util.*
 
 fun main() {
-    abc251c()
+    abc261c()
+}
+
+fun abc261c() {
+    val n = readLine()!!.toInt()
+    val s = List(n) {
+        readLine()!!.trim()
+    }
+
+    val map = mutableMapOf<String, Int>()
+    s.forEach { str ->
+        if (map.containsKey(str)) {
+            val count = map[str]!! + 1
+            map[str] = count
+            println("$str($count)")
+        } else {
+            map[str] = 0
+            println(str)
+        }
+    }
 }
 
 fun abc251c() {
