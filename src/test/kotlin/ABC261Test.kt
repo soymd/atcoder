@@ -25,32 +25,32 @@ class ABC261Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("0 3 1 5")
 
-            //()
+            abc261a()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("2")))
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("0 1 4 5")
 
-            //()
+            abc261a()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("0")))
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("0 3 3 7")
 
-            //()
+            abc261a()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(result, equalTo(listOf("0")))
         }
 
 //        @Test

@@ -1,7 +1,18 @@
 import java.util.*
 
 fun main() {
-    abc261c()
+    abc261a()
+}
+
+fun abc261a() {
+    val (l1, r1, l2, r2) = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    val ans = r1 - l2
+    if (ans < 0) {
+        println(0)
+    } else {
+        println(ans)
+    }
 }
 
 fun abc261c() {
