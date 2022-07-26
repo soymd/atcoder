@@ -15,10 +15,9 @@ fun abc261b() {
             if (x == y) continue
             val p1 = table[x][y]
             val p2 = table[y][x]
-            val p1win = p1 == "W" && p2 == "L"
-            val p2win = p1 == "L" && p2 == "W"
-            val draw = p1 == "D" && p2 == "D"
-            if (p1win || p2win || draw) continue
+            if (p1 == "W" && p2 == "L") continue
+            if (p1 == "L" && p2 == "W") continue
+            if (p1 == "D" && p2 == "D") continue
             println("incorrect")
             return
         }
