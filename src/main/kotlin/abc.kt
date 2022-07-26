@@ -7,6 +7,16 @@ fun main() {
 fun abc261a() {
     val (l1, r1, l2, r2) = readLine()!!.trim().split(" ").map { it.toInt() }
 
+    val lContainsR = l1 <= r1 && r2 <= l2
+    if (lContainsR) {
+        println(r2 - r1)
+        return
+    }
+    val rContainsL = r1 <= l1 && l2 <= r2
+    if (rContainsL) {
+        println(l2 - l1)
+        return
+    }
     val ans = r1 - l2
     if (ans < 0) {
         println(0)
