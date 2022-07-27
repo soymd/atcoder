@@ -1,7 +1,41 @@
 import java.util.*
 
 fun main() {
-    abc260a()
+    abc260b()
+}
+
+fun abc260b() {
+    val (n, x, y, z) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val math = readLine()!!.trim().split(" ").map { it.toInt() }
+    val eng = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    val candidates = mutableMapOf<Int, Pair<Int, Int>>()
+    repeat(n) {
+        candidates[it] = Pair(math[it], eng[it])
+    }
+
+    val ans = mutableListOf<Int>()
+    repeat(x) {
+        val max = candidates.maxBy { it.value.first }!!
+        ans.add(max.key)
+        candidates.remove(max.key)
+    }
+
+    repeat(y) {
+        val max = candidates.maxBy { it.value.second }!!
+        ans.add(max.key)
+        candidates.remove(max.key)
+    }
+
+    repeat(z) {
+        val max = candidates.maxBy { it.value.first + it.value.second }!!
+        ans.add(max.key)
+        candidates.remove(max.key)
+    }
+
+    ans.sorted().forEach {
+        println(it + 1)
+    }
 }
 
 fun abc260a() {

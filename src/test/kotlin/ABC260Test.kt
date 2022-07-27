@@ -95,32 +95,70 @@ class ABC260Test {
 
         @Test
         fun a_1() {
-            input.inputln("")
+            input.inputln("6 1 0 2")
+            input.inputln("80 60 80 60 70 70")
+            input.inputln("40 20 50 90 90 80")
 
-            //()
+            abc260b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "1",
+                        "4",
+                        "5"
+                    )
+                )
+            )
         }
 
         @Test
         fun a_2() {
-            input.inputln("")
+            input.inputln("5 2 1 2")
+            input.inputln("0 100 0 100 0")
+            input.inputln("0 0 100 100 0")
 
-            //()
+            abc260b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    )
+                )
+            )
         }
 
         @Test
         fun a_3() {
-            input.inputln("")
+            input.inputln("15 4 3 2")
+            input.inputln("30 65 20 95 100 45 70 85 20 35 95 50 40 15 85")
+            input.inputln("0 25 45 35 65 70 80 90 40 55 20 20 45 75 100")
 
-            //()
+            abc260b()
 
             val result = output.readLines()
-            assertThat(result, equalTo(listOf("")))
+            assertThat(
+                result, equalTo(
+                    listOf(
+                        "2",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "11",
+                        "14",
+                        "15"
+                    )
+                )
+            )
         }
 
 //        @Test
