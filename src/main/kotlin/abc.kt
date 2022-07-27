@@ -1,7 +1,21 @@
 import java.util.*
 
 fun main() {
-    abc261b()
+    abc260a()
+}
+
+fun abc260a() {
+    val (s1, s2, s3) = readLine()!!.trim().split("").filter { it != "" }
+
+    if (!listOf(s2, s3).contains(s1)) {
+        println(s1)
+    } else if (!listOf(s1, s3).contains(s2)) {
+        println(s2)
+    } else if (!listOf(s2, s1).contains(s3)) {
+        println(s3)
+    } else {
+        println(-1)
+    }
 }
 
 fun abc261b() {
