@@ -1,7 +1,29 @@
 import java.util.*
 
 fun main() {
-    cf2014b()
+    abc10b()
+}
+
+fun abc10b() {
+    val n = readLine()!!.trim().toInt()
+    val flowers = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    var ans = 0
+    flowers.forEach { i ->
+        val pattern1 = i % 2
+        val pattern2 = i % 3
+        val pattern1succeeded = pattern1 == 1
+        val pattern2succeeded = pattern2 != 2
+        if (!pattern1succeeded || !pattern2succeeded) {
+            for (j in i downTo 1) {
+                if (j % 2 == 1 && j % 3 != 2) {
+                    ans += i - j
+                    break
+                }
+            }
+        }
+    }
+    println(ans)
 }
 
 fun cf2014b() {
