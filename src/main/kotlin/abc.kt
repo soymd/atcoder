@@ -1,7 +1,17 @@
 import java.util.*
 
 fun main() {
-    abc10b()
+    abc049a()
+}
+
+fun abc049a() {
+    val s = readLine()!!.trim().split("").filter { it != "" }.toMutableList()
+    val positions = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    positions.reversed().forEach {
+        s.add(it, "\"")
+    }
+    println(s.joinToString(""))
 }
 
 fun abc10b() {
