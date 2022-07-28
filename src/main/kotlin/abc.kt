@@ -1,7 +1,21 @@
 import java.util.*
 
 fun main() {
-    abc260b()
+    cf2014b()
+}
+
+fun cf2014b() {
+    val s = readLine()!!.trim().split("").filter { it != "" }.map { it.toInt() }
+
+    var ans = 0
+    s.forEachIndexed { index, i ->
+        if (index % 2 == 0) {
+            ans += i
+        } else {
+            ans -= i
+        }
+    }
+    println(ans)
 }
 
 fun abc260b() {
