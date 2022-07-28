@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-class ABC10Test {
+class ABC010Test {
     @Nested
     inner class A {
         private val input = StandardInputStream()
