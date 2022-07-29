@@ -4,6 +4,35 @@ fun main() {
     abc049a()
 }
 
+fun agc037a() {
+    val s = readLine()!!.trim().split("").filter { it != "" }.toMutableList()
+
+    var index = 0
+    val ans = mutableListOf<String>(s.first())
+
+    s.forEachIndexed loop@{ i, char ->
+        if (i == s.size || i < index) {
+            return@loop
+        }
+
+        val subList = s.subList(i + 1, s.size).toMutableList()
+        val prevStr = ans.last()
+        var candidate = ""
+        var tempCount = 1
+        for (substr in subList) {
+            candidate += substr
+            if (prevStr != candidate) {
+                ans.add(candidate)
+                index += tempCount
+                break
+            }
+            tempCount++
+        }
+    }
+
+    println(ans.count())
+}
+
 fun abc049a() {
     val s = readLine()!!.trim().split("").filter { it != "" }.toMutableList()
     val positions = readLine()!!.trim().split(" ").map { it.toInt() }
