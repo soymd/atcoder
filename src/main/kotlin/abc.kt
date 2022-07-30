@@ -4,6 +4,37 @@ fun main() {
     abc049a()
 }
 
+fun abc166c() {
+    val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val heights = readLine()!!.trim().split(" ").map { it.toInt() }
+    val roads = List(m) {
+        val (a, b) = readLine()!!.trim().split(" ").map { it.toInt() }
+        Pair(a, b)
+    }
+    val map = mutableMapOf<Int, Int>()
+    repeat(n + 1) {
+        val foo = if (it == 0) -1 else 0
+        map[it] = foo
+    }
+
+    roads.forEach { pair ->
+        val a = pair.first
+        val b = pair.second
+        val aHeight = heights[a - 1]
+        val bHeight = heights[b - 1]
+        if (aHeight > bHeight) {
+            map[b] = map[b]!! + 1
+        } else if (aHeight < bHeight) {
+            map[a] = map[a]!! + 1
+        } else if (aHeight == bHeight) {
+            map[a] = map[a]!! + 1
+            map[b] = map[b]!! + 1
+        }
+    }
+    val ans = map.filter { it.value == 0 }
+    println(ans.count())
+}
+
 fun agc037a() {
     val s = readLine()!!.trim().split("").filter { it != "" }.toMutableList()
 
