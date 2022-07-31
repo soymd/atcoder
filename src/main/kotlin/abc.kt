@@ -4,6 +4,33 @@ fun main() {
     abc049a()
 }
 
+fun abc195c() {
+    val n = readLine()!!.trim().toLong()
+    val length = n.toString().length
+    val ans: Long = when {
+        length < 4 -> {
+            0L
+        }
+        length < 7 -> {
+            n - 999L
+        }
+        length < 10 -> {
+            val temp1 = (n - 999_999) * 2
+            999_000 + temp1
+        }
+        length < 13 -> {
+            val temp2 = (n - 999_999_999) * 3
+            1_998_999_000L + temp2
+        }
+        else -> {
+            val temp2 = (n - 999_999_999_999) * 4
+            2998998999000 + temp2
+        }
+    }
+
+    println(ans)
+}
+
 fun abc166c() {
     val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
     val heights = readLine()!!.trim().split(" ").map { it.toInt() }
