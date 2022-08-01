@@ -39,13 +39,12 @@ fun abc195c() {
 
 fun abc166c() {
     val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
-    var count = 1
-    val map = mutableMapOf<Int, Int>()
+    var count = 0
+    val set = mutableSetOf<Int>()
     val heights = readLine()!!.trim().split(" ").map {
-        val height = it.toInt()
-        map[count] = height
+        set.add(count)
         count++
-        height
+        it.toInt()
     }
     val roads = List(m) {
         val temp = readLine()!!.trim().split(" ").map { it.toInt() }
@@ -53,21 +52,21 @@ fun abc166c() {
     }
 
     roads.forEach { pair ->
-        val tower1 = pair.first
-        val tower2 = pair.second
-        val height1 = map[tower1] ?: heights[tower1 - 1]
-        val height2 = map[tower2] ?: heights[tower2 - 1]
-        if (height1 > height2) {
-            map.remove(tower2)
-        } else if (height1 < height2) {
-            map.remove(tower1)
-        } else if (height1 == height2) {
-            map.remove(tower2)
-            map.remove(tower1)
+        val peakA = pair.first - 1
+        val peakB = pair.second - 1
+        val heightA = heights[peakA]
+        val heightB = heights[peakB]
+        if (heightA > heightB) {
+            set.remove(peakB)
+        } else if (heightA < heightB) {
+            set.remove(peakA)
+        } else if (heightA == heightB) {
+            set.remove(peakB)
+            set.remove(peakA)
         }
     }
 
-    println(map.count())
+    println(set.count())
 }
 
 fun agc037a() {
