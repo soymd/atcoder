@@ -1,7 +1,36 @@
 import java.util.*
 
 fun main() {
-    abc195c()
+    arc133a()
+}
+
+fun arc133a() {
+    val n = readLine()!!.trim().toLong()
+    val a = readLine()!!.trim().split(" ").map { it.toInt() }
+
+    val set = a.toSet()
+
+    var ans = listOf(Int.MAX_VALUE)
+    set.forEach { i ->
+        val list = a.toMutableList()
+        val count = list.count { it == i }
+        val remove = mutableListOf<Int>()
+        repeat(count) {
+            remove.add(i)
+        }
+        list.removeAll(remove)
+
+        if (list.isEmpty()) {
+            println()
+            return
+        }
+        val temp1 = ans.joinToString("") { it.toString() }.toInt()
+        val temp2 = list.joinToString("") { it.toString() }.toInt()
+        if (temp2 < temp1) {
+            ans = list
+        }
+    }
+    println(ans.joinToString(" "))
 }
 
 fun abc195c() {
