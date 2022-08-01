@@ -1,7 +1,7 @@
 import java.util.*
 
 fun main() {
-    abc049a()
+    abc195c()
 }
 
 fun abc195c() {
@@ -15,16 +15,22 @@ fun abc195c() {
             n - 999L
         }
         length < 10 -> {
-            val temp1 = (n - 999_999) * 2
-            999_000 + temp1
+            val temp = (n - 999_999) * 2
+            999_000 + temp
         }
         length < 13 -> {
-            val temp2 = (n - 999_999_999) * 3
-            1_998_999_000L + temp2
+            val temp = (n - 999_999_999) * 3
+            1_998_999_000L + temp
+        }
+        length < 16 -> {
+            val l = n - 999_999_999_999
+            val temp = l * 4
+            2998998999000L + temp
         }
         else -> {
-            val temp2 = (n - 999_999_999_999) * 4
-            2998998999000 + temp2
+            val l = n - 999_999_999_999_999
+            val temp = l * 5
+            3998998998999000L + temp
         }
     }
 

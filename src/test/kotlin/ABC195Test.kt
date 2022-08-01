@@ -263,7 +263,7 @@ class ABC195Test {
         }
 
         @Test
-        fun a_10000000000() {
+        fun a_1000000000000() {
             input.inputln("1000000000000")
 
             abc195c()
@@ -271,6 +271,26 @@ class ABC195Test {
             val result = output.readLines()
             val expected = 2998998999000 + 4
             assertThat(result, equalTo(listOf(expected.toString())))
+        }
+
+        @Test
+        fun a_999999999999999() {
+            input.inputln("999999999999999")
+
+            abc195c()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("3998998998999000")))
+        }
+
+        @Test
+        fun a_1000000000000000() {
+            input.inputln("1000000000000000")
+
+            abc195c()
+
+            val result = output.readLines()
+            assertThat(result, equalTo(listOf("3998998998999005")))
         }
 
 //        @Test
