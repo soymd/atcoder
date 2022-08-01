@@ -39,33 +39,35 @@ fun abc195c() {
 
 fun abc166c() {
     val (n, m) = readLine()!!.trim().split(" ").map { it.toInt() }
-    val heights = readLine()!!.trim().split(" ").map { it.toInt() }
-    val roads = List(m) {
-        val (a, b) = readLine()!!.trim().split(" ").map { it.toInt() }
-        Pair(a, b)
-    }
+    var count = 1
     val map = mutableMapOf<Int, Int>()
-    repeat(n + 1) {
-        val foo = if (it == 0) -1 else 0
-        map[it] = foo
+    val heights = readLine()!!.trim().split(" ").map {
+        val height = it.toInt()
+        map[count] = height
+        count++
+        height
+    }
+    val roads = List(m) {
+        val temp = readLine()!!.trim().split(" ").map { it.toInt() }
+        Pair(temp.first(), temp.last())
     }
 
     roads.forEach { pair ->
-        val a = pair.first
-        val b = pair.second
-        val aHeight = heights[a - 1]
-        val bHeight = heights[b - 1]
-        if (aHeight > bHeight) {
-            map[b] = map[b]!! + 1
-        } else if (aHeight < bHeight) {
-            map[a] = map[a]!! + 1
-        } else if (aHeight == bHeight) {
-            map[a] = map[a]!! + 1
-            map[b] = map[b]!! + 1
+        val tower1 = pair.first
+        val tower2 = pair.second
+        val height1 = map[tower1] ?: heights[tower1 - 1]
+        val height2 = map[tower2] ?: heights[tower2 - 1]
+        if (height1 > height2) {
+            map.remove(tower2)
+        } else if (height1 < height2) {
+            map.remove(tower1)
+        } else if (height1 == height2) {
+            map.remove(tower2)
+            map.remove(tower1)
         }
     }
-    val ans = map.filter { it.value == 0 }
-    println(ans.count())
+
+    println(map.count())
 }
 
 fun agc037a() {
