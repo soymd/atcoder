@@ -13,21 +13,18 @@ fun arc133a() {
     var ans = listOf(Int.MAX_VALUE)
     set.forEach { i ->
         val list = a.toMutableList()
-        val count = list.count { it == i }
-        val remove = mutableListOf<Int>()
-        repeat(count) {
-            remove.add(i)
-        }
-        list.removeAll(remove)
+        val filter = list.filter { it != i }
 
-        if (list.isEmpty()) {
+        if (filter.isEmpty()) {
             println()
             return
         }
-        val temp1 = ans.joinToString("") { it.toString() }.toInt()
-        val temp2 = list.joinToString("") { it.toString() }.toInt()
-        if (temp2 < temp1) {
-            ans = list
+        val temp1 = ans.joinToString("")
+        val temp2 = filter.joinToString("")
+        val temp3 = listOf(temp1, temp2)
+        val temp4 = listOf(temp1, temp2).sorted()
+        if (temp3 != temp4) {
+            ans = filter
         }
     }
     println(ans.joinToString(" "))
