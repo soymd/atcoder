@@ -3,7 +3,27 @@ import java.time.temporal.ChronoUnit
 import java.util.*
 
 fun main() {
-    arc023a()
+    arc010a()
+}
+
+fun arc010a() {
+    val (cards, days, min, replenishment) = readLine()!!.trim().split(" ").map { it.toInt() }
+    val needs = List(days) {
+        readLine()!!.trim().toInt()
+    }
+
+    var rest = cards
+    repeat(days) { day ->
+        if (rest <= min) {
+            rest += replenishment
+        }
+        rest -= needs[day]
+        if (rest < 0) {
+            println(day + 1)
+            return
+        }
+    }
+    println("complete")
 }
 
 fun arc023a() {
