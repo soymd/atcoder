@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-class ARC010Test {
+class ARC023Test {
     @Nested
     inner class A {
         private val input = StandardInputStream()
@@ -29,7 +29,7 @@ class ARC010Test {
             input.inputln("7")
             input.inputln("3")
 
-            arc010a()
+            arc023a()
 
             val result = output.readLines()
             assertThat(result, equalTo(listOf("9449")))
@@ -41,7 +41,7 @@ class ARC010Test {
             input.inputln("1")
             input.inputln("1")
 
-            arc010a()
+            arc023a()
 
             val result = output.readLines()
             assertThat(result, equalTo(listOf("735369")))
@@ -53,7 +53,7 @@ class ARC010Test {
             input.inputln("5")
             input.inputln("16")
 
-            arc010a()
+            arc023a()
 
             val result = output.readLines()
             assertThat(result, equalTo(listOf("1")))
@@ -65,7 +65,7 @@ class ARC010Test {
             input.inputln("2")
             input.inputln("29")
 
-            arc010a()
+            arc023a()
 
             val result = output.readLines()
             assertThat(result, equalTo(listOf("808")))

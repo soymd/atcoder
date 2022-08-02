@@ -1,20 +1,25 @@
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 import java.util.*
 
 fun main() {
-    arc010a()
+    arc023a()
 }
 
-fun arc010a() {
-    val y = readLine()!!.trim().toDouble()
-    val m = readLine()!!.trim().toDouble()
-    val d = readLine()!!.trim().toDouble()
+fun arc023a() {
+    val y = readLine()!!.trim().toInt()
+    val m = readLine()!!.trim().toInt()
+    val d = readLine()!!.trim().toInt()
 
-    val month = if (m <= 2) m + 12 else m
-    val year = if (m <= 2) y - 1 else y
+    val today = LocalDate.of(2014, 5, 17)
+    val day = LocalDate.of(y, m, d)
 
-    val days = (365 * year) + (year / 4) - (year / 100) + (year / 400) + ((306 * (month + 1)) / 10) + d - 429
-    val ans = 735369 - days.toInt()
+    val ans = diff(day, today)
     println(ans)
+}
+
+private fun diff(localDate1: LocalDate?, localDate2: LocalDate?): Long {
+    return ChronoUnit.DAYS.between(localDate1, localDate2)
 }
 
 fun arc133a() {
