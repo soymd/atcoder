@@ -1,7 +1,20 @@
 import java.util.*
 
 fun main() {
-    arc133a()
+    arc010a()
+}
+
+fun arc010a() {
+    val y = readLine()!!.trim().toDouble()
+    val m = readLine()!!.trim().toDouble()
+    val d = readLine()!!.trim().toDouble()
+
+    val month = if (m <= 2) m + 12 else m
+    val year = if (m <= 2) y - 1 else y
+
+    val days = (365 * year) + (year / 4) - (year / 100) + (year / 400) + ((306 * (month + 1)) / 10) + d - 429
+    val ans = 735369 - days.toInt()
+    println(ans)
 }
 
 fun arc133a() {
